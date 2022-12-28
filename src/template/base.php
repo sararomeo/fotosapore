@@ -16,7 +16,7 @@
     <title><?php echo $templateParams["titolo"]; ?></title>
 </head>
 
-<body>
+<body class="m-0 p-0 mw-100 vh-100">
     <?php
     if(isset($templateParams["login"])){
         require($templateParams["login"]);

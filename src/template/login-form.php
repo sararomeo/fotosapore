@@ -3,12 +3,12 @@
 
     <div class="form-outline p-2">
         <!--<label for="email">E-mail</label>-->
-        <input type="email" name="email" id="email" placeholder="yourmail@mail.com">
+        <input type="email" class="form-control" name="email" id="email" placeholder="yourmail@mail.com">
     </div>
 
     <div class="form-outline p-2">
         <!--<label for="password">Password</label>-->
-        <input type="password" name="password" id="password" placeholder="password">
+        <input type="password" class="form-control" name="password" id="password" placeholder="password">
     </div>
 
     <div class="d-flex justify-content-end">
