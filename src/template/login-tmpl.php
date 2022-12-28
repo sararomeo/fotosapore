@@ -7,7 +7,7 @@
         <div class="col-md p-0 vh-100 d-flex flex-column align-items-center justify-content-center">
             <div class="d-flex mt-0 align-items-center">
                 <img class="img-fluid float-left" id="logo" src="res/big-favicon.png" alt="Tomato logo">
-                <span class="h1 fw-bold p-4 m-0">Toto sapore</span>
+                <span class="h1 display-1 fw-bold p-4 m-0">Toto sapore</span>
             </div>
             <div class="d-flex">
                 <p class="m-0">Accedi o registrati per vedere ricette da tutto il mondo!</p>
