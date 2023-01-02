@@ -1,0 +1,32 @@
+#logo {
+    max-width: 150px;
+    max-height: 150px;
+}
+
+.form-control {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #000000;
+    outline: none;
+    box-shadow: none !important;
+}
+
+.form-control:focus {
+    border-color: red;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+}
+
+.form-btn {
+    border: 2px solid rgba(255, 0, 0, .5);
+    border-radius: 10%;
+    background-color: transparent;
+}
+
+.form-btn:hover {
+    border-color: red;
+    background-position: bottom left;
+}
+
+.form-btn-container {
+    box-sizing: border-box;
+}
