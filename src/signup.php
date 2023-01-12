@@ -4,10 +4,15 @@ require_once("bootstrap.php");
 
 
 if(isset($_POST["email"]) && isset($_POST["username"]) && isset($_POST["password1"]) && isset($_POST["password2"])) {
-    if ($_POST["password1"] != $_POST["password2"]) {   // Checks if failed to repeat password
+    $email = $_POST["email"];
+    $username = $_POST["username"];
+    $password1 = $_POST["password1"];
+    $password2 = $_POST["password2"];
+
+    if ($password1 != $password2) {   // Checks if failed to repeat password
         $templateParams["signuperror"] = "Passwords don't match! Try again:";
     } else {
-        $signup_result = $dbh->signUp($_POST["email"], $_POST["username"], $_POST["password1"]);
+        $signup_result = $dbh->signUp($email, $username, $password1);
     }
 }
 
