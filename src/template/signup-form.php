@@ -3,8 +3,8 @@
 
     <!-- Error message -->
     <p class="text-center m-4">
-    <?php if(isset($templateParams["errorelogin"])): ?>
-    <p><?php echo $templateParams["errorelogin"]; ?></p>
+    <?php if(isset($templateParams["signuperror"])): ?>
+    <p><?php echo $templateParams["signuperror"]; ?></p>
     <?php endif; ?>
     </p>
 
@@ -19,11 +19,11 @@
         </div>
 
         <div class="form-outline p-2">
-            <input type="password" class="form-control" name="password1" id="password" placeholder="new password">
+            <input type="password" class="form-control" name="password1" id="password1" placeholder="new password">
         </div>
 
         <div class="form-outline p-2">
-            <input type="password" class="form-control" name="password2" id="password" placeholder="repeat password">
+            <input type="password" class="form-control" name="password2" id="password2" placeholder="repeat password">
         </div>
     </div>
 

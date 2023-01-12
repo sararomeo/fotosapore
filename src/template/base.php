@@ -13,7 +13,7 @@
 
     <!-- Default title bar icon -->
     <link rel="shortcut icon" href="res/favicon.png" type="image/x-icon" />
-    <title><?php echo $templateParams["titolo"]; ?></title>
+    <title><?php echo $templateParams["title"]; ?></title>
 </head>
 
 <body class="m-0 p-0 mw-100 vh-100">
