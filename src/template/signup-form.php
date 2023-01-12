@@ -1,4 +1,4 @@
-<form action="#" method="POST" name="login-form">
+<form action="#" method="POST" name="signup-form">
     <h1 class="text-center">Login</h1>
 
     <!-- Error message -->
@@ -15,13 +15,17 @@
         </div>
 
         <div class="form-outline p-2">
+            <input type="username" class="form-control" name="username" id="username" placeholder="username">
+        </div>
+
+        <div class="form-outline p-2">
             <input type="password" class="form-control" name="password" id="password" placeholder="password">
         </div>
     </div>
 
     <!-- Submit buttons -->
     <div class="d-flex justify-content-end">
-        <input class="form-btn align-right p-2 m-2" type="button" name="signup-button" value="Sign up" onClick="location.href='signup.php'"></input>
-        <input class="form-btn align-right p-2 m-2" type="submit" name="login-submit" value="Log in" />
+        <input class="form-btn align-right p-2 m-2" type="submit" name="signup-submit" value="Sign up" />
+        <input class="form-btn align-right p-2 m-2" type="button" name="login-button" value="Log in" onClick="location.href='index.php'"></input>
     </div>
 </form>

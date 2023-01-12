@@ -6,6 +6,8 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
     // Failed login
     if(count($login_result)==0){
         $templateParams["errorelogin"] = "Wrong e-mail or password!\n Try again:";
+    } else {
+        
     }
 }
 
