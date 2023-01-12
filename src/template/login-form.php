@@ -3,8 +3,8 @@
 
     <!-- Error message -->
     <p class="text-center m-4">
-    <?php if(isset($templateParams["errorelogin"])): ?>
-    <p><?php echo $templateParams["errorelogin"]; ?></p>
+    <?php if(isset($templateParams["loginerror"])): ?>
+    <p><?php echo $templateParams["loginerror"]; ?></p>
     <?php endif; ?>
     </p>
 

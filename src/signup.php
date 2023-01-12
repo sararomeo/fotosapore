@@ -1,9 +1,7 @@
 <?php
 require_once("bootstrap.php");
 
-
-
-if(isset($_POST["email"]) && isset($_POST["username"]) && isset($_POST["password1"]) && isset($_POST["password2"])) {
+if (!empty($_POST["email"]) && !empty($_POST["username"]) && !empty($_POST["password1"]) && !empty($_POST["password2"])) {
     $email = $_POST["email"];
     $username = $_POST["username"];
     $password1 = $_POST["password1"];
