@@ -1,5 +1,5 @@
 <form action="#" method="POST" name="signup-form">
-    <h1 class="text-center">Login</h1>
+    <h1 class="text-center">Signup</h1>
 
     <!-- Error message -->
     <p class="text-center m-4">
