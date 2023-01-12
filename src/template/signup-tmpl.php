@@ -1,5 +1,3 @@
-<?php echo 'QUI NON CI ARRIVA'; ?>
-
 <div class="container-fluid p-0">
     <div class="row w-100">
         <!-- medium or bigger devices (col-md) -->

@@ -21,6 +21,10 @@
     if(isset($templateParams["login"])){
         require($templateParams["login"]);
     }
+    
+    if(isset($templateParams["signup"])){
+        require($templateParams["signup"]);
+    }
     ?>
 </body>
 </html>

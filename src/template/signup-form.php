@@ -19,7 +19,11 @@
         </div>
 
         <div class="form-outline p-2">
-            <input type="password" class="form-control" name="password" id="password" placeholder="password">
+            <input type="password" class="form-control" name="password1" id="password" placeholder="new password">
+        </div>
+
+        <div class="form-outline p-2">
+            <input type="password" class="form-control" name="password2" id="password" placeholder="repeat password">
         </div>
     </div>
 
