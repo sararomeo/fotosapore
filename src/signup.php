@@ -13,6 +13,8 @@ if (!empty($_POST["email"]) && !empty($_POST["username"]) && !empty($_POST["pass
     if (!password_verify($password2, $pw1_hashed)) {
         $templateParams["signuperror"] = "Passwords don't match! Try again:";
     } else {
+        sendRegistrationEmail($email);
+        // Insert user into database
         $signup_result = $dbh->signUp($email, $username, $pw1_hashed);
     }
 }
