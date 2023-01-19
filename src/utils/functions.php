@@ -11,4 +11,14 @@ function sendRegistrationEmail($to){
     return EmailSender::sendEmail($to , $subject, $message );
 }
 
+/**
+ *  Send an email to the user who wants to get registered to the website, to verify account.
+ */
+function sendVerificationEmail($to){ 
+    $subject = "Account Verification";
+    $message = "Please, verify your account by clicking on the following link: ";
+    /* TO DO */
+    return EmailSender::sendEmail($to , $subject, $message );
+}
+
 ?>
