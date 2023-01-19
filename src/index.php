@@ -2,9 +2,11 @@
 require_once("bootstrap.php");
 
 if(isset($_POST["email"]) && isset($_POST["password"])) {
-    $login_result = $dbh->checkLogin($_POST["email"], $_POST["password"]);
-    // Failed login
-    if(count($login_result)==0){
+    $email = $_POST["email"];
+    $pw = $_POST["password"];
+
+    // Check login submission
+    if(!$dbh->checkLogin($email, $pw)){
         $templateParams["loginerror"] = "Wrong e-mail or password! Try again:";
     } else {
         header("location:feed.php");

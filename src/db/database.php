@@ -10,15 +10,15 @@ class DatabaseHelper{
     }
 
     // Log-in
-    public function checkLogin($email, $password) {
-        $query = "SELECT * FROM user WHERE email = ? AND password = ?";
+    public function checkLogin($email, $pw) {
+        $query = "SELECT email, password FROM user WHERE email = ? LIMIT 1";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("ss", $email, $password);
+        $stmt->bind_param("s", $email);
         $stmt->execute();
-        $result = $stmt->get_result();
-        $stmt->close();
-        
-        return $result->fetch_all(MYSQLI_ASSOC);
+        $stmt->store_result();
+        $stmt->bind_result($db_email,$db_pw);
+        $stmt->fetch();        
+        return password_verify($pw, $db_pw);
     }
 
     // Sign-up

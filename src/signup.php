@@ -7,7 +7,7 @@ if (!empty($_POST["email"]) && !empty($_POST["username"]) && !empty($_POST["pass
     $password1 = $_POST["password1"];
     $password2 = $_POST["password2"];
 
-    $pw1_hashed = password_hash($password1, PASSWORD_BCRYPT);
+    $pw1_hashed = password_hash($password1, PASSWORD_DEFAULT);
     
     // Checks if failed to repeat password
     if (!password_verify($password2, $pw1_hashed)) {
