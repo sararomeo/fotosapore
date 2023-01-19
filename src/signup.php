@@ -7,10 +7,13 @@ if (!empty($_POST["email"]) && !empty($_POST["username"]) && !empty($_POST["pass
     $password1 = $_POST["password1"];
     $password2 = $_POST["password2"];
 
-    if ($password1 != $password2) {   // Checks if failed to repeat password
+    $pw1_hashed = password_hash($password1, PASSWORD_BCRYPT);
+    
+    // Checks if failed to repeat password
+    if (!password_verify($password2, $pw1_hashed)) {
         $templateParams["signuperror"] = "Passwords don't match! Try again:";
     } else {
-        $signup_result = $dbh->signUp($email, $username, $password1);
+        $signup_result = $dbh->signUp($email, $username, $pw1_hashed);
     }
 }
 
