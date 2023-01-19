@@ -1,8 +1,16 @@
-#logo {
-    max-width: 150px;
-    max-height: 150px;
+* {
+    margin: 0 !important;
+    padding: 0 !important;
+    text-decoration: none !important;
 }
 
+/**** BASE ****/
+.logo {
+    max-width: 10rem;
+    max-height: 10rem;
+}
+
+/**** FORM (Login, signup) ****/
 .form-control {
     background: transparent;
     border: none;
@@ -14,6 +22,7 @@
 .form-control:focus {
     border-color: red;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+    /*transition: border-color ease-in-out .5s, box-shadow ease-in-out .5s !important;*/
 }
 
 .form-btn {
@@ -29,4 +38,24 @@
 
 .form-btn-container {
     box-sizing: border-box;
+}
+
+/**** RESPONSIVE DESIGN ****/
+@media (max-width: 768px) {
+    .logo {
+        max-width: 4rem;
+        max-height: 4rem;
+    }
+
+    .form-page {
+        height: auto !important;
+    }
+
+    .form-text-area h1 {
+        font-size: 1.5rem;
+    }
+
+    .form-text-area p {
+        font-size: medium;
+    }
 }
