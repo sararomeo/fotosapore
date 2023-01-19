@@ -18,12 +18,8 @@
 
 <body>
     <?php
-    if(isset($templateParams["login"])){
-        require($templateParams["login"]);
-    }
-    
-    if(isset($templateParams["signup"])){
-        require($templateParams["signup"]);
+    if(isset($templateParams["page"])){
+        require_once($templateParams["page"]);
     }
     ?>
 </body>

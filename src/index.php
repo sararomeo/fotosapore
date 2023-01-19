@@ -14,7 +14,7 @@ if(isset($_POST["email"]) && isset($_POST["password"])) {
 }
 
 $templateParams["title"] = "Foto Sapore | Log-in";
-$templateParams["login"] = "login-tmpl.php";
+$templateParams["page"] = "login-tmpl.php";
 
 require("template/base.php");
 ?>
