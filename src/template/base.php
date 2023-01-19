@@ -12,7 +12,7 @@
         <link rel="stylesheet" type="text/css" href="css/style-login.css" /> -->
 
     <!-- Default title bar icon -->
-    <link rel="shortcut icon" href="res/favicon.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="res/favicon.ico" type="image/x-icon" />
     <title><?php echo $templateParams["title"]; ?></title>
 </head>
 
