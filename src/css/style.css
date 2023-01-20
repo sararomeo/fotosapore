@@ -10,6 +10,10 @@
     max-height: 10rem;
 }
 
+/*main {
+    padding-top: 7em !important;
+}*/
+
 /**** NAVBAR ****/
 .nav-item a, .nav-link a {
     color: black;
@@ -17,6 +21,14 @@
 
 .nav-item a:hover, .nav-link a:hover {
     color: red;
+}
+
+.navbar-container {
+    height: 3em !important;
+}
+
+body {
+    padding-top: 3em !important;
 }
 
 /**** FORM (Login, signup) ****/

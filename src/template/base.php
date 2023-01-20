@@ -12,6 +12,8 @@
     <!-- non so perché non funziona con html
         <link rel="stylesheet" type="text/css" href="css/style-login.css" /> -->
 
+    
+
     <!-- Default title bar icon -->
     <link rel="shortcut icon" href="res/favicon.ico" type="image/x-icon" />
     <title><?php echo $templateParams["title"]; ?></title>
@@ -19,14 +21,15 @@
 
 <body>
     <!-- Header -->
-	<header>    
+	<header>
     <!-- Navigation bar -->
-    <nav class="navbar fixed-top">
-    <div class="container-fluid">
+    <div class="container row align-items-center justify-content-center">
+    <nav class="col-12 navbar navbar-default fixed-top navbar-static-top bg-white navbar-sticky">
+    <div class="container-fluid overflow-hidden">
         <!-- Left elements -->
         <div class="d-flex my-2 my-sm-0">
-        <!-- Logo leads to home page -->
-        <a class="navbar-brand ms-2 me-2 mb-1 d-flex align-items-center" href="./home.php"><img src="res/big-favicon.png" height="30em" alt="logo" loading="lazy"/></a>
+        <!-- Logo that leads to home page -->
+        <a class="navbar-brand ms-2 me-2 mb-1 d-flex align-items-center" href="./home.php"><img src="res/big-favicon.png" height="30em" alt="logo fotosapore" loading="lazy"/></a>
         <!-- Search form -->
         <form class="input-group w-auto my-auto d-none d-sm-flex">
             <input type="search" autocomplete="off" class="form-control rounded" placeholder=" Search for a recipe... " />
@@ -78,14 +81,18 @@
         </ul>
     </div>
     </nav>
-
+    </div>
     </header>
 
-
-
-
     <!-- Main -->
-    <main>
+    <main id="#main">
+
+    <p>RIGA 1 di TEST</p>
+    <p>RIGA 2 di TEST</p>
+    <p>RIGA 3 di TEST</p>
+    <p>RIGA 4 di TEST</p>
+
     </main>
 </body>
+
 </html>
