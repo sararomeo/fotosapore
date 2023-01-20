@@ -23,8 +23,8 @@
     <!-- Header -->
 	<header>
     <!-- Navigation bar -->
-    <div class="container row align-items-center justify-content-center">
-    <nav class="col-12 navbar navbar-default fixed-top navbar-static-top bg-white navbar-sticky">
+    <div class="container row">
+    <nav class="col-12 py-2 navbar navbar-default fixed-top navbar-static-top bg-white navbar-sticky">
     <div class="container-fluid overflow-hidden">
         <!-- Left elements -->
         <div class="d-flex my-2 my-sm-0">
@@ -86,12 +86,26 @@
 
     <!-- Main -->
     <main id="#main">
-
-    <p>RIGA 1 di TEST</p>
-    <p>RIGA 2 di TEST</p>
-    <p>RIGA 3 di TEST</p>
-    <p>RIGA 4 di TEST</p>
-
+    <div class = "container row">
+        <div class = "col-md">
+            <p>RIGA 1 di TEST</p>
+            <p>RIGA 2 di TEST</p>
+            <p>RIGA 3 di TEST</p>
+            <p>RIGA 4 di TEST</p>
+        </div>
+        <div class = "col-md">
+            <p>RIGA 1 di TEST</p>
+            <p>RIGA 2 di TEST</p>
+            <p>RIGA 3 di TEST</p>
+            <p>RIGA 4 di TEST</p>
+        </div>
+        <div class = "col-md">
+            <p>RIGA 1 di TEST</p>
+            <p>RIGA 2 di TEST</p>
+            <p>RIGA 3 di TEST</p>
+            <p>RIGA 4 di TEST</p>
+        </div>
+    </div>
     </main>
 </body>
 
