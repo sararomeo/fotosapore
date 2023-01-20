@@ -47,10 +47,10 @@ class DatabaseHelper{
         $query = "SELECT email FROM user WHERE email = ? LIMIT 1";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("s", $email);
-        $stmt->execute();
-        $stmt->execute();
-        $result = $stmt->get_result();
-        return $result->fetch_all(MYSQLI_ASSOC) == 0 ? false : true;
+        $stmt->execute();$stmt->store_result();
+        $stmt->bind_result($db_email);
+        $stmt->fetch();        
+        return $db_email==$email;
     }
 
     /**
