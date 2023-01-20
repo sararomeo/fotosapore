@@ -9,12 +9,12 @@ if(isset($_POST["email"]) && isset($_POST["password"])) {
     if(!$dbh->checkLogin($email, $pw)){
         $templateParams["loginerror"] = "<div class = \"text-center\"><ul class=\"list-group list-group-flush\"><li class=\"list-group-item list-group-item-danger\">Wrong e-mail or password!</li><li class=\"list-group-item\">Try again:</li></ul></div>";
     } else {
-        header("location:feed.php");
+        header("location:home.php");
     }
 }
 
 $templateParams["title"] = "Foto Sapore | Log-in";
 $templateParams["page"] = "login-tmpl.php";
 
-require("template/base.php");
+require("template/base-index.php");
 ?>
