@@ -10,6 +10,15 @@
     max-height: 10rem;
 }
 
+/**** NAVBAR ****/
+.nav-item a, .nav-link a {
+    color: black;
+}
+
+.nav-item a:hover, .nav-link a:hover {
+    color: red;
+}
+
 /**** FORM (Login, signup) ****/
 .form-control {
     background: transparent;

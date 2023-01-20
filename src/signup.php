@@ -22,5 +22,5 @@ if (!empty($_POST["email"]) && !empty($_POST["username"]) && !empty($_POST["pass
 $templateParams["title"] = "Foto Sapore | Sign-up";
 $templateParams["page"] = "signup-tmpl.php";
 
-require("template/base.php");
+require("template/base-index.php");
 ?>
