@@ -7,7 +7,7 @@ if(isset($_POST["email"]) && isset($_POST["password"])) {
 
     // Check login submission
     if(!$dbh->checkLogin($email, $pw)){
-        $templateParams["loginerror"] = "Wrong e-mail or password! Try again:";
+        $templateParams["loginerror"] = "<div class = \"text-center\"><ul class=\"list-group list-group-flush\"><li class=\"list-group-item list-group-item-danger\">Wrong e-mail or password!</li><li class=\"list-group-item\">Try again:</li></ul></div>";
     } else {
         header("location:home.php");
     }

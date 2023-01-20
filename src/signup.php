@@ -10,8 +10,12 @@ if (!empty($_POST["email"]) && !empty($_POST["username"]) && !empty($_POST["pass
     $pw1_hashed = password_hash($password1, PASSWORD_DEFAULT);
     
     // Checks if failed to repeat password
-    if (!password_verify($password2, $pw1_hashed)) {
-        $templateParams["signuperror"] = "Passwords don't match! Try again:";
+    if ((!password_verify($password2, $pw1_hashed)) && ($dbh->checkMailExists($email))) {
+        $templateParams["signuperror"] = "<div class = \"text-center\"><ul class=\"list-group list-group-flush\"><li class=\"list-group-item list-group-item-danger\">E-mail already in use!</li><li class=\"list-group-item list-group-item-danger\">Passwords don't match!</li><li class=\"list-group-item\">Try again:</li></ul></div>";
+    } else if ($dbh->checkMailExists($email)) {
+        $templateParams["signuperror"] = "<div class = \"text-center\"><ul class=\"list-group list-group-flush\"><li class=\"list-group-item list-group-item-danger\">E-mail already in use!</li><li class=\"list-group-item\">Try again:</li></ul></div>";
+    } else if (!password_verify($password2, $pw1_hashed)) {
+        $templateParams["signuperror"] = "<div class = \"text-center\"><ul class=\"list-group list-group-flush\"><li class=\"list-group-item list-group-item-danger\">Passwords don't match!</li><li class=\"list-group-item\">Try again:</li></ul></div>";
     } else {
         sendRegistrationEmail($email);
         // Insert user into database
