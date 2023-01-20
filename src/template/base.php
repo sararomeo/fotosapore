@@ -19,7 +19,7 @@
     <title><?php echo $templateParams["title"]; ?></title>
 </head>
 
-<body>
+<body class = "base-body">
     <!-- Header -->
 	<header>
     <!-- Navigation bar -->
