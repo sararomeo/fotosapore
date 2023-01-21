@@ -77,6 +77,10 @@
             <!-- <strong class="d-none d-sm-block ms-1">John</strong> -->
             </a>
         </li>
+        <!-- Logout -->
+        <li class="nav-item me-3 me-lg-1">
+            <button class = "btn" onclick="<?php closeSession() ?>"><span><i class="bi bi-box-arrow-left"></i></span></button>
+        </li>
         
         </ul>
     </div>
