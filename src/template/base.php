@@ -20,7 +20,7 @@
     <title><?php echo $templateParams["title"]; ?></title>
 </head>
 
-<body class = "base-body">
+<body>
     <!-- Header -->
 	<header>
     <!-- Navigation bar -->
@@ -91,7 +91,7 @@
     </header>
 
     <!-- Main -->
-    <main  id="#main">
+    <main class = "main" id="#main">
     <div class = "container row">
         <div class = "col-md-4">
             <p>RIGA 1 di TEST</p>
