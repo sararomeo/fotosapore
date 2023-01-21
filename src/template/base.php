@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
     <style><?php include './css/style.css'; ?></style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css" integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
     <!-- non so perché non funziona con html
         <link rel="stylesheet" type="text/css" href="css/style-login.css" /> -->
 
@@ -29,11 +30,11 @@
         <!-- Left elements -->
         <div class="d-flex my-2 my-sm-0">
         <!-- Logo that leads to home page -->
-        <a class="navbar-brand ms-2 me-2 mb-1 d-flex align-items-center" href="./home.php"><img src="res/big-favicon.png" height="30em" alt="logo fotosapore" loading="lazy"/></a>
+        <a class="navbar-brand ms-2 me-2 d-flex align-items-center" href="./home.php"><img src="res/big-favicon.png" height="40em" alt="logo fotosapore" loading="lazy"/></a>
         <!-- Search form -->
         <form class="input-group w-auto my-auto d-none d-sm-flex">
-            <input type="search" autocomplete="off" class="form-control rounded" placeholder=" Search for a recipe... " />
-            <button type="submit" class="btn"><i class="bi bi-search"></i></button>
+            <input type="search" role="search" class="form-control rounded" autocomplete="off" placeholder=" Search for a recipe... " />
+            <button type="submit" class="btn"><i class="bi bi-search fa-fw nav-bar-icon"></i></button>
         </form>
         </div>
 
@@ -42,7 +43,7 @@
         <ul class="navbar-nav flex-row">
         <li class="nav-item me-3 me-lg-1">
             <a class="nav-link" href="./home.php">
-            <span><i class="bi bi-house"></i></span>
+            <span><i class="bi bi-house fa-fw nav-bar-icon"></i></span>
             <!-- pallino rosso di notifica se ci sono nuovi post nel feed della home -->
             <!-- <span class="badge rounded-pill badge-notification bg-danger"></span> -->
             </a>
@@ -50,19 +51,19 @@
         <!-- Discovery -->
         <li class="nav-item me-3 me-lg-1">
             <a class="nav-link" href="./home.php">
-            <span><i class="bi bi-compass"></i></span>
+            <span><i class="bi bi-compass fa-fw nav-bar-icon"></i></span>
             </a>
         </li>
         <!-- Create post -->
         <li class="nav-item me-3 me-lg-1">
             <a class="nav-link" href="./home.php">
-            <span><i class="bi bi-plus-circle"></i></span>
+            <span><i class="bi bi-plus-circle fa-fw nav-bar-icon"></i></span>
             </a>
         </li>
         <!-- Notifications -->
         <li class="nav-item me-3 me-lg-1">
             <a class="nav-link" href="./home.php">
-            <span><i class="bi bi-bell"></i></span>
+            <span><i class="bi bi-bell fa-fw nav-bar-icon"></i></span>
             <!-- pallino rosso notifica -->
             <!-- <span class="badge rounded-pill badge-notification bg-danger">2</span> -->
             </a>
@@ -72,14 +73,14 @@
             <a class="nav-link d-sm-flex align-items-sm-center" href="./home.php">
                 <!-- img profilo -->
             <!-- <img src="https://mdbootstrap.com/img/new/avatars/1.jpg" class="rounded-circle" height="22" alt="" loading="lazy" /> -->
-            <span><i class="bi bi-person"></i></span>
+            <span><i class="bi bi-person fa-fw nav-bar-icon"></i></span>
                 <!-- username utente -->
             <!-- <strong class="d-none d-sm-block ms-1">John</strong> -->
             </a>
         </li>
         <!-- Logout -->
         <li class="nav-item me-3 me-lg-1">
-            <button class = "btn" onclick="<?php closeSession() ?>"><span><i class="bi bi-box-arrow-left"></i></span></button>
+            <button class = "btn" onclick="<?php closeSession()?>"><span><i class="bi bi-box-arrow-left fa-fw nav-bar-icon"></i></span></button>
         </li>
         
         </ul>
@@ -89,21 +90,21 @@
     </header>
 
     <!-- Main -->
-    <main id="#main">
+    <main  id="#main">
     <div class = "container row">
-        <div class = "col-md">
+        <div class = "col-md-4">
             <p>RIGA 1 di TEST</p>
             <p>RIGA 2 di TEST</p>
             <p>RIGA 3 di TEST</p>
             <p>RIGA 4 di TEST</p>
         </div>
-        <div class = "col-md">
+        <div class = "col-md-4">
             <p>RIGA 1 di TEST</p>
             <p>RIGA 2 di TEST</p>
             <p>RIGA 3 di TEST</p>
             <p>RIGA 4 di TEST</p>
         </div>
-        <div class = "col-md">
+        <div class = "col-md-4">
             <p>RIGA 1 di TEST</p>
             <p>RIGA 2 di TEST</p>
             <p>RIGA 3 di TEST</p>

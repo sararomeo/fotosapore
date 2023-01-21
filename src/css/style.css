@@ -15,6 +15,10 @@
 }*/
 
 /**** NAVBAR ****/
+.nav-bar-icon {
+    font-size: 1.5em !important;
+}
+
 .nav-item a, .nav-link a {
     color: black;
 }
@@ -24,11 +28,11 @@
 }
 
 .navbar-container {
-    height: 3em !important;
+    height: 4em !important;
 }
 
 .base-body {
-    padding-top: 3em !important;
+    padding-top: 4em !important;
 }
 
 /**** FORM (Login, signup) ****/
