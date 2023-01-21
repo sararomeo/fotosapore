@@ -37,10 +37,6 @@
     color: red;
 }
 
-.main {
-    margin-top: 4em !important;
-}
-
 /**** FORM (Login, signup) ****/
 .form-control {
     background: transparent;

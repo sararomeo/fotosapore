@@ -25,7 +25,7 @@
 	<header>
     <!-- Navigation bar -->
     <div class="container row">
-    <nav class="col-12 py-2 navbar navbar-default fixed-top navbar-static-top bg-white navbar-sticky">
+    <nav class="col-12 py-2 navbar navbar-default fixed-top navbar-static-top bg-white navbar-sticky" id="navbar-container">
     <div class="container-fluid overflow-hidden">
         <!-- Left elements -->
         <div class="d-flex my-2 my-sm-0">
@@ -91,7 +91,7 @@
     </header>
 
     <!-- Main -->
-    <main class = "main" id="#main">
+    <main class = "main" id="main">
     <div class = "container row">
         <div class = "col-md-4">
             <p>RIGA 1 di TEST</p>
@@ -114,5 +114,7 @@
     </div>
     </main>
 </body>
-
+<!-- Javascript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript" src="./js/placeholder.js"></script>
 </html>
