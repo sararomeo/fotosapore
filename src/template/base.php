@@ -34,7 +34,7 @@
         <!-- Search form -->
         <form class="input-group w-auto my-auto d-none d-sm-flex">
             <input type="search" role="search" class="form-control rounded" autocomplete="off" placeholder=" Search for a recipe... " />
-            <button type="submit" class="btn"><i class="bi bi-search fa-fw nav-bar-icon"></i></button>
+            <button type="submit" class="btn nav-bar-btn"><i class="bi bi-search fa-fw nav-bar-icon"></i></button>
         </form>
         </div>
 
@@ -80,7 +80,7 @@
         </li>
         <!-- Logout -->
         <li class="nav-item me-3 me-lg-1">
-            <button class = "btn" onclick="<?php closeSession()?>"><span><i class="bi bi-box-arrow-left fa-fw nav-bar-icon"></i></span></button>
+            <button class = "btn nav-bar-btn" onclick="<?php closeSession()?>"><span><i class="bi bi-box-arrow-left fa-fw nav-bar-icon"></i></span></button>
         </li>
         
         </ul>
