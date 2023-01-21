@@ -1,7 +1,13 @@
+/**** GLOBAL ****/
 * {
     margin: 0 !important;
     padding: 0 !important;
     text-decoration: none !important;
+}
+
+.btn:focus, .btn:active {
+    outline: none !important;
+    box-shadow: none;
 }
 
 /**** BASE ****/
@@ -15,6 +21,10 @@
 }*/
 
 /**** NAVBAR ****/
+.nav-bar-icon {
+    font-size: 1.5em !important;
+}
+
 .nav-item a, .nav-link a {
     color: black;
 }
@@ -23,12 +33,16 @@
     color: red;
 }
 
+.nav-bar-btn:hover {
+    color: red;
+}
+
 .navbar-container {
-    height: 3em !important;
+    height: 4em !important;
 }
 
 .base-body {
-    padding-top: 3em !important;
+    padding-top: 4em !important;
 }
 
 /**** FORM (Login, signup) ****/

@@ -69,5 +69,15 @@ class DatabaseHelper{
         $stmt->execute();
         $stmt->close();
     }
+
+    public function getUsername($email){ 
+        $query = "SELECT username FROM user WHERE email = ?;";  
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC)[0]["username"]; 
+    }
+
 }
 ?>
