@@ -30,5 +30,13 @@ function isSessionOpen(){
     return !empty($_SESSION['username']);
 }
 
+/**
+ * Log out from the account
+ */
+function closeSession(){ 
+    session_destroy();
+    //header("location:index.php");
+}
+
 
 ?>

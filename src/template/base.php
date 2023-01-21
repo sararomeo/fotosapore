@@ -38,47 +38,55 @@
         </div>
 
         <!-- Right elements -->
-        <!-- Home -->
-        <ul class="navbar-nav flex-row">
-        <li class="nav-item me-3 me-lg-1">
-            <a class="nav-link" href="./home.php">
-            <span><i class="bi bi-house"></i></span>
-            <!-- pallino rosso di notifica se ci sono nuovi post nel feed della home -->
-            <!-- <span class="badge rounded-pill badge-notification bg-danger"></span> -->
-            </a>
-        </li>
-        <!-- Discovery -->
-        <li class="nav-item me-3 me-lg-1">
-            <a class="nav-link" href="./home.php">
-            <span><i class="bi bi-compass"></i></span>
-            </a>
+
+        <div class="dflex my-2 my-sm-0">
+
+
+            <!-- Home -->
+            <ul class="navbar-nav flex-row">
+                <li class="nav-item me-3 me-lg-1">
+                    <a class="nav-link" href="./home.php">
+                        <span><i class="bi bi-house"></i></span>
+                        <!-- pallino rosso di notifica se ci sono nuovi post nel feed della home -->
+                        <!-- <span class="badge rounded-pill badge-notification bg-danger"></span> -->
+                    </a>
+                </li>
+                <!-- Discovery -->
+                <li class="nav-item me-3 me-lg-1">
+                    <a class="nav-link" href="./home.php">
+                        <span><i class="bi bi-compass"></i></span>
+                    </a>
         </li>
         <!-- Create post -->
         <li class="nav-item me-3 me-lg-1">
             <a class="nav-link" href="./home.php">
-            <span><i class="bi bi-plus-circle"></i></span>
+                <span><i class="bi bi-plus-circle"></i></span>
             </a>
         </li>
         <!-- Notifications -->
         <li class="nav-item me-3 me-lg-1">
             <a class="nav-link" href="./home.php">
-            <span><i class="bi bi-bell"></i></span>
-            <!-- pallino rosso notifica -->
-            <!-- <span class="badge rounded-pill badge-notification bg-danger">2</span> -->
+                <span><i class="bi bi-bell"></i></span>
+                <!-- pallino rosso notifica -->
+                <!-- <span class="badge rounded-pill badge-notification bg-danger">2</span> -->
             </a>
         </li>
         <!-- Profile -->
         <li class="nav-item me-3 me-lg-1">
             <a class="nav-link d-sm-flex align-items-sm-center" href="./home.php">
                 <!-- img profilo -->
-            <!-- <img src="https://mdbootstrap.com/img/new/avatars/1.jpg" class="rounded-circle" height="22" alt="" loading="lazy" /> -->
-            <span><i class="bi bi-person"></i></span>
+                <!-- <img src="https://mdbootstrap.com/img/new/avatars/1.jpg" class="rounded-circle" height="22" alt="" loading="lazy" /> -->
+                <span><i class="bi bi-person"></i></span>
                 <!-- username utente -->
-            <!-- <strong class="d-none d-sm-block ms-1">John</strong> -->
+                <!-- <strong class="d-none d-sm-block ms-1">John</strong> -->
             </a>
         </li>
         
-        </ul>
+    </ul>
+    
+    
+</div>
+    
     </div>
     </nav>
     </div>
@@ -86,7 +94,19 @@
 
     <!-- Main -->
     <main id="#main">
+
+    <!-- Log out -->
+    
     <div class = "container row">
+        
+        <div class = "col-md">
+            <form class="input-group" action=<?php closeSession()?>>
+                <button class="btn" type="submit">
+                    <i class="bi b-box-arrow-left"></i>
+                </button>
+            </form>
+        </div>
+
         <div class = "col-md">
             <p>RIGA 1 di TEST</p>
             <p>RIGA 2 di TEST</p>
