@@ -29,60 +29,61 @@
     <div class="container-fluid overflow-hidden">
         <!-- Left elements -->
         <div class="d-flex my-2 my-sm-0">
-        <!-- Logo that leads to home page -->
-        <a class="navbar-brand ms-2 me-2 d-flex align-items-center" href="./home.php"><img src="res/big-favicon.png" height="40em" alt="logo fotosapore" loading="lazy"/></a>
-        <!-- Search form -->
-        <form class="input-group w-auto my-auto d-none d-sm-flex">
-            <input type="search" role="search" class="form-control rounded" autocomplete="off" placeholder=" Search for a recipe... " />
-            <button type="submit" class="btn nav-bar-btn"><i class="bi bi-search fa-fw nav-bar-icon"></i></button>
-        </form>
+            <!-- Logo that leads to home page -->
+            <a class="navbar-brand ms-2 me-2 d-flex align-items-center" href="./home.php"><img src="res/big-favicon.png" height="40em" alt="logo fotosapore" loading="lazy"/></a>
+            <!-- Search form -->
+            <form class="input-group w-auto my-auto d-none d-sm-flex">
+                <input type="search" role="search" class="form-control rounded" autocomplete="off" placeholder=" Search for a recipe... " />
+                <button type="submit" class="btn nav-bar-btn"><i class="bi bi-search fa-fw nav-bar-icon"></i></button>
+            </form>
         </div>
 
         <!-- Right elements -->
         <!-- Home -->
         <ul class="navbar-nav flex-row">
-        <li class="nav-item me-3 me-lg-1">
-            <a class="nav-link" href="./home.php">
-            <span><i class="bi bi-house fa-fw nav-bar-icon"></i></span>
-            <!-- pallino rosso di notifica se ci sono nuovi post nel feed della home -->
-            <!-- <span class="badge rounded-pill badge-notification bg-danger"></span> -->
-            </a>
-        </li>
-        <!-- Discovery -->
-        <li class="nav-item me-3 me-lg-1">
-            <a class="nav-link" href="./home.php">
-            <span><i class="bi bi-compass fa-fw nav-bar-icon"></i></span>
-            </a>
-        </li>
-        <!-- Create post -->
-        <li class="nav-item me-3 me-lg-1">
-            <a class="nav-link" href="./home.php">
-            <span><i class="bi bi-plus-circle fa-fw nav-bar-icon"></i></span>
-            </a>
-        </li>
-        <!-- Notifications -->
-        <li class="nav-item me-3 me-lg-1">
-            <a class="nav-link" href="./home.php">
-            <span><i class="bi bi-bell fa-fw nav-bar-icon"></i></span>
-            <!-- pallino rosso notifica -->
-            <!-- <span class="badge rounded-pill badge-notification bg-danger">2</span> -->
-            </a>
-        </li>
-        <!-- Profile -->
-        <li class="nav-item me-3 me-lg-1">
-            <a class="nav-link d-sm-flex align-items-sm-center" href="./home.php">
-                <!-- img profilo -->
-            <!-- <img src="https://mdbootstrap.com/img/new/avatars/1.jpg" class="rounded-circle" height="22" alt="" loading="lazy" /> -->
-            <span><i class="bi bi-person fa-fw nav-bar-icon"></i></span>
-                <!-- username utente -->
-            <!-- <strong class="d-none d-sm-block ms-1">John</strong> -->
-            </a>
-        </li>
-        <!-- Logout -->
-        <li class="nav-item me-3 me-lg-1">
-            <button class = "btn nav-bar-btn" onclick="<?php closeSession()?>"><span><i class="bi bi-box-arrow-left fa-fw nav-bar-icon"></i></span></button>
-        </li>
-        
+            <li class="nav-item me-3 me-lg-1">
+                <a class="nav-link" href="./home.php">
+                <span><i class="bi bi-house fa-fw nav-bar-icon"></i></span>
+                <!-- pallino rosso di notifica se ci sono nuovi post nel feed della home -->
+                <!-- <span class="badge rounded-pill badge-notification bg-danger"></span> -->
+                </a>
+            </li>
+            <!-- Discovery -->
+            <li class="nav-item me-3 me-lg-1">
+                <a class="nav-link" href="./home.php">
+                <span><i class="bi bi-compass fa-fw nav-bar-icon"></i></span>
+                </a>
+            </li>
+            <!-- Create post -->
+            <li class="nav-item me-3 me-lg-1">
+                <a class="nav-link" href="./home.php">
+                <span><i class="bi bi-plus-circle fa-fw nav-bar-icon"></i></span>
+                </a>
+            </li>
+            <!-- Notifications -->
+            <li class="nav-item me-3 me-lg-1">
+                <a class="nav-link" href="./home.php">
+                <span><i class="bi bi-bell fa-fw nav-bar-icon"></i></span>
+                <!-- pallino rosso notifica -->
+                <!-- <span class="badge rounded-pill badge-notification bg-danger">2</span> -->
+                </a>
+            </li>
+            <!-- Profile -->
+            <li class="nav-item me-3 me-lg-1">
+                <a class="nav-link d-sm-flex align-items-sm-center" href="./home.php">
+                    <!-- img profilo -->
+                <!-- <img src="https://mdbootstrap.com/img/new/avatars/1.jpg" class="rounded-circle" height="22" alt="" loading="lazy" /> -->
+                <span><i class="bi bi-person fa-fw nav-bar-icon"></i></span>
+                    <!-- username utente -->
+                <!-- <strong class="d-none d-sm-block ms-1">John</strong> -->
+                </a>
+            </li>
+            <!-- Logout -->
+            <li class="nav-item me-3 me-lg-1">
+                <a class="nav-link" href="./logout.php">
+                <span><i class="bi bi-box-arrow-left fa-fw nav-bar-icon"></i></span>
+                </a>
+            </li>
         </ul>
     </div>
     </nav>
