@@ -19,3 +19,11 @@ $(window).ready (function () {
 $(window).resize (function () {
     setMainMarginTop();
 });
+
+/**
+ * Switch class to animate search bar.
+ */
+$("#search-btn").on("click",function(){
+    $(".search-input").toggleClass("inclicked");
+    $("#search-btn").toggleClass("close");
+});

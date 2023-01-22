@@ -28,10 +28,12 @@
             <!-- Logo that leads to home page -->
             <a class="navbar-brand ms-2 me-2 d-flex align-items-center" href="./home.php"><img src="res/big-favicon.png" height="40em" alt="logo fotosapore" loading="lazy"/></a>
             <!-- Search form -->
-            <form class="input-group w-auto my-auto d-none d-sm-flex">
-                <input type="search" role="search" class="form-control rounded" autocomplete="off" placeholder=" Search for a recipe... " />
-                <button type="submit" class="btn nav-bar-btn"><i class="bi bi-search fa-fw nav-bar-icon"></i></button>
-            </form>
+            <div class="position-relative search-container">
+                <form action="" class="search-box" method="post">
+                    <input type="search" role="search" class="input search-input" name="" value="" autocomplete="off" placeholder = "Search for a recipe...">
+                    <button type="button" class="btn search-btn" name="button" id="search-btn"></button>
+                </form>
+            </div>
         </div>
 
         <!-- Right elements -->
