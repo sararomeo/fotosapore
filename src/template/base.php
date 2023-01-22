@@ -22,6 +22,7 @@
 
 <body>
     <!-- Header -->
+    <div class="d-flex flex-column vh-100">
 	<header>
     <!-- Navigation bar -->
     <div class="container row">
@@ -139,7 +140,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="row position-absolute-bottom bg-white row mt-1">        
+    <footer class="row footer mt-auto position-absolute-bottom bg-white row mt-1">        
 		<div class="row">
             <hr>
 			<!-- Copyright -->
@@ -152,6 +153,7 @@
             </div>
         </div>
     </footer>
+    </div>
 </body>
 <!-- Javascript -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
