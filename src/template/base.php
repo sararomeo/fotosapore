@@ -52,7 +52,7 @@
             </li>
             <!-- Create post -->
             <li class="nav-item me-3 me-lg-1">
-                <a class="nav-link" href="./home.php">
+                <a class="nav-link" href="./create-post.php">
                 <span><i class="bi bi-plus-circle fa-fw nav-bar-icon"></i></span>
                 </a>
             </li>
@@ -88,50 +88,11 @@
 
     <!-- Main -->
     <main class = "row main" id="main">
-    <div class = "row container">
-        <div class = "col-md-4">
-            <p>RIGA 1 di TEST</p>
-            <p>RIGA 2 di TEST</p>
-            <p>RIGA 3 di TEST</p>
-            <p>RIGA 4 di TEST</p>
-        </div>
-        <div class = "col-md-4">
-            <p>RIGA 1 di TEST</p>
-            <p>RIGA 2 di TEST</p>
-            <p>RIGA 3 di TEST</p>
-            <p>RIGA 4 di TEST</p>
-        </div>
-        <div class = "col-md-4">
-            <p>RIGA 1 di TEST</p>
-            <p>RIGA 2 di TEST</p>
-            <p>RIGA 3 di TEST</p>
-            <p>RIGA 4 di TEST</p>
-            <p>RIGA 1 di TEST</p>
-            <p>RIGA 2 di TEST</p>
-            <p>RIGA 3 di TEST</p>
-            <p>RIGA 4 di TEST</p>
-            <p>RIGA 1 di TEST</p>
-            <p>RIGA 2 di TEST</p>
-            <p>RIGA 3 di TEST</p>
-            <p>RIGA 4 di TEST</p>
-            <p>RIGA 1 di TEST</p>
-            <p>RIGA 2 di TEST</p>
-            <p>RIGA 3 di TEST</p>
-            <p>RIGA 4 di TEST</p>
-            <p>RIGA 1 di TEST</p>
-            <p>RIGA 2 di TEST</p>
-            <p>RIGA 3 di TEST</p>
-            <p>RIGA 4 di TEST</p>
-            <p>RIGA 1 di TEST</p>
-            <p>RIGA 2 di TEST</p>
-            <p>RIGA 3 di TEST</p>
-            <p>RIGA 4 di TEST</p>
-            <p>RIGA 1 di TEST</p>
-            <p>RIGA 2 di TEST</p>
-            <p>RIGA 3 di TEST</p>
-            <p>RIGA 4 di TEST</p>
-        </div>
-    </div>
+        <?php
+            if(isset($templateParams["page"])){
+                require($templateParams["page"]);
+            }
+        ?>
     </main>
 
     <!-- Footer -->
