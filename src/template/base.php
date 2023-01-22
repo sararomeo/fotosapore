@@ -91,8 +91,8 @@
     </header>
 
     <!-- Main -->
-    <main class = "main" id="main">
-    <div class = "container row">
+    <main class = "row main" id="main">
+    <div class = "row container">
         <div class = "col-md-4">
             <p>RIGA 1 di TEST</p>
             <p>RIGA 2 di TEST</p>
@@ -139,24 +139,19 @@
     </main>
 
     <!-- Footer -->
-    <footer class="position-absolute-bottom bg-white row mt-1">
-		<div class="col">
-
-
-			<!-- Copyright -->
+    <footer class="row position-absolute-bottom bg-white row mt-1">        
+		<div class="row">
             <hr>
-            <div class="py-1">
-                <div class="container d-md-flex justify-content-center align-items-center text-center">
-                    <div class="d-md-flex justify-content-between align-items-center text-center text-md-left">
-                        <small class = "small text-center text-muted">
-                            <p>©<script>document.write(new Date().getFullYear())</script> FotoSapore | All rights reserved: Luca Babboni - Sara Romeo - Pablo Sebastian Vargas Grateron</p>
-                        </small>
-                    </div>
+			<!-- Copyright -->
+            <div class="col py-1 container d-md-flex justify-content-center align-items-center text-center">
+                <div class="d-md-flex justify-content-between align-items-center text-center text-md-left">
+                    <small class = "small text-center text-muted">
+                        <p>©<script>document.write(new Date().getFullYear())</script> FotoSapore | All rights reserved: Luca Babboni - Sara Romeo - Pablo Sebastian Vargas Grateron</p>
+                    </small>
                 </div>
             </div>
         </div>
     </footer>
-
 </body>
 <!-- Javascript -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
