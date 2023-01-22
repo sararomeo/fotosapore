@@ -46,47 +46,47 @@
         <div class="collapse navbar-collapse" id="navbarScroll">
         <!-- Home -->
         <ul class="navbar-nav flex-row navbar-nav-scroll">
-            <li class="nav-item me-3 me-lg-1">
+            <li class="nav-item">
                 <a class="nav-link" href="./home.php">
-                <span><i class="bi bi-house fa-fw nav-bar-icon"></i></span>
+                <span class="d-flex align-items-center"><i class="bi bi-house fa-fw nav-bar-icon"></i></span>
                 <!-- pallino rosso di notifica se ci sono nuovi post nel feed della home -->
                 <!-- <span class="badge rounded-pill badge-notification bg-danger"></span> -->
                 </a>
             </li>
             <!-- Discovery -->
-            <li class="nav-item me-3 me-lg-1">
+            <li class="nav-item">
                 <a class="nav-link" href="./home.php">
-                <span><i class="bi bi-compass fa-fw nav-bar-icon"></i></span>
+                <span class="d-flex align-items-center"><i class="bi bi-compass fa-fw nav-bar-icon"></i></span>
                 </a>
             </li>
             <!-- Create post -->
-            <li class="nav-item me-3 me-lg-1">
+            <li class="nav-item">
                 <a class="nav-link" href="./home.php">
-                <span><i class="bi bi-plus-circle fa-fw nav-bar-icon"></i></span>
+                <span class="d-flex align-items-center"><i class="bi bi-plus-circle fa-fw nav-bar-icon"></i></span>
                 </a>
             </li>
             <!-- Notifications -->
-            <li class="nav-item me-3 me-lg-1">
+            <li class="nav-item">
                 <a class="nav-link" href="./home.php">
-                <span><i class="bi bi-bell fa-fw nav-bar-icon"></i></span>
+                <span class="d-flex align-items-center"><i class="bi bi-bell fa-fw nav-bar-icon"></i></span>
                 <!-- pallino rosso notifica -->
                 <!-- <span class="badge rounded-pill badge-notification bg-danger">2</span> -->
                 </a>
             </li>
             <!-- Profile -->
-            <li class="nav-item me-3 me-lg-1">
+            <li class="nav-item">
                 <a class="nav-link d-sm-flex align-items-sm-center" href="./home.php">
                     <!-- img profilo -->
                 <!-- <img src="https://mdbootstrap.com/img/new/avatars/1.jpg" class="rounded-circle" height="22" alt="" loading="lazy" /> -->
-                <span><i class="bi bi-person fa-fw nav-bar-icon"></i></span>
+                <span class="d-flex align-items-center"><i class="bi bi-person fa-fw nav-bar-icon"></i></span>
                     <!-- username utente -->
                 <!-- <strong class="d-none d-sm-block ms-1">John</strong> -->
                 </a>
             </li>
             <!-- Logout -->
-            <li class="nav-item me-3 me-lg-1">
+            <li class="nav-item">
                 <a class="nav-link" href="./logout.php">
-                <span><i class="bi bi-box-arrow-left fa-fw nav-bar-icon"></i></span>
+                <span class="d-flex align-items-center"><i class="bi bi-box-arrow-left fa-fw nav-bar-icon"></i></span>
                 </a>
             </li>
         </ul>
