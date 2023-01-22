@@ -2,10 +2,9 @@
 require_once("bootstrap.php");
 
 //check if the user is logged 
-// if(!isUserLoggedIn() || !isset($_GET["action"])){
-//     header("location: login.php");
-// }
-
+if(!isSessionOpen()){
+    header("location: index.php");
+}
 
 $templateParams["title"] = "FotoSapore | Create post";
 $templateParams["page"] = "post-tmpl.php";
