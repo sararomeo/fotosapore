@@ -22,6 +22,7 @@
 
 <body>
     <!-- Header -->
+    <div class="d-flex flex-column vh-100">
 	<header>
     <!-- Navigation bar -->
     <div class="container row">
@@ -91,8 +92,8 @@
     </header>
 
     <!-- Main -->
-    <main class = "main" id="main">
-    <div class = "container row">
+    <main class = "row main" id="main">
+    <div class = "row container">
         <div class = "col-md-4">
             <p>RIGA 1 di TEST</p>
             <p>RIGA 2 di TEST</p>
@@ -106,6 +107,30 @@
             <p>RIGA 4 di TEST</p>
         </div>
         <div class = "col-md-4">
+            <p>RIGA 1 di TEST</p>
+            <p>RIGA 2 di TEST</p>
+            <p>RIGA 3 di TEST</p>
+            <p>RIGA 4 di TEST</p>
+            <p>RIGA 1 di TEST</p>
+            <p>RIGA 2 di TEST</p>
+            <p>RIGA 3 di TEST</p>
+            <p>RIGA 4 di TEST</p>
+            <p>RIGA 1 di TEST</p>
+            <p>RIGA 2 di TEST</p>
+            <p>RIGA 3 di TEST</p>
+            <p>RIGA 4 di TEST</p>
+            <p>RIGA 1 di TEST</p>
+            <p>RIGA 2 di TEST</p>
+            <p>RIGA 3 di TEST</p>
+            <p>RIGA 4 di TEST</p>
+            <p>RIGA 1 di TEST</p>
+            <p>RIGA 2 di TEST</p>
+            <p>RIGA 3 di TEST</p>
+            <p>RIGA 4 di TEST</p>
+            <p>RIGA 1 di TEST</p>
+            <p>RIGA 2 di TEST</p>
+            <p>RIGA 3 di TEST</p>
+            <p>RIGA 4 di TEST</p>
             <p>RIGA 1 di TEST</p>
             <p>RIGA 2 di TEST</p>
             <p>RIGA 3 di TEST</p>
@@ -113,6 +138,22 @@
         </div>
     </div>
     </main>
+
+    <!-- Footer -->
+    <footer class="row footer mt-auto position-absolute-bottom bg-white row mt-1">        
+		<div class="row">
+            <hr>
+			<!-- Copyright -->
+            <div class="col py-1 container d-md-flex justify-content-center align-items-center text-center">
+                <div class="d-md-flex justify-content-between align-items-center text-center text-md-left">
+                    <small class = "small text-center text-muted">
+                        <p>©<script>document.write(new Date().getFullYear())</script> FotoSapore | All rights reserved: Luca Babboni - Sara Romeo - Pablo Sebastian Vargas Grateron</p>
+                    </small>
+                </div>
+            </div>
+        </div>
+    </footer>
+    </div>
 </body>
 <!-- Javascript -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
