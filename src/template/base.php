@@ -45,7 +45,8 @@
         <!-- Right elements to collapse -->
         <div class="collapse navbar-collapse" id="navbarScroll">
         <!-- Home -->
-        <ul class="navbar-nav flex-row navbar-nav-scroll">
+        <div class="float-end">
+        <ul class="navbar-nav flex-row navbar-nav-scroll list-inline">
             <li class="nav-item">
                 <a class="nav-link" href="./home.php">
                 <span class="d-flex align-items-center"><i class="bi bi-house fa-fw nav-bar-icon"></i></span>
@@ -90,6 +91,7 @@
                 </a>
             </li>
         </ul>
+</div>
         </div>       
     </div>
     </nav>
