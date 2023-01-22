@@ -16,9 +16,10 @@ function sendRegistrationEmail($to) {
  * @param  $username the username of the user
  * @param  $email the email of the user
  */
-function openUserSession($username, $email) {
-    $_SESSION["username"] = $username;
-    $_SESSION["mail"] = $email;
+function openUserSession($userdata) {
+    $_SESSION["username"] = $userdata["username"];
+    $_SESSION["email"] = $userdata["email"]; 
+    $_SESSION["userID"] = $userdata["userID"]; 
 }
 
 /**
