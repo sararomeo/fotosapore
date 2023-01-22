@@ -18,8 +18,9 @@
         </div>
 
         <div class="col-md-7">
+            <h2>Insert a photo</h2>
 
-            <div class="form-outline p-2">
+            <div class="form-outline p-2 mt-3">
                 <label for="imgarticle">Image</label><input type="file" name="imgarticle" id="imgarticle"
                     accept="image/jpeg, image/png" />
             </div>
