@@ -19,3 +19,34 @@ $(window).ready (function () {
 $(window).resize (function () {
     setMainMarginTop();
 });
+
+/**
+ * Switch class to animate search bar.
+ */
+$("#search-btn").on("click",function(){
+    $(".search-input").toggleClass("inclicked");
+    $("#search-btn").toggleClass("close");
+});
+
+/**
+ * Remove the d-flex justify-content-end classes from the navbar when the screen is less than 768px at load.
+ */
+$(window).load(function() {
+    if($(window).width() < 768) {
+        $("#navbarScroll").removeClass("justify-content-end");
+    } else {
+        $("#navbarScroll").addClass("justify-content-end");
+    }
+});
+
+/**
+ * Remove the d-flex justify-content-end classes from the navbar when the screen is less than 768px at resize.
+ */
+$(window).resize(function() {
+    if($(window).width() < 768) {
+        $("#navbarScroll").removeClass("justify-content-end");
+    } else {
+        $("#navbarScroll").addClass("justify-content-end");
+    }
+});
+
