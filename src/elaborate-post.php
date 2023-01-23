@@ -18,6 +18,7 @@ if (!isset($_FILES["imgarticle"]) || !isset($_POST["title"]) || !isset($_POST["c
 } else {
     //create an array of tags using the provided string
     $tags = explode(" ", $tagString);
+    $tags = array_unique($tags); 
 
     list($result, $msg) = uploadImage(UPLOAD_DIR, $_FILES["imgarticle"]);
     //check if the imageUpload was sucsessfull
