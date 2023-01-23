@@ -1,5 +1,5 @@
 
-<form action="elaborate-article.php" method="POST" enctype="multipart/form-data">
+<form action="elaborate-post.php" method="POST" enctype="multipart/form-data">
 
 
 <div class="row">
