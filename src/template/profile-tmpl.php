@@ -1,31 +1,39 @@
 <div id="page-name" data-page="profile-page">
-    <div class="d-flex justify-content-center">
-        <div class="profile-feed-container">
-            <div class="profile-info">
-                <?php
-                $userIDtest = 1;
-                $profileData = $dbh->getUserProfileInfo($userIDtest);
-                $followers = $dbh->getFollowersCount($userIDtest)['followers'];
-                $following = $dbh->getFollowingsCount($userIDtest)['following'];
-                ?>
-                <h1>Username:
-                    <?php echo $profileData['username']; ?>
-                </h1>
-                <h2>Bio:
-                    <?php echo $profileData['bio']; ?>
-                </h2>
+    <div class="profile-feed-container d-flex flex-column aligns-items-center">
+        <div class="profile-info align-self-center p-2">
+            <?php
+            $userIDtest = 1;
+            $profileData = $dbh->getUserProfileInfo($userIDtest);
+            $followers = $dbh->getFollowersCount($userIDtest)['followers'];
+            $following = $dbh->getFollowingsCount($userIDtest)['following'];
+            ?>
+            <div class="d-flex justify-content-center">
+                <h1 class="h1 p-1 text-center"><?php echo $profileData['username']; ?></h1>
             </div>
-            <div class="profile-follow-count">
-                <h3>Followers:
-                    <?php echo $followers; ?>
-                </h3>
-                <h3>Following:
-                    <?php echo $following; ?>
-                </h3>
+            <div class="d-flex justify-content-center">
+                <h2 class="h2 p-1 text-center"><?php echo $profileData['bio']; ?></h2>
             </div>
-            <div class="feed">
-                PROFILE OWNER FEED POSTS HERE
+        </div>
+
+        <div class="profile-buttons p-2 align-self-center">
+            <div class="profile-follow-count p-2 row justify-content-center">
+                <div class="col">
+                <h3 class="h3 p-1 text-center"><?php echo $followers; ?><h3>
+                <p class="lead p-1 text-center">Followers</p>
+                </div>
+                <div class="col">
+                <h3 class="h3 p-1 text-center"><?php echo $following; ?><h3>
+                <p class="lead p-1 text-center">Following</p>
+                </div>
             </div>
+            <div class="action-btn-container p-2 d-flex justify-content-center">
+                <button class="btn p-2 action-btn edit-profile-btn">Edit Profile</button>
+            </div>
+        </div>
+
+
+        <div class="feed align-self-center">
+            PROFILE OWNER FEED POSTS HERE
         </div>
     </div>
 </div>
