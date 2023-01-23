@@ -1,9 +1,20 @@
 <form action="insert-article.php" method="POST" enctype="multipart/form-data">
 
     <div class="row">
+
+        <!-- image input -->
+        <div class="col-md-7">
+            <h2>Insert a photo</h2>
+            <div class="form-outline p-2 mt-3">
+                <label for="imgarticle">Image</label><input type="file" name="imgarticle" id="imgarticle"
+                    accept="image/jpeg, image/png" />
+            </div>
+        </div>
+
+        
+        <!-- Text input -->
         <div class="col-md-5">
             <h2>Insert your new recipe</h2>
-            <!-- Text input -->
             <div class="form-outline p-2">
                 <label for="title">Title:</label><input type="text" class="form-control" id="title" name="title" />
             </div>
@@ -17,16 +28,7 @@
             </div>
         </div>
 
-        <div class="col-md-7">
-            <h2>Insert a photo</h2>
 
-            <div class="form-outline p-2 mt-3">
-                <label for="imgarticle">Image</label><input type="file" name="imgarticle" id="imgarticle"
-                    accept="image/jpeg, image/png" />
-            </div>
-
-
-        </div>
     </div>
 
     <!-- Submit buttons -->
