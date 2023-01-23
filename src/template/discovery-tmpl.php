@@ -1,0 +1,1 @@
+<div id="page-name" data-page="discovery-page">DISCOVERY PAGE CONTENT</div>

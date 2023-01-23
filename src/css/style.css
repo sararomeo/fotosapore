@@ -109,6 +109,10 @@
     color: red;
 }
 
+.active {
+	color: red !important;
+}
+
 /**** FORM (Login, signup) ****/
 .form-control {
     background: transparent;

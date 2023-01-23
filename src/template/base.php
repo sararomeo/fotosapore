@@ -46,9 +46,9 @@
         <div class="collapse navbar-collapse" id="navbarScroll">
         <!-- Home -->
         <div class="float-end">
-        <ul class="navbar-nav flex-row navbar-nav-scroll list-inline">
+        <ul class="navbar-nav flex-row navbar-nav-scroll list-inline" id="nav-list">
             <li class="nav-item">
-                <a class="nav-link" href="./home.php">
+                <a class="nav-link" href="./home.php" id="home-nav-link">
                 <span class="d-flex align-items-center"><i class="bi bi-house fa-fw nav-bar-icon"></i></span>
                 <!-- pallino rosso di notifica se ci sono nuovi post nel feed della home -->
                 <!-- <span class="badge rounded-pill badge-notification bg-danger"></span> -->
@@ -56,19 +56,19 @@
             </li>
             <!-- Discovery -->
             <li class="nav-item">
-                <a class="nav-link" href="./home.php">
+                <a class="nav-link" href="./discovery.php" id="discovery-nav-link">
                 <span class="d-flex align-items-center"><i class="bi bi-compass fa-fw nav-bar-icon"></i></span>
                 </a>
             </li>
             <!-- Create post -->
             <li class="nav-item">
-                <a class="nav-link" href="./home.php">
+                <a class="nav-link" href="./create-post.php" id="create-post-nav-link">
                 <span class="d-flex align-items-center"><i class="bi bi-plus-circle fa-fw nav-bar-icon"></i></span>
                 </a>
             </li>
             <!-- Notifications -->
             <li class="nav-item">
-                <a class="nav-link" href="./home.php">
+                <a class="nav-link" href="./notification.php" id="notification-nav-link">
                 <span class="d-flex align-items-center"><i class="bi bi-bell fa-fw nav-bar-icon"></i></span>
                 <!-- pallino rosso notifica -->
                 <!-- <span class="badge rounded-pill badge-notification bg-danger">2</span> -->
@@ -76,7 +76,7 @@
             </li>
             <!-- Profile -->
             <li class="nav-item">
-                <a class="nav-link d-sm-flex align-items-sm-center" href="./home.php">
+                <a class="nav-link d-sm-flex align-items-sm-center" href="./profile.php" id="profile-nav-link">
                     <!-- img profilo -->
                 <!-- <img src="https://mdbootstrap.com/img/new/avatars/1.jpg" class="rounded-circle" height="22" alt="" loading="lazy" /> -->
                 <span class="d-flex align-items-center"><i class="bi bi-person fa-fw nav-bar-icon"></i></span>
@@ -100,50 +100,10 @@
 
     <!-- Main -->
     <main class = "row main" id="main">
-    <div class = "row container">
-        <div class = "col-md-4">
-            <p>RIGA 1 di TEST</p>
-            <p>RIGA 2 di TEST</p>
-            <p>RIGA 3 di TEST</p>
-            <p>RIGA 4 di TEST</p>
-        </div>
-        <div class = "col-md-4">
-            <p>RIGA 1 di TEST</p>
-            <p>RIGA 2 di TEST</p>
-            <p>RIGA 3 di TEST</p>
-            <p>RIGA 4 di TEST</p>
-        </div>
-        <div class = "col-md-4">
-            <p>RIGA 1 di TEST</p>
-            <p>RIGA 2 di TEST</p>
-            <p>RIGA 3 di TEST</p>
-            <p>RIGA 4 di TEST</p>
-            <p>RIGA 1 di TEST</p>
-            <p>RIGA 2 di TEST</p>
-            <p>RIGA 3 di TEST</p>
-            <p>RIGA 4 di TEST</p>
-            <p>RIGA 1 di TEST</p>
-            <p>RIGA 2 di TEST</p>
-            <p>RIGA 3 di TEST</p>
-            <p>RIGA 4 di TEST</p>
-            <p>RIGA 1 di TEST</p>
-            <p>RIGA 2 di TEST</p>
-            <p>RIGA 3 di TEST</p>
-            <p>RIGA 4 di TEST</p>
-            <p>RIGA 1 di TEST</p>
-            <p>RIGA 2 di TEST</p>
-            <p>RIGA 3 di TEST</p>
-            <p>RIGA 4 di TEST</p>
-            <p>RIGA 1 di TEST</p>
-            <p>RIGA 2 di TEST</p>
-            <p>RIGA 3 di TEST</p>
-            <p>RIGA 4 di TEST</p>
-            <p>RIGA 1 di TEST</p>
-            <p>RIGA 2 di TEST</p>
-            <p>RIGA 3 di TEST</p>
-            <p>RIGA 4 di TEST</p>
-        </div>
-    </div>
+
+    <!-- Home -->
+	<?php require($templateParams["page"]); ?>
+
     </main>
 
     <!-- Footer -->

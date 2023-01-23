@@ -50,3 +50,32 @@ $(window).resize(function() {
     }
 });
 
+/**
+ * Set active page in navbar.
+ */
+$(window).load(function() {
+    var current_page = $("#page-name").data("page");
+    // Remove the "active" class from ALL the links first
+    $("#nav-link").removeClass("active");
+
+    // Add the "active" class to the link that matches the current page
+    switch (current_page) {
+        case "home-page":
+            $("#home-nav-link").addClass("active");
+        break;
+        case "discovery-page":
+            $("#discovery-nav-link").addClass("active");
+        break;
+        case "profile-page":
+            $("#profile-nav-link").addClass("active");
+        break;
+        case "create-post-page":
+            $("#create-post-nav-link").addClass("active");
+        break;
+        case "notification-page":
+            $("#notification-nav-link").addClass("active");
+        break;
+        default:
+            console.log("No existing page name found.");
+    }
+});

@@ -1,0 +1,1 @@
+<div id="page-name" data-page="notification-page">NOTIFICATION PAGE CONTENT</div>
