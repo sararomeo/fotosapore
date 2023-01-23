@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Gen 22, 2023 alle 18:41
+-- Creato il: Gen 23, 2023 alle 14:12
 -- Versione del server: 10.4.27-MariaDB
 -- Versione PHP: 8.2.0
 
@@ -80,6 +80,7 @@ CREATE TABLE `notification` (
 
 CREATE TABLE `post` (
   `postID` int(10) NOT NULL,
+  `title` text NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `caption` text NOT NULL,
   `recipe` text NOT NULL,
@@ -87,16 +88,32 @@ CREATE TABLE `post` (
   `userID` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dump dei dati per la tabella `post`
+--
+
+INSERT INTO `post` (`postID`, `title`, `timestamp`, `caption`, `recipe`, `imagePath`, `userID`) VALUES
+(1, 'Tea', '2023-01-23 13:10:50', 'A cup of tea for testing.', 'A recipe for the tea, just for testing.', 'test.jpg', 1);
+
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `postcategory`
+-- Struttura della tabella `tags`
 --
 
-CREATE TABLE `postcategory` (
+CREATE TABLE `tags` (
   `postID` int(11) NOT NULL,
-  `category` varchar(30) NOT NULL
+  `tag` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dump dei dati per la tabella `tags`
+--
+
+INSERT INTO `tags` (`postID`, `tag`) VALUES
+(1, 'te'),
+(1, 'tea'),
+(1, 'the');
 
 -- --------------------------------------------------------
 
@@ -111,6 +128,13 @@ CREATE TABLE `user` (
   `password` varchar(512) NOT NULL,
   `bio` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dump dei dati per la tabella `user`
+--
+
+INSERT INTO `user` (`userID`, `email`, `username`, `password`, `bio`) VALUES
+(1, 'test@mail.it', 'test', '$2y$10$oKjFRslN8OieKLgNDWqCJunWT55tTJdKsamowXEwGtDtr35OfiGHK', '');
 
 --
 -- Indici per le tabelle scaricate
@@ -154,10 +178,10 @@ ALTER TABLE `post`
   ADD KEY `userID` (`userID`);
 
 --
--- Indici per le tabelle `postcategory`
+-- Indici per le tabelle `tags`
 --
-ALTER TABLE `postcategory`
-  ADD PRIMARY KEY (`postID`);
+ALTER TABLE `tags`
+  ADD PRIMARY KEY (`postID`,`tag`);
 
 --
 -- Indici per le tabelle `user`
@@ -185,13 +209,13 @@ ALTER TABLE `notification`
 -- AUTO_INCREMENT per la tabella `post`
 --
 ALTER TABLE `post`
-  MODIFY `postID` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `postID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT per la tabella `user`
 --
 ALTER TABLE `user`
-  MODIFY `userID` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `userID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Limiti per le tabelle scaricate
@@ -228,14 +252,13 @@ ALTER TABLE `notification`
 -- Limiti per la tabella `post`
 --
 ALTER TABLE `post`
-  ADD CONSTRAINT `post_ibfk_2` FOREIGN KEY (`postID`) REFERENCES `postcategory` (`postID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `post_ibfk_3` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Limiti per la tabella `postcategory`
+-- Limiti per la tabella `tags`
 --
-ALTER TABLE `postcategory`
-  ADD CONSTRAINT `postcategory_ibfk_2` FOREIGN KEY (`postID`) REFERENCES `post` (`postID`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `tags`
+  ADD CONSTRAINT `tags_ibfk_1` FOREIGN KEY (`postID`) REFERENCES `post` (`postID`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
