@@ -27,7 +27,9 @@
                 </div>
             </div>
             <div class="action-btn-container p-2 d-flex justify-content-center">
-                <button class="btn p-2 action-btn edit-profile-btn">Edit Profile</button>
+                <form action="#" method="POST" name="login-form">
+                <input class="btn p-2 action-btn profile-btn" type="button" value="Edit Profile" onClick="location.href='edit-profile.php'"></input>
+                </form>
             </div>
         </div>
 
