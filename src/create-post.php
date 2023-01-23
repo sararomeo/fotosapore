@@ -9,7 +9,15 @@ if(!isSessionOpen()){
 $templateParams["title"] = "FotoSapore | Create post";
 $templateParams["page"] = "post-tmpl.php";
 
-//qui aggiungere qualiasi altra cosa che possa essere comoda importare in $templateParams
+//if the post insertion fails the user is referenced into this page. 
+//formmsg represent the error that coused the post insertion fail
+if(isset($_GET["msg"])){ 
+    $templateParams["msg"] = $_GET["msg"]; 
+    $templateParams["postTitle"] = $_GET["postTitle"];
+    $templateParams["caption"] = $_GET["caption"];
+    $templateParams["recipe"] = $_GET["recipe"];
+    $templateParams["tagString"] = $_GET["tagString"];
+}
 
 require("template/base.php");
 ?>
