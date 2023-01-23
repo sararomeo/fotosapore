@@ -50,18 +50,18 @@ function uploadImage($path, $image){
     //Controllo se immagine è veramente un'immagine
     $imageSize = getimagesize($image["tmp_name"]);
     if($imageSize === false) {
-        $msg .= "The uploaded file is not an image! ";
+        $msg .= "The uploaded file is not an image!";
     }
 
     //Controllo dimensione dell'immagine < 500KB
     if ($image["size"] > $maxKB * 1024) {
-        $msg .= "The uploaded file is too heavy! Max upload file size is $maxKB KB. ";
+        $msg .= "The uploaded file is too heavy! The maximum size is: ".$maxKB."kb";
     }
 
     //Controllo estensione del file
     $imageFileType = strtolower(pathinfo($fullPath,PATHINFO_EXTENSION));
     if(!in_array($imageFileType, $acceptedExtensions)){
-        $msg .= "Only the following extensions are allowed: ".implode(",", $acceptedExtensions);
+        $msg .= "The image has't in an allowed extension: ".implode(",", $acceptedExtensions);
     }
 
     //Controllo se esiste file con stesso nome ed eventualmente lo rinomino
