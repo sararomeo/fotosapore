@@ -6,6 +6,15 @@
             $profileData = $dbh->getUserProfileInfo($userIDtest);
             $followers = $dbh->getFollowersCount($userIDtest)['followers'];
             $following = $dbh->getFollowingsCount($userIDtest)['following'];
+
+            if($userIDtest == $_SESSION['userID']) {
+                $btnValue = "Edit profile";
+            } else if ($dbh->isFollowing($userIDtest, $_SESSION['userID'])) {
+                $btnValue = "Unfollow";
+            } else {
+                $btnValue = "Follow";
+            }
+
             ?>
             <div class="d-flex justify-content-center">
                 <h1 class="h1 p-1 text-center"><?php echo $profileData['username']; ?></h1>
@@ -28,7 +37,7 @@
             </div>
             <div class="action-btn-container p-2 d-flex justify-content-center">
                 <form action="#" method="POST" name="login-form">
-                <input class="btn p-2 action-btn profile-btn" type="button" value="Edit Profile" onClick="location.href='edit-profile.php'"></input>
+                <input class="btn p-2 action-btn profile-btn" id="profile-btn" data-target="<?php echo $userIDtest; ?>" type="button" value="<?= $btnValue ?>"></input>
                 </form>
             </div>
         </div>

@@ -136,6 +136,38 @@ class DatabaseHelper
     }
 
     /**
+     * Check if user is following another user
+     * @param mixed $userID
+     * @param mixed $followerID
+     * @return bool
+     */
+    public function isFollowing($profileID, $loggedUserID)
+    {
+        $query = "SELECT * FROM followers WHERE user = ? AND follower = ? LIMIT 1;";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("ii", $profileID, $loggedUserID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->num_rows > 0;
+    }
+
+    public function followUser($profileID, $loggedUserID)
+    {
+        $query = "INSERT INTO followers (user, follower) VALUES (?,?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("ii", $profileID, $loggedUserID);
+        $stmt->execute();
+    }
+
+    public function unfollowUser($profileID, $loggedUserID)
+    {
+        $query = "DELETE FROM followers WHERE user = ? AND follower = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("ii", $profileID, $loggedUserID);
+        $stmt->execute();
+    }
+
+    /**
      * Register new post into database
      * @param mixed $title
      * @param mixed $caption
