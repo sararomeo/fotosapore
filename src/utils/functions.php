@@ -44,24 +44,24 @@ function uploadImage($path, $image){
     $fullPath = $path.$imageName;
     
     $maxKB = 500;
-    $acceptedExtensions = array("jpg", "jpeg", "png", "gif");
+    $acceptedExtensions = array("jpg", "jpeg", "png");
     $result = 0;
     $msg = "";
     //Controllo se immagine è veramente un'immagine
     $imageSize = getimagesize($image["tmp_name"]);
     if($imageSize === false) {
-        $msg .= "File caricato non è un'immagine! ";
+        $msg .= "The uploaded file is not an image! ";
     }
 
     //Controllo dimensione dell'immagine < 500KB
     if ($image["size"] > $maxKB * 1024) {
-        $msg .= "File caricato pesa troppo! Dimensione massima è $maxKB KB. ";
+        $msg .= "The uploaded file is too heavy! Max upload file size is $maxKB KB. ";
     }
 
     //Controllo estensione del file
     $imageFileType = strtolower(pathinfo($fullPath,PATHINFO_EXTENSION));
     if(!in_array($imageFileType, $acceptedExtensions)){
-        $msg .= "Accettate solo le seguenti estensioni: ".implode(",", $acceptedExtensions);
+        $msg .= "Only the following extensions are allowed: ".implode(",", $acceptedExtensions);
     }
 
     //Controllo se esiste file con stesso nome ed eventualmente lo rinomino
@@ -78,7 +78,7 @@ function uploadImage($path, $image){
     //Se non ci sono errori, sposto il file dalla posizione temporanea alla cartella di destinazione
     if(strlen($msg)==0){
         if(!move_uploaded_file($image["tmp_name"], $fullPath)){
-            $msg.= "Errore nel caricamento dell'immagine.";
+            $msg.= "Error during file upload.";
         }
         else{
             $result = 1;
