@@ -16,7 +16,9 @@ $("#profile-btn").click(function () {
         location.href = 'edit-profile.php';
     } else if ($(this).val() == "Unfollow") {
         toggleFollow("Follow", $(this).attr('data-target'));
+        $('.change-followers-count').html(parseInt($('.change-followers-count').html(), 10)-1);
     } else if ($(this).val() == "Follow") {
         toggleFollow("Unfollow", $(this).attr('data-target'));
+        $('.change-followers-count').html(parseInt($('.change-followers-count').html(), 10)+1);
     }
 });

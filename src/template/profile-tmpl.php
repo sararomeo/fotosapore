@@ -27,7 +27,7 @@
         <div class="profile-buttons p-2 align-self-center">
             <div class="profile-follow-count p-2 row justify-content-center">
                 <div class="col">
-                <h3 class="h3 p-1 text-center"><?php echo $followers; ?><h3>
+                <h3 class="h3 p-1 text-center change-followers-count"><?php echo $followers; ?><h3>
                 <p class="lead p-1 text-center">Followers</p>
                 </div>
                 <div class="col">
