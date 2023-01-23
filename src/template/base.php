@@ -100,10 +100,11 @@
 
     <!-- Main -->
     <main class = "row main" id="main">
-
-    <!-- Home -->
-	<?php require($templateParams["page"]); ?>
-
+        <?php
+            if(isset($templateParams["page"])){
+                require($templateParams["page"]);
+            }
+        ?>
     </main>
 
     <!-- Footer -->

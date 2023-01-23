@@ -9,8 +9,9 @@ if(isset($_POST["email"]) && isset($_POST["password"])) {
     // Check login submission
     if($dbh->checkLogin($email, $pw)){
         //create user session
-        $username = $dbh->getUsername($email);
-        openUserSession($username, $email);     
+        $userdata = $dbh->getUserData($email);
+        $userdata["email"] = $email; 
+        openUserSession($userdata);     
     } else {
         $templateParams["loginerror"] = "<div class = \"text-center\"><ul class=\"list-group list-group-flush\"><li class=\"list-group-item list-group-item-danger\">Wrong e-mail or password!</li><li class=\"list-group-item\">Try again:</li></ul></div>";
     }
