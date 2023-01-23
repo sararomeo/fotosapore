@@ -75,6 +75,11 @@ class DatabaseHelper
         $stmt->close();
     }
 
+    /**
+     * Get user data from database
+     * @param mixed $email
+     * @return mixed
+     */
     public function getUserData($email)
     {
         $query = "SELECT userID, username FROM user WHERE email = ?;";
@@ -85,6 +90,15 @@ class DatabaseHelper
         return $result->fetch_all(MYSQLI_ASSOC)[0];
     }
 
+    /**
+     * Register new post into database
+     * @param mixed $title
+     * @param mixed $caption
+     * @param mixed $recipe
+     * @param mixed $imagePath
+     * @param mixed $userID
+     * @return int|string
+     */
     public function insertNewPost($title, $caption, $recipe, $imagePath, $userID)
     {
         $query = "INSERT INTO post (title, caption, recipe, imagePath, userID) VALUES (? , ?, ? , ?, ?)";
@@ -94,6 +108,12 @@ class DatabaseHelper
         return $stmt->insert_id;
     }
 
+    /**
+     * Register new tag into database
+     * @param mixed $postID
+     * @param mixed $tag
+     * @return bool
+     */
     public function insertPostTags($postID, $tag)
     {
         $query = "INSERT INTO tags (postID, tag) VALUES (? , ?)";
