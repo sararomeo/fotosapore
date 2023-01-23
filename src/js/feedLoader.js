@@ -1,6 +1,7 @@
 // Variables
 const container = document.getElementById('container');
-index = 0;
+var index = 0;
+var maxIndex;
 
 // Main
 getPost();
@@ -17,20 +18,24 @@ getPost();
 window.addEventListener('scroll', () => {
     const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
 	
-	console.log( { scrollTop, scrollHeight, clientHeight });
 	if(clientHeight + scrollTop >= scrollHeight - 5) {
-        setTimeout(getPost, 1000)
+        getPost();
 	}
 });
 
+/**
+ * Load the next post in the index.
+ */
 function getPost() {
+    if(index >= maxIndex) return;
+
     let args = {"value":index};
     let jsonArgs = JSON.stringify(args);
 
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            addDataToFeed(JSON.parse(this.responseText));
+            addDataToFeed(JSON.parse(this.response));
         }
     };
     xmlhttp.open("POST", "db/feed-request.php", true);
@@ -39,13 +44,19 @@ function getPost() {
     index = index + 1;
 }
 
-function addDataToFeed(postData) {
+/**
+ * Add the post in the feed.
+ * @param {*} response The JSON to be loaded in the feed.
+ */
+function addDataToFeed(response) {
+    maxIndex = response.postNum;
+    postContent = response.postArray;
     const postElement = document.createElement('div');
     postElement.classList.add('user-post');
     postElement.innerHTML = `
-		<h1 class="title">${postData.title}</h2>
-		<p class="text">${postData.caption}</p>
-        <p class="text2">${postData.timestamp}</p>
+		<h1 class="title">${postContent.title}</h2>
+		<p class="text">${postContent.caption}</p>
+        <p class="text2">${postContent.timestamp}</p>
 	`;
     container.appendChild(postElement);
 }
