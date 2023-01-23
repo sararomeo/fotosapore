@@ -121,5 +121,20 @@ class DatabaseHelper
         $stmt->bind_param("is", $postID, $tag);
         return $stmt->execute();
     }
+
+    /**
+     * 
+     */
+    public function requestAllPosts() {
+        $query ="SELECT P1.datetime, P1.content, U1.username
+                FROM post P1, user U1
+                WHERE P1.userID = U1.userID
+                ORDER BY P1.datetime DESC LIMIT 50";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
 }
 ?>
