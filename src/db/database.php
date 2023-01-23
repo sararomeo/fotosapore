@@ -91,6 +91,51 @@ class DatabaseHelper
     }
 
     /**
+     * Get user data from database to display on profile page
+     * @param mixed $userID
+     * @return mixed
+     */
+    public function getUserProfileInfo($userID)
+    {
+        $query = "SELECT username, bio FROM user WHERE userID = ?;";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $userID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC)[0];
+    }
+
+    /**
+     * Get user's followers count
+     * @param mixed $userID
+     * @return mixed
+     */
+    public function getFollowersCount($userID)
+    {
+        $query = "SELECT COUNT(*) AS followers FROM user u, followers f WHERE u.userID = f.user AND userID = ?;";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $userID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC)[0];
+    }
+
+    /**
+     * Get user's followers count
+     * @param mixed $userID
+     * @return mixed
+     */
+    public function getFollowingsCount($userID)
+    {
+        $query = "SELECT COUNT(*) AS following FROM user u, followers f WHERE u.userID = f.follower AND userID = ?;";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $userID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC)[0];
+    }
+
+    /**
      * Register new post into database
      * @param mixed $title
      * @param mixed $caption
