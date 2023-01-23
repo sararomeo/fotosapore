@@ -16,13 +16,89 @@
     max-height: 10rem;
 }
 
-/**** NAVBAR ****/
+/** Search bar icon with transition box **/
+.search-input
+{
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	border: 2px solid rgba(0, 0, 0, 0.7);
+	box-sizing: border-box;
+	outline: none;
+	transition: width 0.4s ease-in-out,
+				border-radius 0.8s ease-in-out,
+				padding 0.2s;
+	transition-delay: 0.4s;
+	color: rgba(0, 0, 0, 0.7);
+	font-size: 15px;
+}
+.search-input::placeholder{
+    color: transparent;
+}
+.inclicked::placeholder{
+    padding-left: 5%;
+    color: rgba(0, 0, 0, 0.5);
+}
+.inclicked:focus::placeholder {
+    color: transparent;
+}
+.inclicked
+{
+	width: 12em !important;
+	border-radius: 0;
+}
+.search-btn
+{
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	top: 0;
+	right: 0;
+	box-sizing: border-box;
+	background: none;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+.search-btn::before
+{
+	content: "";
+	width: 2px;
+	height: 12.5px;
+	background: rgba(0, 0, 0, 0.7);
+	position: absolute;
+	transform: rotate(-45deg);
+	bottom: -8px;
+	right: -3px;
+	transition: 0.3s;
+}
+.close::before,.close::after
+{
+	content: "";
+	width: 2px;
+	height: 17px;
+	background: red;
+	position: absolute;
+	bottom: 6px;
+	right: 14px;
+	right: 14px;
+}
+.close::before
+{
+	transform: rotate(-45deg);
+}
+.close::after
+{
+	transform: rotate(45deg);
+}
+
+/** NAVBAR **/
 .nav-bar-icon {
-    font-size: 1.5em !important;
+    font-size: 2em !important;
 }
 
 .nav-item a, .nav-link a {
-    color: black;
+    color: rgba(0, 0, 0, 0.7);
 }
 
 .nav-item a:hover, .nav-link a:hover {
@@ -31,6 +107,10 @@
 
 .nav-bar-btn:hover {
     color: red;
+}
+
+.active {
+	color: red !important;
 }
 
 /**** FORM (Login, signup) ****/

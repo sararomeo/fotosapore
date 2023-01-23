@@ -1,0 +1,1 @@
+<div id="page-name" data-page="home-page">HOME PAGE CONTENT</div>

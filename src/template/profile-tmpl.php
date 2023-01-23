@@ -1,0 +1,1 @@
+<div id="page-name" data-page="profile-page">PROFILE PAGE CONTENT</div>

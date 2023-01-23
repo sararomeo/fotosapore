@@ -19,3 +19,63 @@ $(window).ready (function () {
 $(window).resize (function () {
     setMainMarginTop();
 });
+
+/**
+ * Switch class to animate search bar.
+ */
+$("#search-btn").on("click",function(){
+    $(".search-input").toggleClass("inclicked");
+    $("#search-btn").toggleClass("close");
+});
+
+/**
+ * Remove the d-flex justify-content-end classes from the navbar when the screen is less than 768px at load.
+ */
+$(window).load(function() {
+    if($(window).width() < 768) {
+        $("#navbarScroll").removeClass("justify-content-end");
+    } else {
+        $("#navbarScroll").addClass("justify-content-end");
+    }
+});
+
+/**
+ * Remove the d-flex justify-content-end classes from the navbar when the screen is less than 768px at resize.
+ */
+$(window).resize(function() {
+    if($(window).width() < 768) {
+        $("#navbarScroll").removeClass("justify-content-end");
+    } else {
+        $("#navbarScroll").addClass("justify-content-end");
+    }
+});
+
+/**
+ * Set active page in navbar.
+ */
+$(window).load(function() {
+    var current_page = $("#page-name").data("page");
+    // Remove the "active" class from ALL the links first
+    $("#nav-link").removeClass("active");
+
+    // Add the "active" class to the link that matches the current page
+    switch (current_page) {
+        case "home-page":
+            $("#home-nav-link").addClass("active");
+        break;
+        case "discovery-page":
+            $("#discovery-nav-link").addClass("active");
+        break;
+        case "profile-page":
+            $("#profile-nav-link").addClass("active");
+        break;
+        case "create-post-page":
+            $("#create-post-nav-link").addClass("active");
+        break;
+        case "notification-page":
+            $("#notification-nav-link").addClass("active");
+        break;
+        default:
+            console.log("No existing page name found.");
+    }
+});
