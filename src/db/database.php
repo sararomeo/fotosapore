@@ -185,11 +185,49 @@ class DatabaseHelper
 
         //call the function in notify-system for sending an email
         sendCommentNotification($this->getEmail($postPublisherID), $username);
-        
     }
-    
 
+    /**
+     * TO TEST 
+     *  Insert the notification into the database and send an email notification to the user
+     * @param mixed $userID the userID of the user that liked the post; 
+     * @param mixed $postID the postID of the post that the user has liked; 
+     * @return void
+     */
+    public function insertLikeNotifications($userID, $postID)
+    {
+        $postPublisherID = $this->getUserIDgivenPostID($postID);
+        $username = $this->getUsername($userID)['username'];
+        $notificationText = $username . " has liked on your post!";
 
+        $query = "INSERT INTO notification (userID, text) VALUES (? , ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("is", $postPublisherID, $notificationText);
+        $stmt->execute();
 
+        //call the function in notify-system for sending an email
+        sendLikeNotification($this->getEmail($postPublisherID), $username);
+    }
+
+    /**
+     * TO TEST
+     *  Insert the notification into the database and send an email notification to the user
+     * @param mixed $followerID the userID of the user that liked the post; 
+     * @param mixed $followedID the postID of the post that the user has liked; 
+     * @return void
+     */
+    public function sendFollowNotification($followerID, $followedID)
+    {        
+        $username = $this->getUsername($followerID)['username'];
+        $notificationText = $username . " has started following your profile!";
+
+        $query = "INSERT INTO notification (userID, text) VALUES (? , ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("is", $followedID, $notificationText);
+        $stmt->execute();
+
+        //call the function in notify-system for sending an email
+        sendFollowNotification($this->getEmail($followedID), $username);
+    }
 }
 ?>
