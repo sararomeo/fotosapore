@@ -112,6 +112,16 @@ class DatabaseHelper
         return $result->fetch_all(MYSQLI_ASSOC)[0];
     }
 
+    private function getEmail($userID)
+    {
+        $query = "SELECT email FROM user WHERE userID = ?;";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $userID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC)[0]['email'];
+    }
+
     private function getFollowersInformations($userID)
     {
         $query = "SELECT DISTINCT userID, email, username FROM user WHERE user.userID in (SELECT follower FROM followers WHERE user = ?);";
@@ -122,6 +132,16 @@ class DatabaseHelper
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+
+    private function getUserIDgivenPostID($postID)
+    {
+        $query = "SELECT userID FROM post WHERE postID = ?;";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $postID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC)[0]['userID'];
+    }
 
     /**
      *  Insert into the database and send an email notification to all the followers 
@@ -152,7 +172,22 @@ class DatabaseHelper
      * @param mixed $postID the postID of the post that the user has commented
      * @return void
      */
+    public function insertCommentNotifications($userID, $postID)
+    {
+        $postPublisherID = $this->getUserIDgivenPostID($postID);
+        $username = $this->getUsername($userID)['username'];
+        $notificationText = $username . " has commented on your post!";
 
+        $query = "INSERT INTO notification (userID, text) VALUES (? , ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("is", $postPublisherID, $notificationText);
+        $stmt->execute();
+
+        //call the function in notify-system for sending an email
+        sendCommentNotification($this->getEmail($postPublisherID), $username);
+        
+    }
+    
 
 
 
