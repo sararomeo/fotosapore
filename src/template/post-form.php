@@ -1,4 +1,4 @@
-<form action="insert-article.php" method="POST" enctype="multipart/form-data">
+<form action="elaborate-article.php" method="POST" enctype="multipart/form-data">
 
     <div class="row">
 
@@ -25,6 +25,10 @@
             <div class="form-outline p-2">
                 <label for="recipe">Recipe:</label><textarea id="recipe" class="form-control" name="recipe"
                     rows="6"></textarea>
+            </div>
+            <div class="form-outline p-2">
+                <label for="tags">Tags:</label><textarea id="tags" class="form-control" name="tags"
+                    rows="2"></textarea>
             </div>
         </div>
 
