@@ -15,7 +15,7 @@ class DatabaseHelper
     {
         $this->db = new mysqli($servername, $username, $password, $dbname, $port);
         if ($this->db->connect_error) {
-            die("Connection failed: " . $db->connect_error);
+            die("Connection failed: " . $this->db->connect_error);
         }
     }
 
@@ -398,41 +398,29 @@ class DatabaseHelper
      * Search by given tags.
      */
     public function getSearchPosts($tags) {
-        $tagParameter = ""; 
-        
-        for ($i = 0; $i < count($tags); $i++) {
-            if($i == 0){ 
-                $tagParameter = "'".$tags[$i]."'"; 
-            }else{ 
-                $tagParameter = $tagParameter.", '".$tags[$i]."'"; 
-            }
-        }
-
-        //    $tagParameter = "'te', 'the'"; 
-        //print_r("|". $tagParameter."|"); 
+        array_push($tags, $_SESSION['userID']);
+        $paramsTypes = str_repeat('s', count($tags) - 1) . 'i';
+        $questionMarks = str_repeat('?,', count($tags) - 2) . '?';
 
         $query ="SELECT u.username, p.title, p.caption, p.imagePath, p.recipe, p.postID
         FROM post p, user u, (SELECT tags.postID, COUNT(*) as ntag 
-                        FROM tags
-                        WHERE tag in ($tagParameter)
-                        group by postID) AS m
+                                FROM tags
+                                WHERE tag in ($questionMarks)
+                                group by postID) AS m
         WHERE p.postID = m.postID 
         AND u.userID = p.userID 
         AND u.userID != ?
         ORDER BY m.ntag DESC";
 
         $stmt = $this->db->prepare($query);
+        $stmt->bind_param($paramsTypes, ...$tags);
+        $stmt->execute();        
+        $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 
-        $stmt->bind_param(/*s*/"i",/* $tagParameter,*/ $_SESSION['userID']);
-        $stmt->execute();
-        
-        //var_dump($result);
-        $result = $stmt->get_result();
-
-        print_r($result->fetch_all(MYSQLI_ASSOC)); 
-        // if (count($result->fetch_all(MYSQLI_ASSOC)) == 0)
+        //print_r($result);
+        // if (count($result) == 0)
         //     echo "No post with such tag was found.";
-        return $result->fetch_all(MYSQLI_ASSOC);
+        return $result;
     }
 
     /**
