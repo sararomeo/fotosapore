@@ -43,8 +43,10 @@
         </div>
 
 
-        <div class="feed align-self-center">
-            PROFILE OWNER FEED POSTS HERE
+        <div class="d-flex justify-content-center">
+          <div class = "scroll-container" id = "scroll-container">
+
+          </div>
         </div>
     </div>
 </div>

@@ -200,18 +200,71 @@ class DatabaseHelper
     }
 
     /**
-     * 
+     * Send the home posts in JSON format.
      */
-    public function requestAllPosts() {
-        $query ="SELECT P1.datetime, P1.content, U1.username
-                FROM post P1, user U1
-                WHERE P1.userID = U1.userID
-                ORDER BY P1.datetime DESC LIMIT 50";
+    public function getHomePosts() {
+        $query ="SELECT u.username, p.title, p.caption, p.imagePath, p.recipe 
+                FROM user u, followers f, post p 
+                WHERE f.follower = ? 
+                AND p.userID = f.user
+                AND u.userID = f.user
+                ORDER BY p.timestamp ";
         $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $_SESSION['userID']);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    /**
+     * Send the discovery posts in JSON format.
+     */
+    public function getDiscoveryPosts() {
+        $query ="SELECT u.username, p.title, p.caption, p.imagePath, p.recipe 
+                FROM user u, post p 
+                WHERE p.userID = u.userID 
+                AND u.userID != ? 
+                AND u.userID NOT IN (   SELECT f.user 
+                                        FROM followers f 
+                                        WHERE f.follower = ? )";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("ii", $_SESSION['userID'], $_SESSION['userID']);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    /**
+     * Send the requested profile posts in JSON format. TODO
+     */
+    public function getProfilePosts() {
+        $query ="SELECT u.username, p.title, p.caption, p.imagePath, p.recipe 
+                FROM user u, post p 
+                WHERE p.userID = u.userID 
+                AND u.userID = ?  
+                ORDER BY p.timestamp ";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i",$_SESSION['userID']);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    /**
+     * Send the post searched. TODO
+     */
+    public function getSearchPosts($tag) {
+        $query ="SELECT u.username, p.title, p.caption, p.imagePath, p.recipe 
+                FROM user u, post p, tags t 
+                WHERE p.userID = u.userID 
+                AND u.userID != ? 
+                AND p.postID = t.postID 
+                AND t.tag = ? ";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("ii", $_SESSION['userID'], $tag);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 }
 ?>
