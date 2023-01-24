@@ -39,6 +39,7 @@ if (!isset($_FILES["imgarticle"]) || !isset($_POST["title"]) || !isset($_POST["c
     }
 }
 if ($result == 1) {
+    $dbh->insertPostNotifications($autor);
     header("location: home.php");
 } else {
     header("location: create-post.php?msg=" . $msg . "&postTitle=" . $title . "&caption=" . $caption . "&recipe=" . $recipe . "&tagString=" . $tagString);
