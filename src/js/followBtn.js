@@ -6,7 +6,7 @@ function toggleFollow(followValue, target) {
         followValue: followValue
     };
 
-    ajaxRequest('./utils/request-follow.php', function () {
+    ajaxRequest('./db/follow-request.php', function () {
         $("#profile-btn").val(followValue);
     }, args);
 }
