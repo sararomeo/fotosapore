@@ -46,7 +46,7 @@ function addDataToFeed(response) {
 
     const div = Object.assign(document.createElement("div"),{className:"user-post"});
     const h1 = Object.assign(document.createElement("h1"),{className:"title",innerText:response.postArray.title});
-    const p1 = Object.assign(document.createElement("p"),{className:"text1",innerText:response.postArray.timestamp});
+    const p1 = Object.assign(document.createElement("p"),{className:"text1",innerText:response.postArray.imagePath});
     const p2 = Object.assign(document.createElement("p"),{className:"text2",innerText:response.postArray.caption});
     const p3 = Object.assign(document.createElement("p"),{className:"text3",innerText:response.postArray.recipe});
     const h2 = Object.assign(document.createElement("h2"),{className:"title2",innerText:response.postArray.username});
