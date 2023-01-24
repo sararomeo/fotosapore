@@ -97,7 +97,7 @@ class DatabaseHelper
      */
     public function getUserProfileInfo($userID)
     {
-        $query = "SELECT username, bio FROM user WHERE userID = ?;";
+        $query = "SELECT username, bio, email FROM user WHERE userID = ?;";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $userID);
         $stmt->execute();
