@@ -1,14 +1,23 @@
 <?php
     require_once("database.php");
+    require_once("../bootstrap.php");
     $args = json_decode($_POST["args"], false);
-    $dbh = new DatabaseHelper("localhost", "root", "", "fotosapore", 3306);
     
-    $postArray = $dbh->requestAllPosts();
-    $postNum = count($postArray);
+    if($args->pageName == "home.php") {
+        $postArray = $dbh->getFeedPosts();
+        $postNum = count($postArray);
+    } else if($args->pageName == "discovery.php") {
+        $postArray = $dbh->getDiscoveryPosts();
+        $postNum = count($postArray);
+    }
 
     $requestObj = new stdClass();
     $requestObj->postNum = $postNum;
-    $requestObj->postArray = $postArray[$args->value];
+    if($args->value >= $postNum){
+        $requestObj->postArray = null;
+    } else {
+        $requestObj->postArray = $postArray[$args->value];
+    }
 
     echo json_encode($requestObj);
 ?>
