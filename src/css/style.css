@@ -128,16 +128,12 @@
     /*transition: border-color ease-in-out .5s, box-shadow ease-in-out .5s !important;*/
 }
 
-.form-btn {	
-    border-radius: 10%;
-}
-
-.form-btn, .action-btn {
+.form-btn {
     border: 2px solid rgba(255, 0, 0, .5);
     background-color: transparent;
 }
 
-.form-btn:hover, .action-btn:hover {
+.form-btn:hover {
     border-color: red;
     background-position: bottom left;
 }

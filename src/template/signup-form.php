@@ -29,7 +29,7 @@
 
     <!-- Submit buttons -->
     <div class="d-flex justify-content-end">
-        <input class="form-btn align-right p-2 m-2" type="submit" name="signup-submit" value="Sign up" />
-        <input class="form-btn align-right p-2 m-2" type="button" name="login-button" value="Log in" onClick="location.href='index.php'"></input>
+        <input class="form-btn align-right p-2 m-2 rounded" type="submit" name="signup-submit" value="Sign up" />
+        <input class="form-btn align-right p-2 m-2 rounded" type="button" name="login-button" value="Log in" onClick="location.href='index.php'"></input>
     </div>
 </form>

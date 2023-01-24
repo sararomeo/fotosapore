@@ -1,10 +1,9 @@
 
 <form action="elaborate-post.php" method="POST" enctype="multipart/form-data">
-
-
-<div class="row">
+<h1 class="h1 p-2 text-center">Upload your recipe!</h1>
+<div class="row p-4">
     <!-- image input -->
-    <div class="col-md-7">
+    <div class="col-md-7">        
         <h2>Insert a photo</h2>
         <div class="form-outline p-2 mt-3">
             <label for="imgarticle">Image</label><input type="file" name="imgarticle" id="imgarticle"
@@ -57,10 +56,9 @@
 </div>
 
 <!-- Submit buttons -->
-<div class="row mt-5">
-    <div class="d-flex justify-content-start ">
-        <button type="submit" class="btn btn-primary">Publish post</button>
-    </div>
+<div class="d-flex justify-content-center py-4">
+    <input class="form-btn align-right p-2 m-2 rounded" type="submit" value="Publish post" />
 </div>
+
 
 </form>

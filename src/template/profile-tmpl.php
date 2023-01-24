@@ -37,7 +37,7 @@
             </div>
             <div class="action-btn-container p-2 d-flex justify-content-center">
                 <form action="#" method="POST" name="login-form">
-                <input class="btn p-2 action-btn profile-btn" id="profile-btn" data-target="<?php echo $userIDtest; ?>" type="button" value="<?= $btnValue ?>"></input>
+                <input class="btn p-2 form-btn rounded" id="profile-btn" data-target="<?php echo $userIDtest; ?>" type="button" value="<?= $btnValue ?>"></input>
                 </form>
             </div>
         </div>
