@@ -21,7 +21,7 @@
 
     <!-- Submit buttons -->
     <div class="d-flex justify-content-end">
-        <input class="form-btn align-right p-2 m-2" type="button" name="signup-button" value="Sign up" onClick="location.href='signup.php'"></input>
-        <input class="form-btn align-right p-2 m-2" type="submit" name="login-submit" value="Log in" />
+        <input class="form-btn align-right p-2 m-2 rounded" type="button" name="signup-button" value="Sign up" onClick="location.href='signup.php'"></input>
+        <input class="form-btn align-right p-2 m-2 rounded" type="submit" name="login-submit" value="Log in" />
     </div>
 </form>
