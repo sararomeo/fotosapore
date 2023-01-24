@@ -24,7 +24,7 @@ if(isSessionOpen()){
     $templateParams["title"] = "Foto Sapore | Log-in";
     $templateParams["page"] = "login-tmpl.php";
     
-    require("template/base-index.php");
+    require_once("template/base-index.php");
 }
 
 ?>
