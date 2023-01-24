@@ -347,7 +347,7 @@ class DatabaseHelper
      * Send the home posts in JSON format.
      */
     public function getHomePosts() {
-        $query ="SELECT u.username, p.title, p.caption, p.imagePath, p.recipe 
+        $query ="SELECT u.username, p.title, p.caption, p.imagePath, p.recipe, p.userID
                 FROM user u, followers f, post p 
                 WHERE f.follower = ? 
                 AND p.userID = f.user
@@ -364,7 +364,7 @@ class DatabaseHelper
      * Send the discovery posts in JSON format.
      */
     public function getDiscoveryPosts() {
-        $query ="SELECT u.username, p.title, p.caption, p.imagePath, p.recipe 
+        $query ="SELECT u.username, p.title, p.caption, p.imagePath, p.recipe, p.userID
                 FROM user u, post p 
                 WHERE p.userID = u.userID 
                 AND u.userID != ? 
@@ -382,7 +382,7 @@ class DatabaseHelper
      * Send the requested profile posts in JSON format. TODO
      */
     public function getProfilePosts() {
-        $query ="SELECT u.username, p.title, p.caption, p.imagePath, p.recipe 
+        $query ="SELECT u.username, p.title, p.caption, p.imagePath, p.recipe, p.userID
                 FROM user u, post p 
                 WHERE p.userID = u.userID 
                 AND u.userID = ?  
@@ -447,8 +447,6 @@ class DatabaseHelper
         $stmt->bind_param("ssi", $newUsername, $newBio, $_SESSION['userID']);
         return $stmt->execute();
     }
-
 }
-
 
 ?>

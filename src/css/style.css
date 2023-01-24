@@ -142,6 +142,17 @@
     box-sizing: border-box;
 }
 
+/**** SCROLLING and posts ****/
+
+.scroll-post img {
+    width: 100%;
+    height: auto;
+}
+
+.title-post {
+    text-align: center;
+}
+
 /**** RESPONSIVE DESIGN ****/
 @media (max-width: 768px) {
     .logo {

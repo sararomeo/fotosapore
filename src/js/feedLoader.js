@@ -44,20 +44,39 @@ function addDataToFeed(response) {
     const postElement = document.createElement('div');
     postElement.classList.add('user-post');
 
-    const div = Object.assign(document.createElement("div"),{className:"user-post"});
-    const h1 = Object.assign(document.createElement("h1"),{className:"title",innerText:response.postArray.title});
-    const p1 = Object.assign(document.createElement("p"),{className:"text1",innerText:response.postArray.imagePath});
-    const p2 = Object.assign(document.createElement("p"),{className:"text2",innerText:response.postArray.caption});
-    const p3 = Object.assign(document.createElement("p"),{className:"text3",innerText:response.postArray.recipe});
-    const h2 = Object.assign(document.createElement("h2"),{className:"title2",innerText:response.postArray.username});
+    const div = Object.assign(document.createElement("div"),{className:"scroll-post my-3 p-2 shadow border border-secondary p-2 my-3"});
 
+        const e1 = Object.assign(document.createElement("h2"),{className:"username-post my-2 fs-4"});
+            const hr1 =  Object.assign(document.createElement("a"),{className:"user-link link-dark text-decoration-none", innerText:response.postArray.username});
+            hr1.href = "profile.php?profileID=" + response.postArray.userID;
+            e1.appendChild(hr1);
 
-    div.appendChild(h1);
-    div.appendChild(p1);
-    div.appendChild(p2);    
-    div.appendChild(p3);
-    div.appendChild(h2);
+        const e2 = Object.assign(document.createElement("img"),{className:"image-post rounded"});
+            e2.src = "upload/" + response.postArray.imagePath.toString();
+            e2.alt = "recipe: " + response.postArray.title;
+            
+        const e3 = Object.assign(document.createElement("p"),{className:"bottom-bar-post"});
+            const s1 = Object.assign(document.createElement("span"),{className:"d-flex align-items-center"});
+                const b1 = Object.assign(document.createElement("i"),{className:"bi bi-heart fa-fw fa-2x"});
+                    //
+                const b2 = Object.assign(document.createElement("i"),{className:"bi bi-egg-fried fa-fw fa-2x"});
+                    //const hr2 =  Object.assign(document.createElement("a"),{className:"comment-link link-dark text-decoration-none"});
+                        //hr2.href = "profile.php?postID=" + response.postArray.postID;
+                        //b2.appendChild(hr2);
 
+                s1.appendChild(b1);
+                s1.appendChild(b2);
+            e3.appendChild(s1);
+
+        const e4 = Object.assign(document.createElement("h3"),{className:"title-post my-2 fs-3 fst-italic",innerText:response.postArray.title});
+
+        const e5 = Object.assign(document.createElement("p"),{className:"caption-post my-2",innerText:response.postArray.caption});
+
+    div.appendChild(e1);
+    div.appendChild(e2);
+    div.appendChild(e3);    
+    div.appendChild(e4);
+    div.appendChild(e5);
 
     container.appendChild(div);
     addDataIndex = addDataIndex + 1;
