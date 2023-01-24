@@ -30,8 +30,8 @@
             <a class="navbar-brand ms-2 me-2 d-flex align-items-center" href="./home.php"><img src="res/big-favicon.png" height="40em" alt="logo fotosapore" loading="lazy"/></a>
             <!-- Search form -->
             <div class="position-relative search-container">
-                <form action="search.php" class="search-box" method="POST" id="nav-search-form" method="post">
-                    <input type="search" id="myInput" onsearch="goToSearchPage()" role="search" class="input search-input" name="" value="" autocomplete="off" placeholder = "Search for a recipe...">
+                <form action="search.php" class="search-box" method="POST" id="nav-search-form" enctype="multipart/form-data">
+                    <input type="search" id="myInput" role="search" class="input search-input" name="myInput" value="" autocomplete="off" placeholder = "Search for a recipe...">
                     <button type="button" class="btn search-btn" name="button" id="search-btn"></button>
                 </form>
             </div>

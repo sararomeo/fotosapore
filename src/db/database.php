@@ -395,15 +395,18 @@ class DatabaseHelper
     }
 
     /**
-     * Send the post searched. TODO
+     * Send the post searched.
      */
     public function getSearchPosts($tag) {
-        $query ="SELECT u.username, p.title, p.caption, p.imagePath, p.recipe 
-                FROM user u, post p, tags t 
-                WHERE p.userID = u.userID 
-                AND u.userID != ? 
-                AND p.postID = t.postID 
-                AND t.tag = ? ";
+        $query ="SELECT u.username, p.title, p.caption, p.imagePath, p.recipe, p.postID
+        FROM post p, user u, (SELECT tags.postID, COUNT(*) as ntag 
+                        FROM tags
+                        WHERE tag in ('te', 'the')
+                        group by postID) AS m
+        WHERE p.postID = m.postID 
+        AND u.userID = p.userID 
+        AND u.userID != ?
+        ORDER BY m.ntag DESC";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("ii", $_SESSION['userID'], $tag);
         $stmt->execute();
