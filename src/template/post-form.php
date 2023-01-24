@@ -6,7 +6,7 @@
     <div class="col-md-7">        
         <h2 class="h2 p-2">Insert a photo</h2>
         <div class="form-outline mt-3">
-            <label for="imgarticle" hidden>Upload image</label><input type="file" class="btn form-btn align-right p-2 m-2 rounded" name="imgarticle" id="imgarticle" accept="image/jpeg, image/png" required/>
+            <label for="imgarticle" hidden>Upload image</label><input type="file" class="btn form-btn align-right p-2 rounded" name="imgarticle" id="imgarticle" accept="image/jpeg, image/png" required/>
         </div>
     </div>
 
