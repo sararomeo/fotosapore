@@ -338,6 +338,9 @@ class DatabaseHelper
         $query = "SELECT time, text FROM notification WHERE userID = ? ORDER BY time DESC;";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $userID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
     
     /**
