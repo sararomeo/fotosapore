@@ -102,7 +102,7 @@
     <main class = "row main" id="main">
         <?php
             if(isset($templateParams["page"])){
-                require($templateParams["page"]);
+                require_once($templateParams["page"]);
             }
         ?>
     </main>
