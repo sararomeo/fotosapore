@@ -231,7 +231,7 @@ class DatabaseHelper
     }
 
 
-    private function getUserIDgivenPostID($postID)
+    public function getUserIDgivenPostID($postID)
     {
         $query = "SELECT userID FROM post WHERE postID = ?;";
         $stmt = $this->db->prepare($query);
