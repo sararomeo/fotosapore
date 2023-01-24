@@ -75,6 +75,11 @@ class DatabaseHelper
         $stmt->close();
     }
 
+    /**
+     * Get user data from database
+     * @param mixed $email
+     * @return mixed
+     */
     public function getUserData($email)
     {
         $query = "SELECT userID, username FROM user WHERE email = ?;";
@@ -85,6 +90,92 @@ class DatabaseHelper
         return $result->fetch_all(MYSQLI_ASSOC)[0];
     }
 
+    /**
+     * Get user data from database to display on profile page
+     * @param mixed $userID
+     * @return mixed
+     */
+    public function getUserProfileInfo($userID)
+    {
+        $query = "SELECT username, bio FROM user WHERE userID = ?;";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $userID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC)[0];
+    }
+
+    /**
+     * Get user's followers count
+     * @param mixed $userID
+     * @return mixed
+     */
+    public function getFollowersCount($userID)
+    {
+        $query = "SELECT COUNT(*) AS followers FROM user u, followers f WHERE u.userID = f.user AND userID = ?;";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $userID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC)[0];
+    }
+
+    /**
+     * Get user's followers count
+     * @param mixed $userID
+     * @return mixed
+     */
+    public function getFollowingsCount($userID)
+    {
+        $query = "SELECT COUNT(*) AS following FROM user u, followers f WHERE u.userID = f.follower AND userID = ?;";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $userID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC)[0];
+    }
+
+    /**
+     * Check if user is following another user
+     * @param mixed $userID
+     * @param mixed $followerID
+     * @return bool
+     */
+    public function isFollowing($profileID, $loggedUserID)
+    {
+        $query = "SELECT * FROM followers WHERE user = ? AND follower = ? LIMIT 1;";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("ii", $profileID, $loggedUserID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->num_rows > 0;
+    }
+
+    public function followUser($profileID, $loggedUserID)
+    {
+        $query = "INSERT INTO followers (user, follower) VALUES (?,?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("ii", $profileID, $loggedUserID);
+        $stmt->execute();
+    }
+
+    public function unfollowUser($profileID, $loggedUserID)
+    {
+        $query = "DELETE FROM followers WHERE user = ? AND follower = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("ii", $profileID, $loggedUserID);
+        $stmt->execute();
+    }
+
+    /**
+     * Register new post into database
+     * @param mixed $title
+     * @param mixed $caption
+     * @param mixed $recipe
+     * @param mixed $imagePath
+     * @param mixed $userID
+     * @return int|string
+     */
     public function insertNewPost($title, $caption, $recipe, $imagePath, $userID)
     {
         $query = "INSERT INTO post (title, caption, recipe, imagePath, userID) VALUES (? , ?, ? , ?, ?)";
@@ -94,6 +185,12 @@ class DatabaseHelper
         return $stmt->insert_id;
     }
 
+    /**
+     * Register new tag into database
+     * @param mixed $postID
+     * @param mixed $tag
+     * @return bool
+     */
     public function insertPostTags($postID, $tag)
     {
         $query = "INSERT INTO tags (postID, tag) VALUES (? , ?)";
@@ -101,6 +198,7 @@ class DatabaseHelper
         $stmt->bind_param("is", $postID, $tag);
         return $stmt->execute();
     }
+
 
     private function getUsername($userID)
     {
@@ -240,10 +338,73 @@ class DatabaseHelper
         $query = "SELECT time, text FROM notification WHERE userID = ? ORDER BY time DESC;";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $userID);
+
+    /**
+     * Send the home posts in JSON format.
+     */
+    public function getHomePosts() {
+        $query ="SELECT u.username, p.title, p.caption, p.imagePath, p.recipe 
+                FROM user u, followers f, post p 
+                WHERE f.follower = ? 
+                AND p.userID = f.user
+                AND u.userID = f.user
+                ORDER BY p.timestamp ";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $_SESSION['userID']);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    /**
+     * Send the discovery posts in JSON format.
+     */
+    public function getDiscoveryPosts() {
+        $query ="SELECT u.username, p.title, p.caption, p.imagePath, p.recipe 
+                FROM user u, post p 
+                WHERE p.userID = u.userID 
+                AND u.userID != ? 
+                AND u.userID NOT IN (   SELECT f.user 
+                                        FROM followers f 
+                                        WHERE f.follower = ? )";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("ii", $_SESSION['userID'], $_SESSION['userID']);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    /**
+     * Send the requested profile posts in JSON format. TODO
+     */
+    public function getProfilePosts() {
+        $query ="SELECT u.username, p.title, p.caption, p.imagePath, p.recipe 
+                FROM user u, post p 
+                WHERE p.userID = u.userID 
+                AND u.userID = ?  
+                ORDER BY p.timestamp ";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i",$_SESSION['userID']);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    /**
+     * Send the post searched. TODO
+     */
+    public function getSearchPosts($tag) {
+        $query ="SELECT u.username, p.title, p.caption, p.imagePath, p.recipe 
+                FROM user u, post p, tags t 
+                WHERE p.userID = u.userID 
+                AND u.userID != ? 
+                AND p.postID = t.postID 
+                AND t.tag = ? ";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("ii", $_SESSION['userID'], $tag);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 }
 ?>

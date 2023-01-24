@@ -19,5 +19,5 @@ if(isset($_GET["msg"])){
     $templateParams["tagString"] = $_GET["tagString"];
 }
 
-require("template/base.php");
+require_once("template/base.php");
 ?>

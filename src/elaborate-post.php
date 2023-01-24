@@ -1,5 +1,5 @@
 <?php
-require("bootstrap.php");
+require_once("bootstrap.php");
 
 if (!isSessionOpen()) {
     header("location: index.php");
