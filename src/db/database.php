@@ -395,7 +395,7 @@ class DatabaseHelper
     }
 
     /**
-     * Send the post searched.
+     * Search by given tags.
      */
     public function getSearchPosts($tags) {
         $tagParameter = ""; 
@@ -408,7 +408,7 @@ class DatabaseHelper
             }
         }
 
-        print_r("|". $tagParameter."|"); 
+        //print_r("|". $tagParameter."|"); 
 
         $query ="SELECT u.username, p.title, p.caption, p.imagePath, p.recipe, p.postID
         FROM post p, user u, (SELECT tags.postID, COUNT(*) as ntag 
@@ -424,12 +424,15 @@ class DatabaseHelper
 
         //$tagParameter = "'te', 'the'"; 
         
-        $user = 2; 
-        $stmt->bind_param("si", $tagParameter , $user);
+        //$user = 2; 
+        //$stmt->bind_param("si", $tagParameter , $user);
+
+        $stmt->bind_param("si", $tagParameter, $_SESSION['userID']);
         $stmt->execute();
 
         $result = $stmt->get_result();
-        print_r($result->fetch_all(MYSQLI_ASSOC)); 
+        //print_r($result->fetch_all(MYSQLI_ASSOC)); 
+        //var_dump($result); 
         //print_r($result->fetch_all(MYSQLI_ASSOC));
         return $result->fetch_all(MYSQLI_ASSOC);
     }
