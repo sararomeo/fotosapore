@@ -97,7 +97,7 @@ class DatabaseHelper
      */
     public function getUserProfileInfo($userID)
     {
-        $query = "SELECT username, bio FROM user WHERE userID = ?;";
+        $query = "SELECT username, bio, email FROM user WHERE userID = ?;";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $userID);
         $stmt->execute();
@@ -386,7 +386,7 @@ class DatabaseHelper
                 FROM user u, post p 
                 WHERE p.userID = u.userID 
                 AND u.userID = ?  
-                ORDER BY p.timestamp ";
+                ORDER BY p.timestamp DESC";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i",$_SESSION['userID']);
         $stmt->execute();
@@ -410,5 +410,21 @@ class DatabaseHelper
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    /**
+     * Update the username and bio of the current session user
+     * @param mixed $newUsername the new username of the user   
+     * @param mixed $newBio the new bio of the user
+     * @return bool
+     */
+    public function updateUserData($newUsername, $newBio){ 
+        $query ="UPDATE user SET username = ? , bio = ? WHERE userID = ?;";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("ssi", $newUsername, $newBio, $_SESSION['userID']);
+        return $stmt->execute();
+    }
+
 }
+
+
 ?>
