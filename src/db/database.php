@@ -397,20 +397,40 @@ class DatabaseHelper
     /**
      * Send the post searched.
      */
-    public function getSearchPosts($tag) {
+    public function getSearchPosts($tags) {
+        $tagParameter = ""; 
+        
+        for ($i = 0; $i < count($tags); $i++) {
+            if($i == 0){ 
+                $tagParameter = "'".$tags[$i]."'"; 
+            }else{ 
+                $tagParameter = $tagParameter.", '".$tags[$i]."'"; 
+            }
+        }
+
+        print_r("|". $tagParameter."|"); 
+
         $query ="SELECT u.username, p.title, p.caption, p.imagePath, p.recipe, p.postID
         FROM post p, user u, (SELECT tags.postID, COUNT(*) as ntag 
                         FROM tags
-                        WHERE tag in ('te', 'the')
+                        WHERE tag in (?)
                         group by postID) AS m
         WHERE p.postID = m.postID 
         AND u.userID = p.userID 
         AND u.userID != ?
         ORDER BY m.ntag DESC";
+
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("ii", $_SESSION['userID'], $tag);
+
+        //$tagParameter = "'te', 'the'"; 
+        
+        $user = 2; 
+        $stmt->bind_param("si", $tagParameter , $user);
         $stmt->execute();
+
         $result = $stmt->get_result();
+        print_r($result->fetch_all(MYSQLI_ASSOC)); 
+        //print_r($result->fetch_all(MYSQLI_ASSOC));
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
