@@ -338,7 +338,8 @@ class DatabaseHelper
         $query = "SELECT time, text FROM notification WHERE userID = ? ORDER BY time DESC;";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $userID);
-
+    }
+    
     /**
      * Send the home posts in JSON format.
      */
