@@ -423,20 +423,15 @@ class DatabaseHelper
 
         $stmt = $this->db->prepare($query);
 
-        
-        
-        //$user = 2; 
-        //$stmt->bind_param("si", $tagParameter , $user);
-
         $stmt->bind_param(/*s*/"i",/* $tagParameter,*/ $_SESSION['userID']);
         $stmt->execute();
         
         //var_dump($result);
         $result = $stmt->get_result();
 
-        if (count($result->fetch_all(MYSQLI_ASSOC)) == 0)
-            echo "No post with such tag was found.";
-        //print_r($result->fetch_all(MYSQLI_ASSOC)); 
+        print_r($result->fetch_all(MYSQLI_ASSOC)); 
+        // if (count($result->fetch_all(MYSQLI_ASSOC)) == 0)
+        //     echo "No post with such tag was found.";
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
