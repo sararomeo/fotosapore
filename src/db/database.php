@@ -408,12 +408,13 @@ class DatabaseHelper
             }
         }
 
+        //    $tagParameter = "'te', 'the'"; 
         //print_r("|". $tagParameter."|"); 
 
         $query ="SELECT u.username, p.title, p.caption, p.imagePath, p.recipe, p.postID
         FROM post p, user u, (SELECT tags.postID, COUNT(*) as ntag 
                         FROM tags
-                        WHERE tag in (?)
+                        WHERE tag in ($tagParameter)
                         group by postID) AS m
         WHERE p.postID = m.postID 
         AND u.userID = p.userID 
@@ -422,18 +423,20 @@ class DatabaseHelper
 
         $stmt = $this->db->prepare($query);
 
-        //$tagParameter = "'te', 'the'"; 
+        
         
         //$user = 2; 
         //$stmt->bind_param("si", $tagParameter , $user);
 
-        $stmt->bind_param("si", $tagParameter, $_SESSION['userID']);
+        $stmt->bind_param(/*s*/"i",/* $tagParameter,*/ $_SESSION['userID']);
         $stmt->execute();
-
+        
+        //var_dump($result);
         $result = $stmt->get_result();
+
+        if (count($result->fetch_all(MYSQLI_ASSOC)) == 0)
+            echo "No post with such tag was found.";
         //print_r($result->fetch_all(MYSQLI_ASSOC)); 
-        //var_dump($result); 
-        //print_r($result->fetch_all(MYSQLI_ASSOC));
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
