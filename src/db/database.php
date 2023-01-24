@@ -395,19 +395,43 @@ class DatabaseHelper
     }
 
     /**
-     * Send the post searched. TODO
+     * Search by given tags.
      */
-    public function getSearchPosts($tag) {
-        $query ="SELECT u.username, p.title, p.caption, p.imagePath, p.recipe, p.userID
-                FROM user u, post p, tags t 
-                WHERE p.userID = u.userID 
-                AND u.userID != ? 
-                AND p.postID = t.postID 
-                AND t.tag = ? ";
+    public function getSearchPosts($tags) {
+        $tagParameter = ""; 
+        
+        for ($i = 0; $i < count($tags); $i++) {
+            if($i == 0){ 
+                $tagParameter = "'".$tags[$i]."'"; 
+            }else{ 
+                $tagParameter = $tagParameter.", '".$tags[$i]."'"; 
+            }
+        }
+
+        //    $tagParameter = "'te', 'the'"; 
+        //print_r("|". $tagParameter."|"); 
+
+        $query ="SELECT u.username, p.title, p.caption, p.imagePath, p.recipe, p.postID
+        FROM post p, user u, (SELECT tags.postID, COUNT(*) as ntag 
+                        FROM tags
+                        WHERE tag in ($tagParameter)
+                        group by postID) AS m
+        WHERE p.postID = m.postID 
+        AND u.userID = p.userID 
+        AND u.userID != ?
+        ORDER BY m.ntag DESC";
+
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("ii", $_SESSION['userID'], $tag);
+
+        $stmt->bind_param(/*s*/"i",/* $tagParameter,*/ $_SESSION['userID']);
         $stmt->execute();
+        
+        //var_dump($result);
         $result = $stmt->get_result();
+
+        print_r($result->fetch_all(MYSQLI_ASSOC)); 
+        // if (count($result->fetch_all(MYSQLI_ASSOC)) == 0)
+        //     echo "No post with such tag was found.";
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
