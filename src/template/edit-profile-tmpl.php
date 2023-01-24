@@ -2,9 +2,7 @@
     <div class="profile-feed-container d-flex flex-column aligns-items-center">
         <div class="profile-info align-self-center p-2">
             <?php
-            //need to change userIDtest to the actual userID
-            $userIDtest = 1;
-            $profileData = $dbh->getUserProfileInfo($userIDtest);
+            $profileData = $dbh->getUserProfileInfo($_SESSION["userID"]);
             ?>
 
             <div class="d-flex justify-content-center">
@@ -15,7 +13,7 @@
 
             <form action="elaborate-edit-profile.php" method="POST" enctype="multipart/form-data">
 
-                <!-- user informations --> 
+                <!-- user informations -->
                 <div class="form-outline p-2">
                     <label for="username">Username:</label><input type="text" class="form-control" id="username"
                         name="username" required value="<?php echo ($profileData["username"]); ?>" />
@@ -23,7 +21,8 @@
 
                 <div class="form-outline p-2">
                     <label for="bio">Bio:</label>
-                    <textarea id="bio" class="form-control " name="bio" required rows="6"><?php echo ($profileData["bio"]);?></textarea>
+                    <textarea id="bio" class="form-control " name="bio" required
+                        rows="6"><?php echo ($profileData["bio"]); ?></textarea>
                 </div>
 
                 <!-- Submit buttons -->
