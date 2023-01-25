@@ -434,6 +434,24 @@ class DatabaseHelper
         $stmt->bind_param("ssi", $newUsername, $newBio, $_SESSION['userID']);
         return $stmt->execute();
     }
+
+    public function getPostByID($postID){ 
+        $query ="SELECT title, timestamp, caption, recipe, imagePath, userID  FROM  post  WHERE postID = ?;";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $postID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC)[0]; 
+    }
+
+    public function getTagByPost($postID){ 
+        $query ="SELECT tag FROM  tags WHERE postID = ?;";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $postID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC); 
+    }
 }
 
 ?>
