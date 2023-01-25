@@ -108,10 +108,14 @@
     </main>
 
     <!-- Footer -->
-    <footer class="row footer mt-auto position-absolute-bottom bg-white row mt-1">        
+    <footer class="row footer mt-auto position-absolute-bottom bg-white row mt-1">
+        <!-- Go back to previous page btn -->
+        <div class="d-flex justify-content-start">
+            <label hidden>Go back to previous page</label><input class="form-btn align-right p-2 m-2 rounded" type="button" name="back-button" value="Back" onClick="window.history.back()"></input>       
+        </div>
+        <!-- Copyright -->
 		<div class="row">
             <hr>
-			<!-- Copyright -->
             <div class="col py-1 container d-md-flex justify-content-center align-items-center text-center">
                 <div class="d-md-flex justify-content-between align-items-center text-center text-md-left">
                     <small class = "small text-center text-muted">
