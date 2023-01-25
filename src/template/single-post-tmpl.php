@@ -15,38 +15,46 @@
 
             <section>
                 <div class="row py-4">
-                    <div class="col-md-4 col-sm-12 d-flex justify-content-center p-2">
-                        <img class = "w-100" src="<?php echo UPLOAD_DIR . $templateParams["postInfo"]["imagePath"]; ?>"
-                            class="img-thumbnail" alt="recipe result image" />
+                    <div class="row post-content">
+                        <div class="col-md-4 col-sm-12 d-flex justify-content-center p-2">
+                            <img class="w-100"
+                                src="<?php echo UPLOAD_DIR . $templateParams["postInfo"]["imagePath"]; ?>"
+                                class="img-thumbnail" alt="recipe result image" />
+                        </div>
+
+                        <div class="col-md-8 col-sm-12 p-4 h-100">
+                            <h2 class="h2">Caption:</h2>
+                            <p>
+                                <?php echo $templateParams["postInfo"]["caption"]; ?>
+                            </p>
+
+                            <h2 class="h2">Recipe:</h2>
+                            <p>
+                                <?php echo $templateParams["postInfo"]["recipe"]; ?>
+                            </p>
+
+                            <h2>Tags:</h2>
+                            <?php foreach ($templateParams["postInfo"]["tagString"] as $tag): ?>
+                                <!-- <a href="search.php?inputTag=<?php //echo $tag["tag"]; ?>"><?php //echo $tag["tag"];?></a> -->
+                                <div class="float-start">
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <form action="search.php?inputTag=<?php echo $tag["tag"]; ?>" class="search-box" method="GET">
+                                                <button type="submit" class="btn link-danger">
+                                                    <?php echo $tag["tag"]; ?>
+                                                </button>
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
                     </div>
-
-                    <div class="col-md-8 col-sm-12 p-4 h-100">
-                        <h2 class="h2">Caption:</h2>
-                        <p>
-                            <?php echo $templateParams["postInfo"]["caption"]; ?>
-                        </p>
-
-                        <h2 class="h2">Recipe:</h2>
-                        <p>
-                            <?php echo $templateParams["postInfo"]["recipe"]; ?>
-                        </p>
-
-                        <h2>Tags:</h2>
-                        <?php foreach ($templateParams["postInfo"]["tagString"] as $tag): ?>
-                            <!-- <a href="search.php?inputTag=<?php //echo $tag["tag"]; ?>"><?php //echo $tag["tag"];?></a> -->
-                            <div class="float-start">
-                                <ul class="list-inline">
-                                    <li class="list-inline-item">
-                                        <form action="search.php?inputTag=<?php echo $tag["tag"]; ?>" class="search-box"
-                                            method="GET">
-                                            <button type="submit" class="btn link-danger">
-                                                <?php echo $tag["tag"]; ?>
-                                            </button>
-                                        </form>
-                                    </li>
-                                </ul>
-                            </div>
-                        <?php endforeach; ?>
+                    <div class="row align-items-right">
+                        <!-- <?php if ($dbh->getUserIDgivenPostID($templateParams["postID"])==$_SESSION['userID']): ?>
+                            <button class="form-btn align-right p-2 m-2 rounded" type="submit" value="Delete Post" name="delete" onclick="/*$dbh->deletePost($templateParams['postID']);*/ location.href='home.php?delete=true';">Delete post</button>  
+                            
+                        <?php endif; ?> -->
                     </div>
                 </div>
             </section>
