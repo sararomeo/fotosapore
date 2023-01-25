@@ -20,7 +20,12 @@ window.addEventListener('scroll', () => {
  * Load the next post in the index.
  */
 function getPost() {
-    let args = {"value":getPostIndex, "pageName":pageName};
+    let args = {"value":getPostIndex, 
+                "pageName":pageName,
+                "profileID":document.getElementById("profile-btn")?.getAttribute("data-target"),
+                "searchTag":document.getElementById("search-tag")?.getAttribute("data-target")};
+    console.log(document.getElementById("profile-btn")?.getAttribute("data-target"));
+    console.log(document.getElementById("search-tag")?.getAttribute("data-target"));
     let jsonArgs = JSON.stringify(args);
 
     var xmlhttp = new XMLHttpRequest();
