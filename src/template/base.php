@@ -32,7 +32,7 @@
             <div class="position-relative search-container">
                 <form action="search.php" class="search-box" method="POST" id="nav-search-form" enctype="multipart/form-data">
                     <input type="search" id="myInput" role="search" class="input search-input" name="myInput" value="" autocomplete="off" placeholder = "Search for a recipe...">
-                    <button type="button" class="btn search-btn" name="button" id="search-btn"></button>
+                    <button type="button" onclick="document.getElementById('myInput').value = ''" class="btn search-btn" name="button" id="search-btn"></button>
                 </form>
             </div>
         </div>
