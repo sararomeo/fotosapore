@@ -42,7 +42,7 @@
                             <ul class="list-inline">
                                 <li class="list-inline-item">
                                     <form action="search.php?inputTag=<?php echo $tag["tag"]; ?>" class="search-box"
-                                        method="POST">
+                                        method="GET">
                                         <button type="submit" class="btn link-danger">
                                             <?php echo $tag["tag"]; ?>
                                         </button>
