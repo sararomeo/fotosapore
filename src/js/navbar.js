@@ -7,10 +7,20 @@ function setMainMarginTop() {
 }
 
 /**
+ * Set the margin-bottom of the main content area to be the same as the height of the footer's copyright area.
+ */
+function setBottomBtn() {
+    var footerHeight = $("#footer-container").outerHeight(true);
+    console.log(footerHeight);
+    $('#back-btn-container').attr('style', 'bottom:'+footerHeight+'px !important');
+}
+
+/**
  * Set size when the page is ready.
  */
 $(window).ready (function () {
     setMainMarginTop();
+    setBottomBtn();
 });
 
 /**
@@ -18,6 +28,7 @@ $(window).ready (function () {
  */
 $(window).resize (function () {
     setMainMarginTop();
+    setBottomBtn();
 });
 
 /**
