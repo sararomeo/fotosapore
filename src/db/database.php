@@ -452,6 +452,32 @@ class DatabaseHelper
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC); 
     }
+
+    /**
+     * Add new like at given post from a user.
+     * @param mixed $userID
+     * @param mixed $postID
+     * @return void
+     */
+    public function likePost($userID, $postID) {
+        $query ="INSERT INTO likes (userID, postID) VALUES (?, ?);";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("ii", $userID, $postID);
+        $stmt->execute();
+    }
+
+    /**
+     * Remove like at given post from a user.
+     * @param mixed $userID
+     * @param mixed $postID
+     * @return void
+     */
+    public function dislikePost($userID, $postID) {
+        $query ="DELETE FROM likes WHERE userID = ? AND postID = ?;";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("ii", $userID, $postID);
+        $stmt->execute();
+    }
 }
 
 ?>
