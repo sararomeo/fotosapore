@@ -419,9 +419,6 @@ class DatabaseHelper
         $stmt->execute();        
         $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 
-        //print_r($result);
-        // if (count($result) == 0)
-        //     echo "No post with such tag was found.";
         return $result;
     }
 
