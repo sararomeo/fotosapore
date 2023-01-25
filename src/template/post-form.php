@@ -56,7 +56,7 @@
 
 <!-- Submit buttons -->
 <div class="d-flex justify-content-center py-4">
-    <input class="form-btn align-right p-2 m-2 rounded" type="submit" value="Publish post" />
+    <input class="form-btn align-right p-2 mt-2 rounded" type="submit" value="Publish post" />
 </div>
 
 

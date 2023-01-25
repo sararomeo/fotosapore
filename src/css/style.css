@@ -151,6 +151,15 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     box-sizing: border-box;
 }
 
+.back-btn {
+    color: rgba(255, 0, 0, .5);
+    background-color: transparent;
+}
+
+.back-btn:hover {
+    color: red;
+}
+
 /**** SCROLLING and posts ****/
 
 .scroll-post img {

@@ -110,8 +110,10 @@
     <!-- Footer -->
     <footer class="row footer mt-auto position-absolute-bottom bg-white row mt-1">
         <!-- Go back to previous page btn -->
-        <div class="d-flex justify-content-start">
-            <label hidden>Go back to previous page</label><input class="form-btn align-right p-2 m-2 rounded" type="button" name="back-button" value="Back" onClick="window.history.back()"></input>       
+        <div class="d-flex justify-content-start nav-item">
+            <label hidden>Go back to previous page</label>
+            <button class="form-btn p-2 m-2 rounded back-btn" type="button" name="back-btn" onClick="window.history.back()">
+            <span class="d-flex align-items-center"><i class="bi bi-arrow-left-circle fa-fw fa-2x nav-bar-icon"></i></span></button>       
         </div>
         <!-- Copyright -->
 		<div class="row">
