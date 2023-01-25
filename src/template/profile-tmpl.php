@@ -22,9 +22,9 @@
                 </h1>
             </div>
             <div class="d-flex justify-content-center">
-                <h2 class="h2 p-1 text-center">
+                <p class="p-1 text-center">
                     <?php echo $profileData['bio']; ?>
-                </h2>
+                </p>
             </div>
         </div>
 
