@@ -33,8 +33,10 @@
 
                     <h2>Tags:</h2>
                     <?php foreach($templateParams["postInfo"]["tagString"] as $tag):?>
-                        <p><?php echo $tag["tag"];?></p>
-                        <a href="search.php?myInput=<?php echo $tag["tag"]; ?>"><?php echo $tag["tag"];?></a>
+                        <!-- <a href="search.php?myInput=<?php //echo $tag["tag"]; ?>"><?php //echo $tag["tag"];?></a> -->
+                        <form action="search.php?myInput=<?php echo $tag["tag"]; ?>" class="search-box" method="POST">
+                        <button type="submit" class="btn link-danger"><?php echo $tag["tag"];?></button>
+                    </form>
                     <?php endforeach;?>
 
                 </div>
