@@ -1,3 +1,5 @@
+import ajaxRequest from './request.js';
+
 // Variables
 const container = document.getElementById('scroll-container');
 const pageName = location.href.substring(location.href.lastIndexOf('/')+1);
@@ -59,11 +61,16 @@ function addDataToFeed(response) {
             e2.alt = "recipe: " + response.postArray.title;
             
         const e3 = Object.assign(document.createElement("p"),{className:"bottom-bar-post"});
-            const b1 = Object.assign(document.createElement("button"),{className:"btn btn-light bi bi-heart fa-fw fa-2x"});
+            const b1 = Object.assign(document.createElement("button"),{className:"post-icon bi bi-heart-fill fa-fw fa-2x"});
+                b1.type = "button";
                 b1.id = "like-btn";
-                b1.value = "like";
+                if(!response.isLiked > 0) {
+                    b1.classList.toggle("bi-heart");
+                    b1.classList.toggle("bi-heart-fill");
+                }
 
-            const b2 = Object.assign(document.createElement("a"),{className:"btn btn-light bi bi-egg-fried fa-fw fa-2x link-dark"});
+            const b2 = Object.assign(document.createElement("a"),{className:"post-icon bi bi-egg-fried fa-fw fa-2x"});
+                b2.type = "button";
                 b2.href = "single-post.php?postID=" + response.postArray.postID;
 
             e3.appendChild(b1);
@@ -83,7 +90,9 @@ function addDataToFeed(response) {
     addDataIndex = addDataIndex + 1;
 }
 
+function toggleLike() {
 
+}
 
 // Main
 getPost();
