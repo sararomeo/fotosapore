@@ -64,10 +64,11 @@ function addDataToFeed(response) {
             const s1 = Object.assign(document.createElement("span"),{className:"d-flex align-items-center"});
                 const b1 = Object.assign(document.createElement("i"),{className:"bi bi-heart fa-fw fa-2x"});
                     //
-                const b2 = Object.assign(document.createElement("i"),{className:"bi bi-egg-fried fa-fw fa-2x"});
-                    //const hr2 =  Object.assign(document.createElement("a"),{className:"comment-link link-dark text-decoration-none"});
-                        //hr2.href = "profile.php?postID=" + response.postArray.postID;
-                        //b2.appendChild(hr2);
+                const b2 = Object.assign(document.createElement("a"),{className:"bi bi-egg-fried link-dark fa-fw fa-2x"});
+                    b2.href = "single-post.php?postID=" + response.postArray.postID;
+                    // const hr2 =  Object.assign(document.createElement("a"),{className:"comment-link link-dark text-decoration-none"});
+                    //     hr2.href = "single-post.php?postID=" + response.postArray.postID;
+                    //     b2.appendChild(hr2);
 
                 s1.appendChild(b1);
                 s1.appendChild(b2);
