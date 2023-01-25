@@ -6,7 +6,7 @@
             <header>
                 <div class="row">
                     <div class="col-md">
-                        <h1 class="h1 text-center">
+                        <h1 class="h1 text-center fst-italic">
                             <?php echo ($templateParams["postInfo"]["title"]) ?>
                         </h1>
                     </div>
