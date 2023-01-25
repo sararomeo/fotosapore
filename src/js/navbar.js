@@ -66,9 +66,6 @@ $(window).load(function() {
         case "discovery-page":
             $("#discovery-nav-link").addClass("active");
         break;
-        case "profile-page":
-            $("#profile-nav-link").addClass("active");
-        break;
         case "create-post-page":
             $("#create-post-nav-link").addClass("active");
         break;
@@ -80,6 +77,7 @@ $(window).load(function() {
         break;
         default:
             console.log("No existing page name found.");
+            // profile-page managed by followBtn.js based on which profile is being viewed
     }
 });
 
