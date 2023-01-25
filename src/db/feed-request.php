@@ -3,18 +3,18 @@
     require_once("../bootstrap.php");
     
     $args = json_decode($_POST["args"], false);
-    
+
     if($args->pageName == "home.php") {
         $postArray = $dbh->getHomePosts();
         $postNum = count($postArray);
     } else if($args->pageName == "discovery.php") {
         $postArray = $dbh->getDiscoveryPosts();
         $postNum = count($postArray);
-    } else if($args->pageName == "profile.php") {
-        $postArray = $dbh->getProfilePosts();
+    } else if(str_contains($args->pageName, "profile.php")) {
+        $postArray = $dbh->getProfilePosts($args->profileID);
         $postNum = count($postArray);
     } else if($args->pageName == "search.php") {
-        $postArray = $dbh->getSearchPosts();
+        $postArray = $dbh->getSearchPosts($args->searchTag);
         $postNum = count($postArray);
     }
 
