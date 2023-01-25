@@ -106,7 +106,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     font-size: 2em !important;
 }
 
-.nav-item a, .nav-link a {
+.nav-item a, .nav-link a, .back-btn {
     color: rgba(0, 0, 0, 0.7);
 }
 
@@ -120,6 +120,15 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 
 .active {
 	color: red !important;
+}
+
+.back-btn {
+    background-color: transparent;
+    border: none !important;
+}
+
+.back-btn:hover {
+    color: red;
 }
 
 /**** FORM (Login, signup) and action buttons ****/
@@ -149,15 +158,6 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 
 .form-btn-container {
     box-sizing: border-box;
-}
-
-.back-btn {
-    color: rgba(255, 0, 0, .5);
-    background-color: transparent;
-}
-
-.back-btn:hover {
-    color: red;
 }
 
 /**** SCROLLING and posts ****/

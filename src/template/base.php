@@ -17,8 +17,8 @@
 </head>
 
 <body>
-    <!-- Header -->
     <div class="d-flex flex-column vh-100">
+    <!-- Header -->
 	<header>
     <!-- Navigation bar -->
     <div class="container row">
@@ -44,9 +44,16 @@
 
         <!-- Right elements to collapse -->
         <div class="collapse navbar-collapse" id="navbarScroll">
-        <!-- Home -->
+
         <div class="float-end">
-        <ul class="navbar-nav flex-row navbar-nav-scroll list-inline" id="nav-list">
+            <ul class="navbar-nav flex-row navbar-nav-scroll list-inline" id="nav-list">
+            <!-- Go back to previous page -->
+            <li class="nav-item">
+                <label hidden>Go back to previous page</label>
+                <button class="back-btn shadow-none" type="button" onClick="window.history.back()">
+                <span class="d-flex align-items-center"><i class="bi bi-arrow-left-circle fa-fw nav-bar-icon"></i></span></button>
+            </li> 
+            <!-- Home -->
             <li class="nav-item">
                 <a class="nav-link" href="./home.php" id="home-nav-link">
                 <span class="d-flex align-items-center"><i class="bi bi-house fa-fw nav-bar-icon"></i></span>
@@ -106,20 +113,14 @@
             }
         ?>
     </main>
-
+    
     <!-- Footer -->
     <footer class="row footer mt-auto position-absolute-bottom bg-white row mt-1">
-        <!-- Go back to previous page btn -->
-        <div class="d-flex justify-content-start nav-item">
-            <label hidden>Go back to previous page</label>
-            <button class="form-btn p-2 m-2 rounded back-btn" type="button" name="back-btn" onClick="window.history.back()">
-            <span class="d-flex align-items-center"><i class="bi bi-arrow-left-circle fa-fw fa-2x nav-bar-icon"></i></span></button>       
-        </div>
         <!-- Copyright -->
 		<div class="row">
             <hr>
             <div class="col py-1 container d-md-flex justify-content-center align-items-center text-center">
-                <div class="d-md-flex justify-content-between align-items-center text-center text-md-left">
+                <div class="d-md-flex justify-content-between align-items-center text-center text-md-left" id="footer-container">
                     <small class = "small text-center text-muted">
                         <p>©<script>document.write(new Date().getFullYear())</script> FotoSapore | All rights reserved: Luca Babboni - Sara Romeo - Pablo Sebastian Vargas Grateron</p>
                     </small>
@@ -127,7 +128,6 @@
             </div>
         </div>
     </footer>
-    </div>
 </body>
 <!-- Javascript -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
