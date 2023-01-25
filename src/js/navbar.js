@@ -75,6 +75,9 @@ $(window).load(function() {
         case "notification-page":
             $("#notification-nav-link").addClass("active");
         break;
+        case "search-page":
+            $("#discovery-nav-link").addClass("active");
+        break;
         default:
             console.log("No existing page name found.");
     }

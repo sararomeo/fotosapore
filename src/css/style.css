@@ -92,6 +92,15 @@
 	transform: rotate(45deg);
 }
 
+/* clears the search bar ‘X’ from Internet Explorer */
+input[type=search]::-ms-clear { display: none; width : 0; height: 0; }
+input[type=search]::-ms-reveal { display: none; width : 0; height: 0; }
+/* clears the search bar ‘X’ from Chrome */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; }
+
 /** NAVBAR **/
 .nav-bar-icon {
     font-size: 2em !important;
@@ -140,6 +149,26 @@
 
 .form-btn-container {
     box-sizing: border-box;
+}
+
+.back-btn {
+    color: rgba(255, 0, 0, .5);
+    background-color: transparent;
+}
+
+.back-btn:hover {
+    color: red;
+}
+
+/**** SCROLLING and posts ****/
+
+.scroll-post img {
+    width: 100%;
+    height: auto;
+}
+
+.title-post {
+    text-align: center;
 }
 
 /**** RESPONSIVE DESIGN ****/

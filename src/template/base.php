@@ -30,9 +30,9 @@
             <a class="navbar-brand ms-2 me-2 d-flex align-items-center" href="./home.php"><img src="res/big-favicon.png" height="40em" alt="logo fotosapore" loading="lazy"/></a>
             <!-- Search form -->
             <div class="position-relative search-container">
-                <form action="" class="search-box" method="post">
-                    <input type="search" role="search" class="input search-input" name="" value="" autocomplete="off" placeholder = "Search for a recipe...">
-                    <button type="button" class="btn search-btn" name="button" id="search-btn"></button>
+                <form action="search.php" class="search-box" method="POST" id="nav-search-form" enctype="multipart/form-data">
+                    <input type="search" id="myInput" role="search" class="input search-input" name="myInput" value="" autocomplete="off" placeholder = "Search for a recipe...">
+                    <button type="button" onclick="document.getElementById('myInput').value = ''" class="btn search-btn" name="button" id="search-btn"></button>
                 </form>
             </div>
         </div>
@@ -102,16 +102,22 @@
     <main class = "row main" id="main">
         <?php
             if(isset($templateParams["page"])){
-                require($templateParams["page"]);
+                require_once($templateParams["page"]);
             }
         ?>
     </main>
 
     <!-- Footer -->
-    <footer class="row footer mt-auto position-absolute-bottom bg-white row mt-1">        
+    <footer class="row footer mt-auto position-absolute-bottom bg-white row mt-1">
+        <!-- Go back to previous page btn -->
+        <div class="d-flex justify-content-start nav-item">
+            <label hidden>Go back to previous page</label>
+            <button class="form-btn p-2 m-2 rounded back-btn" type="button" name="back-btn" onClick="window.history.back()">
+            <span class="d-flex align-items-center"><i class="bi bi-arrow-left-circle fa-fw fa-2x nav-bar-icon"></i></span></button>       
+        </div>
+        <!-- Copyright -->
 		<div class="row">
             <hr>
-			<!-- Copyright -->
             <div class="col py-1 container d-md-flex justify-content-center align-items-center text-center">
                 <div class="d-md-flex justify-content-between align-items-center text-center text-md-left">
                     <small class = "small text-center text-muted">
