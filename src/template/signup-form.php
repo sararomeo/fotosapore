@@ -11,19 +11,19 @@
     <!-- Credentials input -->
     <div class="mb-4 mt-4">
         <div class="form-outline p-2">
-            <input type="email" class="form-control" name="email" id="email" placeholder="yourmail@mail.com">
+            <label hidden>Email</label><input type="email" class="form-control" name="email" id="email" placeholder="yourmail@mail.com" required>
         </div>
 
         <div class="form-outline p-2">
-            <input type="username" class="form-control" name="username" id="username" placeholder="username">
+            <label hidden>Username</label><input type="username" class="form-control" name="username" id="username" placeholder="username" required>
         </div>
 
         <div class="form-outline p-2">
-            <input type="password" class="form-control" name="password1" id="password1" placeholder="new password">
+            <label hidden>Password</label><input type="password" class="form-control" name="password1" id="password1" placeholder="new password" required>
         </div>
 
         <div class="form-outline p-2">
-            <input type="password" class="form-control" name="password2" id="password2" placeholder="repeat password">
+            <label hidden>Password repeated</label> <input type="password" class="form-control" name="password2" id="password2" placeholder="repeat password" required>
         </div>
     </div>
 
