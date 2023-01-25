@@ -61,10 +61,11 @@ function addDataToFeed(response) {
             e2.alt = "recipe: " + response.postArray.title;
             
         const e3 = Object.assign(document.createElement("p"),{className:"bottom-bar-post"});
-            const b1 = Object.assign(document.createElement("button"),{className:"post-icon bi bi-heart-fill fa-fw fa-2x"});
+            const b1 = Object.assign(document.createElement("button"),{className:"post-icon bi bi-heart fa-fw fa-2x"});
                 b1.type = "button";
                 b1.id = "like-btn";
-                if(!response.isLiked > 0) {
+                b1.value = response.postArray.postID;
+                if(response.isLiked > 0) {
                     b1.classList.toggle("bi-heart");
                     b1.classList.toggle("bi-heart-fill");
                 }
@@ -99,5 +100,4 @@ getPost();
 getPost();
 getPost();
 getPost();
-getPost();
-getPost();
+
