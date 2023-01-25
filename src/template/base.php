@@ -135,4 +135,5 @@
 <script type="module" src="./js/navbar.js"></script>
 <script type="module" src="./js/delete-post.js"></script>
 <script type="module" src="./js/followBtn.js"></script>
+<script type="module" src="./js/likeBtn.js"></script>
 </html>
