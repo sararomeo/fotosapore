@@ -452,6 +452,32 @@ class DatabaseHelper
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC); 
     }
+
+    public function getCommentsByPost($postID){ 
+        $query ="SELECT c.commentID, c.commentText, c.timestamp, u.username 
+                FROM post AS p, comment AS c, user AS u 
+                WHERE p.postID = c.postID 
+                AND p.userID = u.userID 
+                AND p.postID = ?
+                ORDER BY timestamp DESC; ";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $postID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function insertComment($postID, $commentText){ 
+        $query = "INSERT INTO comment (commentText, userID, postID) VALUES (?, ?, ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("sii", $commentText, $_SESSION["userID"], $postID);
+        $stmt->execute();
+
+        $this->insertCommentNotifications($_SESSION["userID"], $postID); 
+    }
+
+    
+
 }
 
 ?>
