@@ -171,6 +171,14 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     text-align: center;
 }
 
+.post-icon {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.post-icon:hover {
+    color: red;
+}
+
 /**** RESPONSIVE DESIGN ****/
 @media (max-width: 768px) {
     .logo {

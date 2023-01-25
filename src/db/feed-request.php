@@ -16,6 +16,9 @@
     } else if($args->pageName == "search.php") {
         $postArray = $dbh->getSearchPosts($args->searchTag);
         $postNum = count($postArray);
+    } else {
+        $postArray = array();
+        $postNum = 0;
     }
 
     $requestObj = new stdClass();

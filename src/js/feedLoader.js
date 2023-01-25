@@ -24,8 +24,6 @@ function getPost() {
                 "pageName":pageName,
                 "profileID":document.getElementById("profile-btn")?.getAttribute("data-target"),
                 "searchTag":document.getElementById("search-tag")?.getAttribute("data-target")};
-    console.log(document.getElementById("profile-btn")?.getAttribute("data-target"));
-    console.log(document.getElementById("search-tag")?.getAttribute("data-target"));
     let jsonArgs = JSON.stringify(args);
 
     var xmlhttp = new XMLHttpRequest();
@@ -49,7 +47,7 @@ function addDataToFeed(response) {
     const postElement = document.createElement('div');
     postElement.classList.add('user-post');
 
-    const div = Object.assign(document.createElement("div"),{className:"p-2 my-3 scroll-post shadow border border-secondary"});
+    const div = Object.assign(document.createElement("div"),{className:"scroll-post my-3 p-2 shadow border border-secondary"});
 
         const e1 = Object.assign(document.createElement("h2"),{className:"username-post my-2 fs-4"});
             const hr1 =  Object.assign(document.createElement("a"),{className:"user-link link-dark text-decoration-none", innerText:response.postArray.username});
@@ -62,12 +60,13 @@ function addDataToFeed(response) {
             
         const e3 = Object.assign(document.createElement("p"),{className:"bottom-bar-post"});
             const s1 = Object.assign(document.createElement("span"),{className:"d-flex align-items-center"});
-                const b1 = Object.assign(document.createElement("i"),{className:"bi bi-heart fa-fw fa-2x"});
+                const b1 = Object.assign(document.createElement("i"),{className:"bi bi-heart post-icon fa-fw fa-2x"});
                     //
-                const b2 = Object.assign(document.createElement("i"),{className:"bi bi-egg-fried fa-fw fa-2x"});
-                    //const hr2 =  Object.assign(document.createElement("a"),{className:"comment-link link-dark text-decoration-none"});
-                        //hr2.href = "profile.php?postID=" + response.postArray.postID;
-                        //b2.appendChild(hr2);
+                const b2 = Object.assign(document.createElement("a"),{className:"bi bi-egg-fried post-icon fa-fw fa-2x"});
+                    b2.href = "single-post.php?postID=" + response.postArray.postID;
+                    // const hr2 =  Object.assign(document.createElement("a"),{className:"comment-link link-dark text-decoration-none"});
+                    //     hr2.href = "single-post.php?postID=" + response.postArray.postID;
+                    //     b2.appendChild(hr2);
 
                 s1.appendChild(b1);
                 s1.appendChild(b2);

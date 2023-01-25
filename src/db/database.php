@@ -296,7 +296,7 @@ class DatabaseHelper
     {
         $postPublisherID = $this->getUserIDgivenPostID($postID);
         $username = $this->getUsername($userID)['username'];
-        $notificationText = $username . " has liked on your post!";
+        $notificationText = $username . " liked your post!";
 
         $query = "INSERT INTO notification (userID, text) VALUES (? , ?)";
         $stmt = $this->db->prepare($query);
@@ -315,7 +315,7 @@ class DatabaseHelper
      * @return void
      */
     public function sendFollowNotification($followerID, $followedID)
-    {        
+    {
         $username = $this->getUsername($followerID)['username'];
         $notificationText = $username . " has started following your profile!";
 
@@ -342,17 +342,18 @@ class DatabaseHelper
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-    
+
     /**
      * Send the home posts in JSON format.
      */
-    public function getHomePosts() {
-        $query ="SELECT u.username, p.title, p.caption, p.imagePath, p.recipe, p.postID, p.userID
+    public function getHomePosts()
+    {
+        $query = "SELECT u.username, p.title, p.caption, p.imagePath, p.recipe, p.postID, p.userID
                 FROM user u, followers f, post p 
                 WHERE f.follower = ? 
                 AND p.userID = f.user
                 AND u.userID = f.user
-                ORDER BY p.timestamp ";
+                ORDER BY p.timestamp DESC";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $_SESSION['userID']);
         $stmt->execute();
@@ -363,14 +364,16 @@ class DatabaseHelper
     /**
      * Send the discovery posts in JSON format.
      */
-    public function getDiscoveryPosts() {
-        $query ="SELECT u.username, p.title, p.caption, p.imagePath, p.recipe, p.postID, p.userID
+    public function getDiscoveryPosts()
+    {
+        $query = "SELECT u.username, p.title, p.caption, p.imagePath, p.recipe, p.postID, p.userID
                 FROM user u, post p 
                 WHERE p.userID = u.userID 
                 AND u.userID != ? 
                 AND u.userID NOT IN (   SELECT f.user 
                                         FROM followers f 
-                                        WHERE f.follower = ? )";
+                                        WHERE f.follower = ? )
+                ORDER BY p.timestamp DESC";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("ii", $_SESSION['userID'], $_SESSION['userID']);
         $stmt->execute();
@@ -381,8 +384,9 @@ class DatabaseHelper
     /**
      * Send the requested profile posts in JSON format. TODO
      */
-    public function getProfilePosts($profileID) {
-        $query ="SELECT u.username, p.title, p.caption, p.imagePath, p.recipe, p.postID, p.userID
+    public function getProfilePosts($profileID)
+    {
+        $query = "SELECT u.username, p.title, p.caption, p.imagePath, p.recipe, p.postID, p.userID
                 FROM user u, post p 
                 WHERE p.userID = u.userID 
                 AND u.userID = ?  
@@ -397,14 +401,15 @@ class DatabaseHelper
     /**
      * Search by given tags.
      */
-    public function getSearchPosts($tagsString) {
+    public function getSearchPosts($tagsString)
+    {
         $tags = explode(" ", $tagsString);
-        $tags = array_unique($tags); 
+        $tags = array_unique($tags);
         array_push($tags, $_SESSION['userID']);
         $paramsTypes = str_repeat('s', count($tags) - 1) . 'i';
         $questionMarks = str_repeat('?,', count($tags) - 2) . '?';
 
-        $query ="SELECT u.username, p.title, p.caption, p.imagePath, p.recipe, p.postID, p.userID
+        $query = "SELECT u.username, p.title, p.caption, p.imagePath, p.recipe, p.postID, p.userID
         FROM post p, user u, (SELECT tags.postID, COUNT(*) as ntag 
                                 FROM tags
                                 WHERE tag in ($questionMarks)
@@ -416,7 +421,7 @@ class DatabaseHelper
 
         $stmt = $this->db->prepare($query);
         $stmt->bind_param($paramsTypes, ...$tags);
-        $stmt->execute();        
+        $stmt->execute();
         $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 
         return $result;
@@ -428,12 +433,91 @@ class DatabaseHelper
      * @param mixed $newBio the new bio of the user
      * @return bool
      */
-    public function updateUserData($newUsername, $newBio){ 
-        $query ="UPDATE user SET username = ? , bio = ? WHERE userID = ?;";
+    public function updateUserData($newUsername, $newBio)
+    {
+        $query = "UPDATE user SET username = ? , bio = ? WHERE userID = ?;";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("ssi", $newUsername, $newBio, $_SESSION['userID']);
         return $stmt->execute();
     }
+
+    public function getPostByID($postID)
+    {
+        $query = "SELECT title, timestamp, caption, recipe, imagePath, userID  FROM  post  WHERE postID = ?;";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $postID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC)[0];
+    }
+
+    public function getTagByPost($postID)
+    {
+        $query = "SELECT tag FROM  tags WHERE postID = ?;";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $postID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+
+    public function getCommentsByPost($postID)
+    {
+        $query = "SELECT c.commentID, c.commentText, c.timestamp, u.username 
+        FROM post AS p, comment AS c, user AS u 
+        WHERE p.postID = c.postID 
+        AND c.userID = u.userID 
+        AND p.postID = ?
+        ORDER BY timestamp DESC; ";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $postID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function insertComment($postID, $commentText)
+    {
+        $query = "INSERT INTO comment (commentText, userID, postID) VALUES (?, ?, ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("sii", $commentText, $_SESSION["userID"], $postID);
+        $stmt->execute();
+
+        $this->insertCommentNotifications($_SESSION["userID"], $postID);
+    }
+
+
+
+
+    /**
+     * Add new like at given post from a user.
+     * @param mixed $userID
+     * @param mixed $postID
+     * @return void
+     */
+    public function likePost($userID, $postID)
+    {
+        $query = "INSERT INTO likes (userID, postID) VALUES (?, ?);";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("ii", $userID, $postID);
+        $stmt->execute();
+    }
+
+    /**
+     * Remove like at given post from a user.
+     * @param mixed $userID
+     * @param mixed $postID
+     * @return void
+     */
+    public function dislikePost($userID, $postID)
+    {
+        $query = "DELETE FROM likes WHERE userID = ? AND postID = ?;";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("ii", $userID, $postID);
+        $stmt->execute();
+    }
+
 }
 
 ?>
