@@ -453,6 +453,7 @@ class DatabaseHelper
         return $result->fetch_all(MYSQLI_ASSOC); 
     }
 
+
     public function getCommentsByPost($postID){ 
         $query ="SELECT c.commentID, c.commentText, c.timestamp, u.username 
                 FROM post AS p, comment AS c, user AS u 
@@ -477,6 +478,33 @@ class DatabaseHelper
     }
 
     
+
+
+    /**
+     * Add new like at given post from a user.
+     * @param mixed $userID
+     * @param mixed $postID
+     * @return void
+     */
+    public function likePost($userID, $postID) {
+        $query ="INSERT INTO likes (userID, postID) VALUES (?, ?);";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("ii", $userID, $postID);
+        $stmt->execute();
+    }
+
+    /**
+     * Remove like at given post from a user.
+     * @param mixed $userID
+     * @param mixed $postID
+     * @return void
+     */
+    public function dislikePost($userID, $postID) {
+        $query ="DELETE FROM likes WHERE userID = ? AND postID = ?;";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("ii", $userID, $postID);
+        $stmt->execute();
+    }
 
 }
 
