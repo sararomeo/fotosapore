@@ -50,7 +50,7 @@
             <!-- Go back to previous page -->
             <li class="nav-item">
                 <label hidden>Go back to previous page</label>
-                <button class="back-btn shadow-none" type="button" onClick="window.history.back()">
+                <button class="back-btn shadow-none" type="button" id="go-back-btn">
                 <span class="d-flex align-items-center"><i class="bi bi-arrow-left-circle fa-fw nav-bar-icon"></i></span></button>
             </li> 
             <!-- Home -->

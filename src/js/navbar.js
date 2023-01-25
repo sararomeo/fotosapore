@@ -82,3 +82,10 @@ $(window).load(function() {
             console.log("No existing page name found.");
     }
 });
+
+/**
+ * Go back to previous page.
+ */
+$("#go-back-btn").on("click",function() {
+    history.back();
+});
