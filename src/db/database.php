@@ -296,7 +296,7 @@ class DatabaseHelper
     {
         $postPublisherID = $this->getUserIDgivenPostID($postID);
         $username = $this->getUsername($userID)['username'];
-        $notificationText = $username . " has liked on your post!";
+        $notificationText = $username . " liked your post!";
 
         $query = "INSERT INTO notification (userID, text) VALUES (? , ?)";
         $stmt = $this->db->prepare($query);
