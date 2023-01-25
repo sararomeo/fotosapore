@@ -51,10 +51,11 @@
                         </div>
                     </div>
                     <div class="row align-items-right">
-                        <!-- <?php if ($dbh->getUserIDgivenPostID($templateParams["postID"])==$_SESSION['userID']): ?>
-                            <button class="form-btn align-right p-2 m-2 rounded" type="submit" value="Delete Post" name="delete" onclick="/*$dbh->deletePost($templateParams['postID']);*/ location.href='home.php?delete=true';">Delete post</button>  
-                            
-                        <?php endif; ?> -->
+                        <?php if ($dbh->getUserIDgivenPostID($templateParams["postID"]) == $_SESSION['userID']): ?>
+                            <form action="#" method="POST" name="delete-form">
+                                <input class="btn p-2 form-btn rounded" id="delete-post-btn" data-target="<?php echo $templateParams["postID"]; ?>" type="button" value="Delete post"></input>
+                            </form>
+                        <?php endif; ?>
                     </div>
                 </div>
             </section>
