@@ -52,10 +52,15 @@
         </div>
 
 
-        <div class="d-flex justify-content-center">
-            <div class="scroll-container" id="scroll-container">
 
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="d-flex col-md-4 justify-content-center">
+                <div class="scroll-container w-100" id="scroll-container">
+
+                </div>
             </div>
         </div>
+        <div class="col-md-4"></div>
     </div>
 </div>

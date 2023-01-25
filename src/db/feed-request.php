@@ -13,7 +13,7 @@
     } else if(str_contains($args->pageName, "profile.php")) {
         $postArray = $dbh->getProfilePosts($args->profileID);
         $postNum = count($postArray);
-    } else if($args->pageName == "search.php") {
+    } else if(str_contains($args->pageName, "search.php")) {
         $postArray = $dbh->getSearchPosts($args->searchTag);
         $postNum = count($postArray);
     } else {

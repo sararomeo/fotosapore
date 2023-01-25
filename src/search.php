@@ -5,10 +5,10 @@ if(!isSessionOpen()){
     header("location: index.php");
 }
 
-if (isset($_POST['myInput'])){ 
-    $tagsString = $_POST['myInput'];
-}else if(isset($_GET['myInput'])){ 
-    $tagsString = $_GET['myInput'];
+if (isset($_POST['inputTag'])){ 
+    $tagsString = $_POST['inputTag'];
+}else if(isset($_GET['inputTag'])){ 
+    $tagsString = $_GET['inputTag'];
 }else{ 
     header("location: index.php");
 }
