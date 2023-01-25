@@ -59,18 +59,15 @@ function addDataToFeed(response) {
             e2.alt = "recipe: " + response.postArray.title;
             
         const e3 = Object.assign(document.createElement("p"),{className:"bottom-bar-post"});
-            const s1 = Object.assign(document.createElement("span"),{className:"d-flex align-items-center"});
-                const b1 = Object.assign(document.createElement("i"),{className:"bi bi-heart post-icon fa-fw fa-2x"});
-                    //
-                const b2 = Object.assign(document.createElement("a"),{className:"bi bi-egg-fried post-icon fa-fw fa-2x"});
-                    b2.href = "single-post.php?postID=" + response.postArray.postID;
-                    // const hr2 =  Object.assign(document.createElement("a"),{className:"comment-link link-dark text-decoration-none"});
-                    //     hr2.href = "single-post.php?postID=" + response.postArray.postID;
-                    //     b2.appendChild(hr2);
+            const b1 = Object.assign(document.createElement("button"),{className:"btn btn-light bi bi-heart fa-fw fa-2x"});
+                b1.id = "like-btn";
+                b1.value = "like";
 
-                s1.appendChild(b1);
-                s1.appendChild(b2);
-            e3.appendChild(s1);
+            const b2 = Object.assign(document.createElement("a"),{className:"btn btn-light bi bi-egg-fried fa-fw fa-2x link-dark"});
+                b2.href = "single-post.php?postID=" + response.postArray.postID;
+
+            e3.appendChild(b1);
+            e3.appendChild(b2);
 
         const e4 = Object.assign(document.createElement("h3"),{className:"title-post my-2 fs-3 fst-italic",innerText:response.postArray.title});
 
@@ -85,6 +82,8 @@ function addDataToFeed(response) {
     container.appendChild(div);
     addDataIndex = addDataIndex + 1;
 }
+
+
 
 // Main
 getPost();
