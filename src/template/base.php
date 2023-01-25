@@ -17,8 +17,8 @@
 </head>
 
 <body>
-    <!-- Header -->
     <div class="d-flex flex-column vh-100">
+    <!-- Header -->
 	<header>
     <!-- Navigation bar -->
     <div class="container row">
@@ -106,20 +106,22 @@
             }
         ?>
     </main>
-
-    <!-- Footer -->
-    <footer class="row footer mt-auto position-absolute-bottom bg-white row mt-1">
-        <!-- Go back to previous page btn -->
-        <div class="d-flex position-fixed fixed-bottom justify-content-start nav-item">
+    
+    <div class="row">
+    <!-- Go back to previous page btn -->
+    <div class="d-flex position-fixed justify-content-start nav-item" id="back-btn-container">
             <label hidden>Go back to previous page</label>
             <button class="form-btn p-2 m-2 rounded back-btn bg-white" type="button" name="back-btn" onClick="window.history.back()">
             <span class="d-flex align-items-center"><i class="bi bi-arrow-left-circle fa-fw fa-2x nav-bar-icon"></i></span></button>       
         </div>
+        </div>
+    <!-- Footer -->
+    <footer class="row footer mt-auto position-absolute-bottom bg-white row mt-1">
         <!-- Copyright -->
 		<div class="row">
             <hr>
             <div class="col py-1 container d-md-flex justify-content-center align-items-center text-center">
-                <div class="d-md-flex justify-content-between align-items-center text-center text-md-left">
+                <div class="d-md-flex justify-content-between align-items-center text-center text-md-left" id="footer-container">
                     <small class = "small text-center text-muted">
                         <p>©<script>document.write(new Date().getFullYear())</script> FotoSapore | All rights reserved: Luca Babboni - Sara Romeo - Pablo Sebastian Vargas Grateron</p>
                     </small>
