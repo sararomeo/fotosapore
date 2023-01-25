@@ -381,14 +381,14 @@ class DatabaseHelper
     /**
      * Send the requested profile posts in JSON format. TODO
      */
-    public function getProfilePosts() {
+    public function getProfilePosts($profileID) {
         $query ="SELECT u.username, p.title, p.caption, p.imagePath, p.recipe, p.userID
                 FROM user u, post p 
                 WHERE p.userID = u.userID 
                 AND u.userID = ?  
                 ORDER BY p.timestamp DESC";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("i",$_SESSION['userID']);
+        $stmt->bind_param("i", $profileID);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
@@ -397,12 +397,14 @@ class DatabaseHelper
     /**
      * Search by given tags.
      */
-    public function getSearchPosts($tags) {
+    public function getSearchPosts($tagsString) {
+        $tags = explode(" ", $tagsString);
+        $tags = array_unique($tags); 
         array_push($tags, $_SESSION['userID']);
         $paramsTypes = str_repeat('s', count($tags) - 1) . 'i';
         $questionMarks = str_repeat('?,', count($tags) - 2) . '?';
 
-        $query ="SELECT u.username, p.title, p.caption, p.imagePath, p.recipe, p.postID
+        $query ="SELECT u.username, p.title, p.caption, p.imagePath, p.recipe, p.postID, p.userID
         FROM post p, user u, (SELECT tags.postID, COUNT(*) as ntag 
                                 FROM tags
                                 WHERE tag in ($questionMarks)
