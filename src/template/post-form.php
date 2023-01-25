@@ -9,8 +9,6 @@
             <label for="imgarticle" hidden>Upload image</label><input type="file" class="btn form-btn align-right p-2 rounded" name="imgarticle" id="imgarticle" accept="image/jpeg, image/png" required/>
         </div>
     </div>
-
-    
     <!-- Text input -->
     <div class="col-md-5">
         <h2 class="h2 p-2">Insert your new recipe</h2>
@@ -50,14 +48,9 @@
                 ?></textarea>
         </div>
     </div>
-
-
 </div>
-
 <!-- Submit buttons -->
 <div class="d-flex justify-content-center py-4">
     <input class="form-btn align-right p-2 mt-2 rounded" type="submit" value="Publish post" />
 </div>
-
-
 </form>
