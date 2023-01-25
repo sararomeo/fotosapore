@@ -39,7 +39,7 @@
                                 <div class="float-start">
                                     <ul class="list-inline">
                                         <li class="list-inline-item">
-                                            <form action="search.php?inputTag=<?php echo $tag["tag"]; ?>" class="search-box" method="GET">
+                                            <form action="search.php?inputTag=<?php echo $tag["tag"]; ?>" class="search-box" method="POST">
                                                 <button type="submit" class="btn link-danger">
                                                     <?php echo $tag["tag"]; ?>
                                                 </button>
