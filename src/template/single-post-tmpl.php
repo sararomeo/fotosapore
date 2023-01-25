@@ -37,11 +37,11 @@
 
                     <h2>Tags:</h2>
                     <?php foreach ($templateParams["postInfo"]["tagString"] as $tag): ?>
-                        <!-- <a href="search.php?myInput=<?php //echo $tag["tag"]; ?>"><?php //echo $tag["tag"];?></a> -->
+                        <!-- <a href="search.php?inputTag=<?php //echo $tag["tag"]; ?>"><?php //echo $tag["tag"];?></a> -->
                         <div class="float-start">
                             <ul class="list-inline">
                                 <li class="list-inline-item">
-                                    <form action="search.php?myInput=<?php echo $tag["tag"]; ?>" class="search-box"
+                                    <form action="search.php?inputTag=<?php echo $tag["tag"]; ?>" class="search-box"
                                         method="POST">
                                         <button type="submit" class="btn link-danger">
                                             <?php echo $tag["tag"]; ?>
