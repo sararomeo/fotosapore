@@ -3,6 +3,7 @@
     margin: 0 !important;
     padding: 0 !important;
     text-decoration: none !important;
+    font-family: Georgia, serif !important;
 }
 
 .btn:focus, .btn:active {
