@@ -296,7 +296,7 @@ class DatabaseHelper
     {
         $postPublisherID = $this->getUserIDgivenPostID($postID);
         $username = $this->getUsername($userID)['username'];
-        $notificationText = $username . " has liked on your post!";
+        $notificationText = $username . " liked your post!";
 
         $query = "INSERT INTO notification (userID, text) VALUES (? , ?)";
         $stmt = $this->db->prepare($query);
@@ -352,7 +352,7 @@ class DatabaseHelper
                 WHERE f.follower = ? 
                 AND p.userID = f.user
                 AND u.userID = f.user
-                ORDER BY p.timestamp ";
+                ORDER BY p.timestamp DESC";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $_SESSION['userID']);
         $stmt->execute();
@@ -370,7 +370,8 @@ class DatabaseHelper
                 AND u.userID != ? 
                 AND u.userID NOT IN (   SELECT f.user 
                                         FROM followers f 
-                                        WHERE f.follower = ? )";
+                                        WHERE f.follower = ? )
+                ORDER BY p.timestamp DESC";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("ii", $_SESSION['userID'], $_SESSION['userID']);
         $stmt->execute();
