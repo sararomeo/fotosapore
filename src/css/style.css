@@ -197,4 +197,8 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     .form-text-area p {
         font-size: medium;
     }
+
+    .notification-text p {
+        font-size: 1em !important;
+    }
 }
