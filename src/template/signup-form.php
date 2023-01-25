@@ -26,7 +26,7 @@
             <label hidden>Password repeated</label> <input type="password" class="form-control" name="password2" id="password2" placeholder="repeat password" required>
         </div>
     </div>
-
+    
     <!-- Submit buttons -->
     <div class="d-flex justify-content-end">
         <input class="form-btn align-right p-2 m-2 rounded" type="button" name="login-button" value="Back to log-in" onClick="location.href='index.php'"></input>
