@@ -104,6 +104,10 @@
         <div class="col-md-8 col-10">
             <div class="card shadow-0 border" style="background-color: #f0f2f5;">
                 <div class="card-body p-4">
+                    <?php if(empty($templateParams["postComments"])): ?>
+                        <p>Nobody commented yet. Be the first!</p>
+                    <?php endif; ?>
+                    
                     <?php foreach ($templateParams["postComments"] as $comment): ?>
                         <div class="card my-4">
                             <div class="card-body mx-4 my-4">
