@@ -8,6 +8,13 @@
     <?php endif; ?>
     </p>
 
+    <!-- Successfull message -->
+    <p class="text-center m-4">
+    <?php if(isset($templateParams["successfullsignup"])): ?>
+    <p><?php echo $templateParams["successfullsignup"]; ?></p>
+    <?php endif; ?>
+    </p>
+
     <!-- Credentials input -->
     <div class="mb-4 mt-4">
         <div class="form-outline p-2">
