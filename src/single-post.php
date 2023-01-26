@@ -8,7 +8,8 @@ if (!isSessionOpen()) {
 if (isset($_GET["postID"])) {
     $templateParams["postID"] = $_GET["postID"];
     $templateParams["postInfo"] = $dbh->getPostByID($templateParams["postID"]);
-    if (!isset($templateParams["postInfo"]["title"])) {
+    $title = $templateParams["postInfo"]["title"];
+    if (!isset($title)) {
         header("location: index.php");
     }
     $templateParams["postInfo"]["tagString"] = $dbh->getTagByPost($templateParams["postID"]);
@@ -19,7 +20,7 @@ if (isset($_GET["postID"])) {
     header("location: index.php");
 }
 
-$templateParams["title"] = "Foto Sapore | Post";
+$templateParams["title"] = "Foto Sapore | $title";
 $templateParams["page"] = "single-post-tmpl.php";
 
 
