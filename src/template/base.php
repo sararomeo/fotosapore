@@ -29,7 +29,7 @@
             <!-- Navigation bar -->
             <div class="container row">
                 <nav class="col-12 py-2 navbar navbar-expand-lg navbar-default fixed-top navbar-static-top bg-white navbar-sticky"
-                    id="navbar-container" role="navigation" aria-label="main">
+                    id="navbar-container" aria-label="main">
                     <div class="container-fluid overflow-hidden">
                         <!-- Left elements -->
                         <div class="d-flex my-2 my-sm-0">
