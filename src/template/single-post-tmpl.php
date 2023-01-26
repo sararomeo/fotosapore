@@ -17,11 +17,12 @@
                 <div class="row py-4">
                     <div class="row post-content">
                         <div class="col-md-4 col-sm-12 d-flex justify-content-center p-2">
-                            <img class="w-100"
-                                src="<?php echo UPLOAD_DIR . $templateParams["postInfo"]["imagePath"]; ?>"
-                                class="img-thumbnail" alt="recipe result image" />
+                            <div class="d-flex flex-column align-items-cener justify-content-center height-100 w-100">
+                                <img class="max-width-100 max-height-100 w-100 object-fit-contain"
+                                    src="<?php echo UPLOAD_DIR . $templateParams["postInfo"]["imagePath"]; ?>"
+                                    class="img-thumbnail" alt="recipe result image" />
+                            </div>
                         </div>
-
                         <div class="col-md-8 col-sm-12 p-4 h-100">
                             <h2 class="h2">Caption:</h2>
                             <p>
