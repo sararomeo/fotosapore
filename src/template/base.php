@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -31,6 +31,7 @@
             <!-- Search form -->
             <div class="position-relative search-container">
                 <form action="search.php" class="search-box" method="POST" id="nav-search-form" enctype="multipart/form-data">
+                    <label for="inputTag" hidden>search bar</label>
                     <input type="search" id="inputTag" role="search" class="input search-input" name="inputTag" value="" autocomplete="off" placeholder = "Search for a recipe...">
                     <button type="button" onclick="document.getElementById('inputTag').value = ''" class="btn search-btn" name="button" id="search-btn"></button>
                 </form>
@@ -55,38 +56,38 @@
             </li> 
             <!-- Home -->
             <li class="nav-item">
-                <a class="nav-link" href="./home.php" id="home-nav-link">
-                <span class="d-flex align-items-center"><i class="bi bi-house fa-fw nav-bar-icon"></i></span>
+                <a class="nav-link" href="./home.php" id="home-nav-link" title="home">
+                <span class="d-flex align-items-center"><i class="bi bi-house fa-fw nav-bar-icon" alt="home icon"></i></span>
                 </a>
             </li>
             <!-- Discovery -->
             <li class="nav-item">
-                <a class="nav-link" href="./discovery.php" id="discovery-nav-link">
-                <span class="d-flex align-items-center"><i class="bi bi-compass fa-fw nav-bar-icon"></i></span>
+                <a class="nav-link" href="./discovery.php" id="discovery-nav-link" title="discovery">
+                <span class="d-flex align-items-center"><i class="bi bi-compass fa-fw nav-bar-icon" alt="discovery icon"></i></span>
                 </a>
             </li>
             <!-- Create post -->
             <li class="nav-item">
-                <a class="nav-link" href="./create-post.php" id="create-post-nav-link">
-                <span class="d-flex align-items-center"><i class="bi bi-plus-circle fa-fw nav-bar-icon"></i></span>
+                <a class="nav-link" href="./create-post.php" id="create-post-nav-link" title="create post">
+                <span class="d-flex align-items-center"><i class="bi bi-plus-circle fa-fw nav-bar-icon" alt="new post icon"></i></span>
                 </a>
             </li>
             <!-- Notifications -->
             <li class="nav-item">
-                <a class="nav-link" href="./notification.php" id="notification-nav-link">
-                <span class="d-flex align-items-center"><i class="bi bi-bell fa-fw nav-bar-icon"></i></span>
+                <a class="nav-link" href="./notification.php" id="notification-nav-link" title="notifications">
+                <span class="d-flex align-items-center"><i class="bi bi-bell fa-fw nav-bar-icon" alt="notification icon"></i></span>
                 </a>
             </li>
             <!-- Profile -->
             <li class="nav-item">
-                <a class="nav-link d-sm-flex align-items-sm-center" href="./profile.php" id="profile-nav-link">
-                <span class="d-flex align-items-center"><i class="bi bi-person fa-fw nav-bar-icon"></i></span>
+                <a class="nav-link d-sm-flex align-items-sm-center" href="./profile.php" id="profile-nav-link" title="profile" >
+                <span class="d-flex align-items-center"><i class="bi bi-person fa-fw nav-bar-icon" alt="profile icon"></i></span>
                 </a>
             </li>
             <!-- Logout -->
             <li class="nav-item">
-                <a class="nav-link" href="./logout.php">
-                <span class="d-flex align-items-center"><i class="bi bi-box-arrow-left fa-fw nav-bar-icon"></i></span>
+                <a class="nav-link" href="./logout.php" title="logout">
+                <span class="d-flex align-items-center"><i class="bi bi-box-arrow-left fa-fw nav-bar-icon" alt="logout icon"></i></span>
                 </a>
             </li>
         </ul>

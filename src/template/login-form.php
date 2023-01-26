@@ -11,11 +11,11 @@
     <!-- Credentials input -->
     <div class="mb-4 mt-4">
         <div class="form-outline p-2">
-            <label hidden>Email</label><input type="email" class="form-control" name="email" id="email" placeholder="yourmail@mail.com" required>
+            <label hidden for="email">Email</label><input type="email" class="form-control" name="email" id="email" placeholder="yourmail@mail.com" required>
         </div>
 
         <div class="form-outline p-2">
-            <label hidden>Password</label><input type="password" class="form-control" name="password" id="password" placeholder="password" required>
+            <label hidden for="password">Password</label><input type="password" class="form-control" name="password" id="password" placeholder="password" required>
         </div>
     </div>
 
