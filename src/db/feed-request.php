@@ -10,7 +10,7 @@ if ($args->pageName == "home.php") {
 } else if ($args->pageName == "discovery.php") {
     $postArray = $dbh->getDiscoveryPosts();
     $postNum = count($postArray);
-} else if (str_contains($args->pageName, "profile.php")) {
+} else if (str_contains($args->pageName, "profile.php") && $args->pageName != "edit-profile.php") {
     $postArray = $dbh->getProfilePosts($args->profileID);
     $postNum = count($postArray);
 } else if (str_contains($args->pageName, "search.php")) {
