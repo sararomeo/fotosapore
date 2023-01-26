@@ -64,7 +64,7 @@ class DatabaseHelper
      * @param string $email
      * @param string $username
      * @param string $password
-     * @return void
+     * @return bool
      */
     public function signUp($email, $username, $password)
     {
@@ -155,7 +155,7 @@ class DatabaseHelper
      * Register if user follow another user
      * @param int $profileID
      * @param int $loggedUserID
-     * @return array
+     * @return void
      */
     public function followUser($profileID, $loggedUserID)
     {
@@ -169,7 +169,7 @@ class DatabaseHelper
      * Register if user unfollow another user
      * @param int $profileID
      * @param int $loggedUserID
-     * @return array
+     * @return void
      */
     public function unfollowUser($profileID, $loggedUserID)
     {
@@ -229,7 +229,7 @@ class DatabaseHelper
     /**
      * Get email from userID
      * @param int $userID
-     * @return array
+     * @return string
      */
     private function getEmail($userID)
     {
@@ -259,7 +259,7 @@ class DatabaseHelper
     /**
      * Find user who published post by postID.
      * @param int $postID
-     * @return array
+     * @return int
      */
     public function getUserIDgivenPostID($postID)
     {
@@ -375,7 +375,7 @@ class DatabaseHelper
 
     /**
      * Send the home posts in JSON format.
-     * @return void
+     * @return array
      */
     public function getHomePosts()
     {
@@ -394,7 +394,7 @@ class DatabaseHelper
 
     /**
      * Send the discovery posts in JSON format.        
-     * @return void
+     * @return array
      */
     public function getDiscoveryPosts()
     {
@@ -416,7 +416,7 @@ class DatabaseHelper
     /**
      * Send the requested profile posts in JSON format.
      * @param int $profileID the userID of the profile;
-     * @return void
+     * @return array
      */
     public function getProfilePosts($profileID)
     {
@@ -435,7 +435,7 @@ class DatabaseHelper
     /**
      * Search by given tags.
      * @param string $tagsString the tags to search for;
-     * @return void
+     * @return array
      */
     public function getSearchPosts($tagsString)
     {
