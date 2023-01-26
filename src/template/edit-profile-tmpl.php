@@ -7,7 +7,7 @@
 
             <div class="d-flex justify-content-center">
                 <div class="row">
-                    <h1 class="h2 p-2 col-12">Edit your profile informations:</h1>
+                    <h1 class="h2 p-2 col-12 text-center">Edit your profile informations:</h1>
                 </div>
             </div>
 
