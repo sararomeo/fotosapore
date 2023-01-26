@@ -38,10 +38,10 @@
                                     src="res/big-favicon.png" height="40em" alt="logo fotosapore" loading="lazy" /></a>
                             <!-- Search form -->
                             <div class="position-relative search-container">
-                                <form action="search.php" class="search-box" method="POST" id="nav-search-form"
+                                <form action="search.php" class="search-box" role="search" method="POST" id="nav-search-form"
                                     enctype="multipart/form-data">
                                     <label for="inputTag" hidden>search bar</label>
-                                    <input type="search" id="inputTag" role="search" class="input search-input"
+                                    <input type="search" id="inputTag" class="input search-input"
                                         name="inputTag" value="" autocomplete="off"
                                         placeholder="Search for a recipe...">
                                     <button type="button" onclick="document.getElementById('inputTag').value = ''"
