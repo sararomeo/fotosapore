@@ -6,7 +6,7 @@ if(!isSessionOpen()){
     header("location: index.php");
 }
 
-$templateParams["title"] = "Foto Sapore | Home";
+$templateParams["title"] = "Foto Sapore | Edit profile";
 $templateParams["page"] = "edit-profile-tmpl.php";
 
 require_once("template/base.php");

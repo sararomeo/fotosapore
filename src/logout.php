@@ -6,7 +6,7 @@ if(!isSessionOpen()){
     header("location: index.php");
 }
 
-$templateParams["titolo"] = "FotoSapore | Logout";
+$templateParams["titolo"] = "Foto Sapore | Log-out";
 closeSession();
 
 require_once("template/base-index.php");
