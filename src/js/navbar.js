@@ -77,7 +77,6 @@ $(window).load(function () {
             break;
         default:
             console.log("No existing page name found.");
-        // profile-page managed by followBtn.js based on which profile is being viewed
     }
 
     if (current_page == "profile-page") {
