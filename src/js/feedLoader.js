@@ -1,4 +1,3 @@
-import asyncLikeMail from './async-like.js';
 import toggleLike from './likeBtn.js';
 
 // Variables
@@ -62,26 +61,28 @@ function addDataToFeed(response) {
             e2.alt = "recipe: " + response.postArray.title;
             
         const e3 = Object.assign(document.createElement("div"),{className:"bottom-bar-post"});
-            const b1 = Object.assign(document.createElement("button"),{className:"like-btn btn post-icon bi bi-heart fa-fw fa-2x"});
-                b1.type = "button";
-                b1.value = "nolike";
+            const b1 = Object.assign(document.createElement("a"),{className:"btn post-icon bi bi-egg-fried fa-fw fa-2x"});
+                b1.href = "single-post.php?postID=" + response.postArray.postID;
+
+            const b2 = Object.assign(document.createElement("button"),{className:"like-btn btn post-icon bi bi-heart fa-fw fa-2x"});
+                b2.type = "button";
+                b2.value = "nolike";
                 if(response.isLiked > 0) {
-                    b1.classList.toggle("bi-heart");
-                    b1.classList.toggle("bi-heart-fill");
-                    b1.classList.toggle("text-danger");
-                    b1.value = "like";
+                    b2.classList.toggle("bi-heart");
+                    b2.classList.toggle("bi-heart-fill");
+                    b2.classList.toggle("text-danger");
+                    b2.value = "like";
                 }
-                b1.addEventListener("click", function(){
-                    if(b1.value == "nolike") {
-                        asyncLikeMail(response.postArray.postID);
+                b2.addEventListener("click", function(){
+                    if(b2.value == "nolike") {
+                        b3.innerText = parseInt(b3.innerText) + 1;
+                    } else {
+                        b3.innerText = parseInt(b3.innerText) - 1;
                     }
-                    toggleLike(b1, response.postArray.postID);
+                    toggleLike(b2, response.postArray.postID);
                 });
                 
-                const b2 = Object.assign(document.createElement("a"),{className:"btn post-icon bi bi-egg-fried fa-fw fa-2x"});
-                b2.href = "single-post.php?postID=" + response.postArray.postID;
-
-                const b3 = Object.assign(document.createElement("span"),{className:"fa-fw fa-2x", innerText:response.likeNum});
+                const b3 = Object.assign(document.createElement("span"),{className:"fa-fw fa-2x pt-1 p-2", innerText:response.likeNum});
                 
             e3.appendChild(b1);
             e3.appendChild(b2);
