@@ -550,7 +550,14 @@ class DatabaseHelper
         $stmt->bind_param("i", $postID);
         $stmt->execute();
         $result = $stmt->get_result();
-        return $result->fetch_all(MYSQLI_ASSOC)[0] ["likeNum"];
+        $res = $result->fetch_all(MYSQLI_ASSOC);
+        
+        if(count($res) == 0){ 
+            $likes = 0;
+        }else{
+            $likes = $res[0]["likeNum"];
+        }
+        return $likes; 
     }
 
 }
