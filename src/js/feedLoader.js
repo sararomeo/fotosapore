@@ -63,10 +63,12 @@ function addDataToFeed(response) {
         const e3 = Object.assign(document.createElement("div"),{className:"bottom-bar-post"});
             const b1 = Object.assign(document.createElement("a"),{className:"btn post-icon bi bi-egg-fried fa-fw fa-2x"});
                 b1.href = "single-post.php?postID=" + response.postArray.postID;
+                b1.title ="See recipe";
 
             const b2 = Object.assign(document.createElement("button"),{className:"like-btn btn post-icon bi bi-heart fa-fw fa-2x"});
                 b2.type = "button";
                 b2.value = "nolike";
+                b2.title = "like"; 
                 if(response.isLiked > 0) {
                     b2.classList.toggle("bi-heart");
                     b2.classList.toggle("bi-heart-fill");
