@@ -1,3 +1,10 @@
+
+/**
+ * AJAX request function.
+ * @param {*} fileName 
+ * @param {*} method 
+ * @param {*} data 
+ */
 function ajaxRequest(fileName, method, data) {
     let args = JSON.stringify(data);
     let xmlhttp = new XMLHttpRequest();
@@ -8,7 +15,7 @@ function ajaxRequest(fileName, method, data) {
     };
     xmlhttp.open("POST", fileName, true);
     xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    xmlhttp.send("args="+args);
+    xmlhttp.send("args=" + args);
 }
 
 export default ajaxRequest;
