@@ -1,5 +1,5 @@
 <div id="page-name" data-page="notification-page">
-    <div class="row mb-4">
+    <div class="row">
         <div class="col text-center">
             <h1>Notifications:</h1>
         </div>

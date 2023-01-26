@@ -106,10 +106,9 @@
         ?>
     </main>
     
-    <!-- Footer -->
     <footer class="row footer mt-auto position-absolute-bottom bg-white row mt-1">
         <!-- Copyright -->
-		<div class="row">
+		<div class="row mt-2">
             <hr>
             <div class="col py-1 container d-md-flex justify-content-center align-items-center text-center">
                 <div class="d-md-flex justify-content-between align-items-center text-center text-md-left" id="footer-container">

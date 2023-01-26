@@ -202,4 +202,8 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     .notification-text p {
         font-size: 1em !important;
     }
+    
+    .footer p {
+        font-size: small;
+    }
 }
