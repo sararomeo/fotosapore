@@ -16,7 +16,7 @@
                                 <p class="lead fa-2x">
                                     <?php echo $n["text"] ?>
                                 </p>
-                                <p class = "text-muted">
+                                <p class="text-muted">
                                     <?php echo date($n["time"]) ?>
                                 </p>
                             </div>

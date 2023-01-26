@@ -33,15 +33,17 @@
                                 <?php echo $templateParams["postInfo"]["recipe"]; ?>
                             </p>
 
-                            <h2 class="h2">Author:</h2>                            
+                            <h2 class="h2">Author:</h2>
                             <form action="profile.php?profileID=<?php echo $templateParams["postInfo"]["userID"]; ?>"
                                 class="search-box" method="POST">
                                 <button type="submit" class="btn link-danger">
                                     <?php echo ($templateParams["postInfo"]["author"]); ?>
                                 </button>
                             </form>
-                            
-                            <h2>Likes: <?php echo( $templateParams["postInfo"]["likenumber"]); ?></h2>
+
+                            <h2>Likes:
+                                <?php echo ($templateParams["postInfo"]["likenumber"]); ?>
+                            </h2>
 
                             <h2>Tags:</h2>
                             <?php foreach ($templateParams["postInfo"]["tagString"] as $tag): ?>
@@ -77,7 +79,6 @@
 
     <div class="container-fluid mt-5">
 
-        <!-- TODO fix forum for insert a comment -->
         <form action="elaborate-comment.php" method="POST" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-md-2 col-1"></div>
@@ -101,7 +102,6 @@
             </div>
         </form>
     </div>
-
 
     <div class="container-fluid">
         <div class="row">
