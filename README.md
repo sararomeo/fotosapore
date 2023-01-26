@@ -1,2 +1,2 @@
 # Foto Sapore
-Web development project - Foto Sapore is a social media to share and discover new food recipes with the world!
+Web development project - Foto Sapore is a social media to discover and share new food recipes.
