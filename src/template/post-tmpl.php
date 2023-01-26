@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <div class="col-md d-flex flex-column align-items-left justify-content-center form-text-area">
+    <div class="col-md d-flex flex-column align-items-left justify-content-center form-text-area p-2">
         <?php
         if(isset($templateParams["msg"])){
             require("display-post-error.php"); 

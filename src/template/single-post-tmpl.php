@@ -33,12 +33,25 @@
                                 <?php echo $templateParams["postInfo"]["recipe"]; ?>
                             </p>
 
+                            <h2 class="h2">Author:</h2>
+                            <p>
+                            <form action="profile.php?profileID=<?php echo $templateParams["postInfo"]["userID"]; ?>"
+                                class="search-box" method="POST">
+                                <button type="submit" class="btn link-danger">
+                                    <?php echo ($templateParams["postInfo"]["author"]); ?>
+                                </button>
+                            </form>
+                            </p>
+
+
+
                             <h2>Tags:</h2>
                             <?php foreach ($templateParams["postInfo"]["tagString"] as $tag): ?>
                                 <div class="float-start">
                                     <ul class="list-inline">
                                         <li class="list-inline-item">
-                                            <form action="search.php?inputTag=<?php echo $tag["tag"]; ?>" class="search-box" method="POST">
+                                            <form action="search.php?inputTag=<?php echo $tag["tag"]; ?>" class="search-box"
+                                                method="POST">
                                                 <button type="submit" class="btn link-danger">
                                                     <?php echo $tag["tag"]; ?>
                                                 </button>
@@ -52,7 +65,9 @@
                     <div class="row align-items-right">
                         <?php if ($dbh->getUserIDgivenPostID($templateParams["postID"]) == $_SESSION['userID']): ?>
                             <form action="#" method="POST" name="delete-form">
-                                <input class="btn p-2 form-btn rounded" id="delete-post-btn" data-target="<?php echo $templateParams["postID"]; ?>" type="button" value="Delete post"></input>
+                                <input class="btn p-2 form-btn rounded" id="delete-post-btn"
+                                    data-target="<?php echo $templateParams["postID"]; ?>" type="button"
+                                    value="Delete post"></input>
                             </form>
                         <?php endif; ?>
                     </div>

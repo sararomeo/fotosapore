@@ -5,7 +5,7 @@
         </div>
     </div>
 
-    <div class="row d-flex justify-content-center mb-2">
+    <div class="row d-flex justify-content-center mb-2 p-2">
         <div class="col-md-2"></div>
         <div class="col-md-8 col-lg-6">
             <div class="card shadow-0 border" style="background-color: #f0f2f5;">

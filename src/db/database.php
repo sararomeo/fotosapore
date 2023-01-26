@@ -200,7 +200,7 @@ class DatabaseHelper
     }
 
 
-    private function getUsername($userID)
+    public function getUsername($userID)
     {
         $query = "SELECT username FROM user WHERE userID = ?;";
         $stmt = $this->db->prepare($query);

@@ -1,5 +1,5 @@
 <div id="page-name" data-page="profile-page">
-    <div class="profile-feed-container d-flex flex-column aligns-items-center">
+    <div class="profile-feed-container d-flex flex-column aligns-items-center p-2">
         <div class="profile-info align-self-center p-2">
             <?php
             $profileID = $templateParams["profileID"];
