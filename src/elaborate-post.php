@@ -11,25 +11,25 @@ $recipe = $_POST["recipe"];
 $tagString = $_POST["tags"];
 $autor = $_SESSION["userID"];
 
-//check if all the data are set
+// Check if all the data are set
 if (!isset($_FILES["imgarticle"]) || !isset($_POST["title"]) || !isset($_POST["caption"]) || !isset($_POST["recipe"]) || !isset($_POST["tags"])) {
     $result = 0;
-    $msg = "Fill all the field in the form before submitting!"; 
+    $msg = "Fill all the field in the form before submitting!";
 } else {
-    //create an array of tags using the provided string
+    // Create an array of tags using the provided string
     $tags = explode(" ", $tagString);
-    $tags = array_unique($tags); 
+    $tags = array_unique($tags);
     $tags = \array_diff($tags, ["", " "]);
 
     list($result, $msg) = uploadImage(UPLOAD_DIR, $_FILES["imgarticle"]);
-    //check if the imageUpload was sucsessfull
+    // Check if the imageUpload was sucsessfull
     if ($result == 1) {
         $imgarticolo = $msg;
         $postID = $dbh->insertNewPost($title, $caption, $recipe, $imgarticolo, $autor);
 
-        //check if the article was insert correctly
+        // Check if the article was insert correctly
         if ($postID != false) {
-            //insert tags into the table 
+            // Insert tags into the table 
             foreach ($tags as $tag) {
                 $dbh->insertPostTags($postID, $tag);
             }

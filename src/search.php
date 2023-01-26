@@ -1,15 +1,15 @@
 <?php
 require_once("bootstrap.php");
 
-if(!isSessionOpen()){
+if (!isSessionOpen()) {
     header("location: index.php");
 }
 
-if (isset($_POST['inputTag'])){ 
+if (isset($_POST['inputTag'])) {
     $tagsString = $_POST['inputTag'];
-}else if(isset($_GET['inputTag'])){ 
+} else if (isset($_GET['inputTag'])) {
     $tagsString = $_GET['inputTag'];
-}else{ 
+} else {
     header("location: index.php");
 }
 

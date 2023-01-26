@@ -8,7 +8,7 @@ if (!isSessionOpen()) {
 $newUsername = $_POST["username"];
 $newBio = $_POST["bio"];
 
-$dbh->updateUserData($newUsername, $newBio); 
+$dbh->updateUserData($newUsername, $newBio);
 
 header("location: profile.php");
 
