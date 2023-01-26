@@ -13,7 +13,7 @@
                 </div>
             </header>
 
-            <section>
+            <section class="single-post-text-container">
                 <div class="row py-4">
                     <div class="row post-content">
                         <div class="col-md-4 col-sm-12 d-flex justify-content-center p-2">
