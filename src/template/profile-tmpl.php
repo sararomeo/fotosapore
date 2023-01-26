@@ -53,13 +53,13 @@
 
 
         <div class="row">
-            <div class="col-md-4"></div>
-            <div class="d-flex col-md-4 justify-content-center">
+            <div class="col-xl-4 col-lg-3 col-md-2"></div>
+            <div class="d-flex col-xl-4 col-lg-6 col-md-8 justify-content-center">
                 <div class="scroll-container w-100" id="scroll-container">
 
                 </div>
             </div>
         </div>
-        <div class="col-md-4"></div>
+        <div class="col-xl-4 col-lg-3 col-md-2"></div>
     </div>
 </div>
