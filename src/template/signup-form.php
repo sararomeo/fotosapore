@@ -28,7 +28,7 @@
         </div>
 
         <div class="form-outline p-2">
-            <label hidden for="username">Username</label><input type="username" class="form-control" name="username"
+            <label hidden for="username">Username</label><input type="text" class="form-control" name="username"
                 id="username" placeholder="username" required>
         </div>
 
