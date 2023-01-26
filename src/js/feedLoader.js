@@ -1,3 +1,4 @@
+import asyncLikeMail from './async-like.js';
 import toggleLike from './likeBtn.js';
 
 // Variables
@@ -60,7 +61,7 @@ function addDataToFeed(response) {
             e2.src = "upload/" + response.postArray.imagePath.toString();
             e2.alt = "recipe: " + response.postArray.title;
             
-        const e3 = Object.assign(document.createElement("p"),{className:"bottom-bar-post"});
+        const e3 = Object.assign(document.createElement("div"),{className:"bottom-bar-post"});
             const b1 = Object.assign(document.createElement("button"),{className:"like-btn btn post-icon bi bi-heart fa-fw fa-2x"});
                 b1.type = "button";
                 b1.value = "nolike";
@@ -71,14 +72,20 @@ function addDataToFeed(response) {
                     b1.value = "like";
                 }
                 b1.addEventListener("click", function(){
+                    if(b1.value == "nolike") {
+                        asyncLikeMail(response.postArray.postID);
+                    }
                     toggleLike(b1, response.postArray.postID);
                 });
-
-            const b2 = Object.assign(document.createElement("a"),{className:"btn post-icon bi bi-egg-fried fa-fw fa-2x"});
+                
+                const b2 = Object.assign(document.createElement("a"),{className:"btn post-icon bi bi-egg-fried fa-fw fa-2x"});
                 b2.href = "single-post.php?postID=" + response.postArray.postID;
 
+                const b3 = Object.assign(document.createElement("span"),{className:"fa-fw fa-2x", innerText:response.likeNum});
+                
             e3.appendChild(b1);
             e3.appendChild(b2);
+            e3.appendChild(b3);
 
         const e4 = Object.assign(document.createElement("h3"),{className:"title-post my-2 fs-3 fst-italic",innerText:response.postArray.title});
 
