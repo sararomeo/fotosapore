@@ -5,11 +5,12 @@ class DatabaseHelper
 
     /**
      * Constructor for DatabaseHelper class
-     * @param mixed $servername
-     * @param mixed $username
-     * @param mixed $password
-     * @param mixed $dbname
-     * @param mixed $port
+     * @param string $servername
+     * @param string $username
+     * @param string $password
+     * @param string $dbname
+     * @param int $port
+     * @return void
      */
     public function __construct($servername, $username, $password, $dbname, $port)
     {
@@ -23,8 +24,8 @@ class DatabaseHelper
 
     /**
      * Checks if user exists in database in order to log in
-     * @param mixed $email
-     * @param mixed $pw
+     * @param string $email
+     * @param string $pw
      * @return bool
      */
     public function checkLogin($email, $pw)
@@ -43,7 +44,7 @@ class DatabaseHelper
 
     /**
      * Checks if email already exists in database
-     * @param mixed $email
+     * @param string $email
      * @return boolean
      */
     public function checkMailExists($email): bool
@@ -60,9 +61,9 @@ class DatabaseHelper
 
     /**
      * Register new user into database
-     * @param mixed $email
-     * @param mixed $username
-     * @param mixed $password
+     * @param string $email
+     * @param string $username
+     * @param string $password
      * @return void
      */
     public function signUp($email, $username, $password)
@@ -76,8 +77,8 @@ class DatabaseHelper
 
     /**
      * Get user data from database
-     * @param mixed $email
-     * @return mixed
+     * @param string $email
+     * @return array
      */
     public function getUserData($email)
     {
@@ -91,8 +92,8 @@ class DatabaseHelper
 
     /**
      * Get user data from database to display on profile page
-     * @param mixed $userID
-     * @return mixed
+     * @param int $userID
+     * @return array
      */
     public function getUserProfileInfo($userID)
     {
@@ -106,8 +107,8 @@ class DatabaseHelper
 
     /**
      * Get user's followers count
-     * @param mixed $userID
-     * @return mixed
+     * @param int $userID
+     * @return array
      */
     public function getFollowersCount($userID)
     {
@@ -121,8 +122,8 @@ class DatabaseHelper
 
     /**
      * Get user's followers count
-     * @param mixed $userID
-     * @return mixed
+     * @param int $userID
+     * @return array
      */
     public function getFollowingsCount($userID)
     {
@@ -136,8 +137,8 @@ class DatabaseHelper
 
     /**
      * Check if user is following another user
-     * @param mixed $userID
-     * @param mixed $followerID
+     * @param int $profileID
+     * @param int $loggedUserID
      * @return bool
      */
     public function isFollowing($profileID, $loggedUserID)
@@ -150,6 +151,12 @@ class DatabaseHelper
         return $result->num_rows > 0;
     }
 
+    /**
+     * Register if user follow another user
+     * @param int $profileID
+     * @param int $loggedUserID
+     * @return array
+     */
     public function followUser($profileID, $loggedUserID)
     {
         $query = "INSERT INTO followers (user, follower) VALUES (?,?)";
@@ -158,6 +165,12 @@ class DatabaseHelper
         $stmt->execute();
     }
 
+    /**
+     * Register if user unfollow another user
+     * @param int $profileID
+     * @param int $loggedUserID
+     * @return array
+     */
     public function unfollowUser($profileID, $loggedUserID)
     {
         $query = "DELETE FROM followers WHERE user = ? AND follower = ?";
@@ -168,11 +181,11 @@ class DatabaseHelper
 
     /**
      * Register new post into database
-     * @param mixed $title
-     * @param mixed $caption
-     * @param mixed $recipe
-     * @param mixed $imagePath
-     * @param mixed $userID
+     * @param string $title
+     * @param string $caption
+     * @param string $recipe
+     * @param string $imagePath
+     * @param int $userID
      * @return int|string
      */
     public function insertNewPost($title, $caption, $recipe, $imagePath, $userID)
@@ -186,8 +199,8 @@ class DatabaseHelper
 
     /**
      * Register new tag into database
-     * @param mixed $postID
-     * @param mixed $tag
+     * @param int $postID
+     * @param string $tag
      * @return bool
      */
     public function insertPostTags($postID, $tag)
@@ -198,7 +211,11 @@ class DatabaseHelper
         return $stmt->execute();
     }
 
-
+    /**
+     * Get username from userID
+     * @param int $userID
+     * @return array
+     */
     public function getUsername($userID)
     {
         $query = "SELECT username FROM user WHERE userID = ?;";
@@ -209,6 +226,11 @@ class DatabaseHelper
         return $result->fetch_all(MYSQLI_ASSOC)[0];
     }
 
+    /**
+     * Get email from userID
+     * @param int $userID
+     * @return array
+     */
     private function getEmail($userID)
     {
         $query = "SELECT email FROM user WHERE userID = ?;";
@@ -219,6 +241,11 @@ class DatabaseHelper
         return $result->fetch_all(MYSQLI_ASSOC)[0]['email'];
     }
 
+    /**
+     * Get user's followers informations
+     * @param int $userID
+     * @return array
+     */
     private function getFollowersInformations($userID)
     {
         $query = "SELECT DISTINCT userID, email, username FROM user WHERE user.userID in (SELECT follower FROM followers WHERE user = ?);";
@@ -229,11 +256,10 @@ class DatabaseHelper
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-
     /**
      * Find user who published post by postID.
-     * @param mixed $postID
-     * @return mixed
+     * @param int $postID
+     * @return array
      */
     public function getUserIDgivenPostID($postID)
     {
@@ -246,9 +272,9 @@ class DatabaseHelper
     }
 
     /**
-     *  Insert into the database and send an email notification to all the followers 
-     *  when the user publish a post
-     * @param mixed $userID the userID of the user that publish the post; 
+     * Insert into the database and send an email notification to all the followers 
+     * when the user publish a post
+     * @param int $userID the userID of the user that publish the post;
      * @return void
      */
     public function insertPostNotifications($userID)
@@ -270,8 +296,8 @@ class DatabaseHelper
 
     /**
      *  Insert the notification into the database and send an email notification to the user
-     * @param mixed $userID the userID of the user that publish the post; 
-     * @param mixed $postID the postID of the post that the user has commented
+     * @param int $userID the userID of the user that publish the post; 
+     * @param int $postID the postID of the post that the user has commented
      * @return void
      */
     public function insertCommentNotifications($userID, $postID)
@@ -292,8 +318,8 @@ class DatabaseHelper
     /**
      * TO TEST 
      *  Insert the notification into the database and send an email notification to the user
-     * @param mixed $userID the userID of the user that liked the post; 
-     * @param mixed $postID the postID of the post that the user has liked; 
+     * @param int $userID the userID of the user that liked the post; 
+     * @param int $postID the postID of the post that the user has liked; 
      * @return void
      */
     public function insertLikeNotifications($userID, $postID)
@@ -314,8 +340,8 @@ class DatabaseHelper
     /**
      * TO TEST
      *  Insert the notification into the database and send an email notification to the user
-     * @param mixed $followerID the userID of the user that liked the post; 
-     * @param mixed $followedID the postID of the post that the user has liked; 
+     * @param int $followerID the userID of the user that liked the post; 
+     * @param int $followedID the postID of the post that the user has liked; 
      * @return void
      */
     public function sendFollowNotification($followerID, $followedID)
@@ -334,7 +360,7 @@ class DatabaseHelper
 
     /**
      *  Get all the notifications of a user
-     * @param mixed $userID the userID of the user; 
+     * @param int $userID the userID of the user; 
      * @return array the array of notifications
      */
     public function getNotifications($userID)
@@ -349,6 +375,7 @@ class DatabaseHelper
 
     /**
      * Send the home posts in JSON format.
+     * @return void
      */
     public function getHomePosts()
     {
@@ -366,7 +393,8 @@ class DatabaseHelper
     }
 
     /**
-     * Send the discovery posts in JSON format.
+     * Send the discovery posts in JSON format.        
+     * @return void
      */
     public function getDiscoveryPosts()
     {
@@ -386,7 +414,9 @@ class DatabaseHelper
     }
 
     /**
-     * Send the requested profile posts in JSON format. TODO
+     * Send the requested profile posts in JSON format.
+     * @param int $profileID the userID of the profile;
+     * @return void
      */
     public function getProfilePosts($profileID)
     {
@@ -404,6 +434,8 @@ class DatabaseHelper
 
     /**
      * Search by given tags.
+     * @param string $tagsString the tags to search for;
+     * @return void
      */
     public function getSearchPosts($tagsString)
     {
@@ -433,8 +465,8 @@ class DatabaseHelper
 
     /**
      * Update the username and bio of the current session user
-     * @param mixed $newUsername the new username of the user   
-     * @param mixed $newBio the new bio of the user
+     * @param string $newUsername the new username of the user   
+     * @param string $newBio the new bio of the user
      * @return bool
      */
     public function updateUserData($newUsername, $newBio)
@@ -445,6 +477,11 @@ class DatabaseHelper
         return $stmt->execute();
     }
 
+    /**
+     * Get post by postID
+     * @param int $postID the postID of the post
+     * @return array
+     */
     public function getPostByID($postID)
     {
         $query = "SELECT title, timestamp, caption, recipe, imagePath, userID  FROM  post  WHERE postID = ?;";
@@ -455,6 +492,11 @@ class DatabaseHelper
         return $result->fetch_all(MYSQLI_ASSOC)[0];
     }
 
+    /**
+     * Get tags by postID
+     * @param int $postID the postID of the post
+     * @return array
+     */
     public function getTagByPost($postID)
     {
         $query = "SELECT tag FROM  tags WHERE postID = ?;";
@@ -465,7 +507,11 @@ class DatabaseHelper
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-
+    /**
+     * Get comments by postID
+     * @param int $postID the postID of the post
+     * @return array
+     */
     public function getCommentsByPost($postID)
     {
         $query = "SELECT c.commentID, c.commentText, c.timestamp, u.username 
@@ -481,6 +527,12 @@ class DatabaseHelper
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    /**
+     * Insert a new comment in the database
+     * @param int $postID the postID of the post
+     * @param string $commentText the text of the comment
+     * @return void
+     */
     public function insertComment($postID, $commentText)
     {
         $query = "INSERT INTO comment (commentText, userID, postID) VALUES (?, ?, ?)";
@@ -491,8 +543,12 @@ class DatabaseHelper
         $this->insertCommentNotifications($_SESSION["userID"], $postID);
     }
 
-
-
+    /**
+     * Check if the user has already liked the post
+     * @param int $userID the userID of the user
+     * @param int $postID the postID of the post
+     * @return array
+     */
     public function isPostLiked($userID, $postID) {
         $query = "SELECT userID, postID FROM likes WHERE userID = ? AND postID = ?";
         $stmt = $this->db->prepare($query);
@@ -504,8 +560,8 @@ class DatabaseHelper
 
     /**
      * Add new like at given post from a user.
-     * @param mixed $userID
-     * @param mixed $postID
+     * @param int $userID
+     * @param int $postID
      * @return void
      */
     public function likePost($userID, $postID)
@@ -518,8 +574,8 @@ class DatabaseHelper
 
     /**
      * Remove like at given post from a user.
-     * @param mixed $userID
-     * @param mixed $postID
+     * @param int $userID
+     * @param int $postID
      * @return void
      */
     public function dislikePost($userID, $postID)
@@ -532,7 +588,7 @@ class DatabaseHelper
 
     /**
      * Delete post by postID.
-     * @param mixed $postID
+     * @param int $postID
      * @return void
      */
     public function deletePost($postID)
@@ -543,6 +599,11 @@ class DatabaseHelper
         $stmt->execute();
     }
 
+    /**
+     * Get the like number from a post
+     * @param int $postID
+     * @return int
+     */
     public function likeNumber($postID){ 
         $query = "SELECT count(userID) as likeNum FROM likes WHERE postID = ? GROUP BY postID; ";
         $stmt = $this->db->prepare($query);
