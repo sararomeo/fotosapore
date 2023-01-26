@@ -35,7 +35,7 @@
                         <div class="d-flex my-2 my-sm-0">
                             <!-- Logo that leads to home page -->
                             <a class="navbar-brand ms-2 me-2 d-flex align-items-center" href="./home.php"><img
-                                    src="res/big-favicon.png" height="40em" alt="logo fotosapore" loading="lazy" /></a>
+                                    src="res/big-favicon.png" height="40" alt="logo fotosapore" loading="lazy" /></a>
                             <!-- Search form -->
                             <div class="position-relative search-container">
                                 <form action="search.php" class="search-box" role="search" method="POST" id="nav-search-form"
