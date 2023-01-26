@@ -20,6 +20,7 @@ if (!empty($_POST["email"]) && !empty($_POST["username"]) && !empty($_POST["pass
         sendRegistrationEmail($email);
         // Insert user into database
         $signup_result = $dbh->signUp($email, $username, $pw1_hashed);
+        $templateParams["successfullsignup"] = "<div class = \"text-center\"><ul class=\"list-group list-group-flush\"><li class=\"list-group-item list-group-item-success\">Signup successfull!</li><li class=\"list-group-item\">Now you can login :)</li></ul></div>";
     }
 }
 
