@@ -26,9 +26,11 @@
     if($args->value >= $postNum){
         $requestObj->postArray = null;
         $requestObj->isLiked = null;
+        $requestObj->likeNum = null;
     } else {
         $requestObj->postArray = $postArray[$args->value];
         $requestObj->isLiked = count($dbh->isPostLiked($_SESSION["userID"], $requestObj->postArray["postID"]));
+        $requestObj->likeNum = $dbh->likeNumber($requestObj->postArray["postID"]);
     }
 
     echo json_encode($requestObj);
