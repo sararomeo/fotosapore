@@ -52,7 +52,6 @@
         </div>
 
 
-
         <div class="row">
             <div class="col-md-4"></div>
             <div class="d-flex col-md-4 justify-content-center">
