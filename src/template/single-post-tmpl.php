@@ -35,7 +35,6 @@
 
                             <h2>Tags:</h2>
                             <?php foreach ($templateParams["postInfo"]["tagString"] as $tag): ?>
-                                <!-- <a href="search.php?inputTag=<?php //echo $tag["tag"]; ?>"><?php //echo $tag["tag"];?></a> -->
                                 <div class="float-start">
                                     <ul class="list-inline">
                                         <li class="list-inline-item">
