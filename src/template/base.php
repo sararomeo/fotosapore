@@ -65,59 +65,59 @@
                                     <!-- Go back to previous page -->
                                     <li class="nav-item">
                                         <label hidden>Go back to previous page</label>
-                                        <button class="back-btn shadow-none" type="button" id="go-back-btn">
+                                        <button class="back-btn shadow-none" type="button" id="go-back-btn" aria-label="back to previous page">
                                             <span class="d-flex align-items-center"><i
                                                     class="bi bi-arrow-left-circle fa-fw nav-bar-icon"></i></span></button>
                                     </li>
                                     <!-- Home -->
                                     <li class="nav-item">
-                                        <a class="nav-link" href="./home.php" id="home-nav-link" title="home">
+                                        <a class="nav-link" href="./home.php" id="home-nav-link" title="home" aria-label="home icon">
                                             <span class="d-flex align-items-center"><i
-                                                    class="bi bi-house fa-fw nav-bar-icon" alt="home icon"></i></span>
+                                                    class="bi bi-house fa-fw nav-bar-icon" aria-hidden="true"></i></span>
                                         </a>
                                     </li>
                                     <!-- Discovery -->
                                     <li class="nav-item">
                                         <a class="nav-link" href="./discovery.php" id="discovery-nav-link"
-                                            title="discovery">
+                                            title="discovery" aria-label="discovery icon">
                                             <span class="d-flex align-items-center"><i
                                                     class="bi bi-compass fa-fw nav-bar-icon"
-                                                    alt="discovery icon"></i></span>
+                                                    aria-hidden="true"></i></span>
                                         </a>
                                     </li>
                                     <!-- Create post -->
                                     <li class="nav-item">
                                         <a class="nav-link" href="./create-post.php" id="create-post-nav-link"
-                                            title="create post">
+                                            title="create post" aria-label="new post icon">
                                             <span class="d-flex align-items-center"><i
                                                     class="bi bi-plus-circle fa-fw nav-bar-icon"
-                                                    alt="new post icon"></i></span>
+                                                    aria-hidden="true"></i></span>
                                         </a>
                                     </li>
                                     <!-- Notifications -->
                                     <li class="nav-item">
                                         <a class="nav-link" href="./notification.php" id="notification-nav-link"
-                                            title="notifications">
+                                            title="notifications" aria-label="notification icon">
                                             <span class="d-flex align-items-center"><i
                                                     class="bi bi-bell fa-fw nav-bar-icon"
-                                                    alt="notification icon"></i></span>
+                                                    aria-hidden="true"></i></span>
                                         </a>
                                     </li>
                                     <!-- Profile -->
                                     <li class="nav-item">
                                         <a class="nav-link d-sm-flex align-items-sm-center" href="./profile.php"
-                                            id="profile-nav-link" title="profile">
+                                            id="profile-nav-link" title="profile" aria-label="profile icon">
                                             <span class="d-flex align-items-center"><i
                                                     class="bi bi-person fa-fw nav-bar-icon"
-                                                    alt="profile icon"></i></span>
+                                                    aria-hidden="true"></i></span>
                                         </a>
                                     </li>
                                     <!-- Logout -->
                                     <li class="nav-item">
-                                        <a class="nav-link" href="./logout.php" title="logout">
+                                        <a class="nav-link" href="./logout.php" title="logout" aria-label="logout icon">
                                             <span class="d-flex align-items-center"><i
                                                     class="bi bi-box-arrow-left fa-fw nav-bar-icon"
-                                                    alt="logout icon"></i></span>
+                                                    aria-hidden="true"></i></span>
                                         </a>
                                     </li>
                                 </ul>
