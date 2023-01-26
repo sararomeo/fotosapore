@@ -549,7 +549,8 @@ class DatabaseHelper
      * @param int $postID the postID of the post
      * @return array
      */
-    public function isPostLiked($userID, $postID) {
+    public function isPostLiked($userID, $postID)
+    {
         $query = "SELECT userID, postID FROM likes WHERE userID = ? AND postID = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("ii", $userID, $postID);
@@ -604,20 +605,21 @@ class DatabaseHelper
      * @param int $postID
      * @return int
      */
-    public function likeNumber($postID){ 
+    public function likeNumber($postID)
+    {
         $query = "SELECT count(userID) as likeNum FROM likes WHERE postID = ? GROUP BY postID; ";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $postID);
         $stmt->execute();
         $result = $stmt->get_result();
         $res = $result->fetch_all(MYSQLI_ASSOC);
-        
-        if(count($res) == 0){ 
+
+        if (count($res) == 0) {
             $likes = 0;
-        }else{
+        } else {
             $likes = $res[0]["likeNum"];
         }
-        return $likes; 
+        return $likes;
     }
 
 }
