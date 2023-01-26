@@ -1,0 +1,213 @@
+/**** GLOBAL ****/
+* {
+    margin: 0 !important;
+    padding: 0 !important;
+    text-decoration: none !important;
+    font-family: Georgia, serif !important;
+}
+
+.btn:focus, .btn:active {
+    outline: none !important;
+    box-shadow: none;
+}
+
+/**** BASE ****/
+.logo {
+    max-width: 10rem;
+    max-height: 10rem;
+}
+
+/** Search bar icon with transition box **/
+.search-input
+{
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	border: 2px solid rgba(0, 0, 0, 0.7);
+	box-sizing: border-box;
+	outline: none;
+	transition: width 0.4s ease-in-out,
+				border-radius 0.8s ease-in-out,
+				padding 0.2s;
+	transition-delay: 0.4s;
+	color: rgba(0, 0, 0, 0.7);
+	font-size: 15px;
+}
+.search-input::placeholder{
+    color: transparent;
+}
+.inclicked::placeholder{
+    padding-left: 5%;
+    color: rgba(0, 0, 0, 0.5);
+}
+.inclicked:focus::placeholder {
+    color: transparent;
+}
+.inclicked
+{
+	width: 12em !important;
+	border-radius: 0;
+}
+.search-btn
+{
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	top: 0;
+	right: 0;
+	box-sizing: border-box;
+	background: none;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+.search-btn::before
+{
+	content: "";
+	width: 2px;
+	height: 12.5px;
+	background: rgba(0, 0, 0, 0.7);
+	position: absolute;
+	transform: rotate(-45deg);
+	bottom: -8px;
+	right: -3px;
+	transition: 0.3s;
+}
+.close::before,.close::after
+{
+	content: "";
+	width: 2px;
+	height: 17px;
+	background: red;
+	position: absolute;
+	bottom: 6px;
+	right: 14px;
+	right: 14px;
+}
+.close::before
+{
+	transform: rotate(-45deg);
+}
+.close::after
+{
+	transform: rotate(45deg);
+}
+
+/* clears the search bar ‘X’ from Internet Explorer */
+input[type=search]::-ms-clear { display: none; width : 0; height: 0; }
+input[type=search]::-ms-reveal { display: none; width : 0; height: 0; }
+/* clears the search bar ‘X’ from Chrome */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; }
+
+/** NAVBAR **/
+.nav-bar-icon {
+    font-size: 2em !important;
+}
+
+.nav-item a, .nav-link a, .back-btn {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.nav-item a:hover, .nav-link a:hover {
+    color: red;
+}
+
+.nav-bar-btn:hover {
+    color: red;
+}
+
+.active {
+	color: red !important;
+}
+
+.back-btn {
+    background-color: transparent;
+    border: none !important;
+}
+
+.back-btn:hover {
+    color: red;
+}
+
+/**** FORM (Login, signup) and action buttons ****/
+.form-control {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #000000;
+    outline: none;
+    box-shadow: none !important;
+}
+
+.form-control:focus {
+    border-color: red;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+    /*transition: border-color ease-in-out .5s, box-shadow ease-in-out .5s !important;*/
+}
+
+.form-btn {
+    border: 2px solid rgba(255, 0, 0, .5);
+    background-color: transparent;
+}
+
+.form-btn:hover {
+    border-color: red;
+    background-position: bottom left;
+}
+
+.form-btn-container {
+    box-sizing: border-box;
+}
+
+/**** SCROLLING and posts ****/
+
+.scroll-post img {
+    width: 100%;
+    height: auto;
+}
+
+.title-post {
+    text-align: center;
+}
+
+.post-icon {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.post-icon:hover {
+    color: red;
+}
+
+/**** RESPONSIVE DESIGN ****/
+@media (max-width: 768px) {
+    .logo {
+        max-width: 4rem;
+        max-height: 4rem;
+    }
+
+    .form-page {
+        height: auto !important;
+    }
+
+    .form-text-area h1 {
+        font-size: 1.5rem;
+    }
+
+    .form-text-area p {
+        font-size: medium;
+    }
+
+    .notification-text p {
+        font-size: 1em !important;
+    }
+    
+    .footer p {
+        font-size: small;
+    }
+
+    .single-post-text-container h2 {
+        font-size: 1.5em !important;
+    }
+}

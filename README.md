@@ -1,2 +1,2 @@
-# Toto Sapore
-Web development project - Toto Sapore is a social media to share food recipes.
+# Foto Sapore
+Web development project - Foto Sapore is a social media to discover and share new food recipes.
