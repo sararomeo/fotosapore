@@ -71,8 +71,7 @@ class DatabaseHelper
         $query = "INSERT INTO user (email, username, password, bio) VALUES (?, ?, ?, ?)";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("ssss", $email, $username, $password, $bio);
-        $stmt->execute();
-        $stmt->close();
+        return $stmt->execute();
     }
 
     /**
