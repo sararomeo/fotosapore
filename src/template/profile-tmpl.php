@@ -33,14 +33,14 @@
                 <div class="col">
                     <h3 class="h3 p-1 text-center change-followers-count">
                         <?php echo $followers; ?>
-                        <h3>
-                            <p class="lead p-1 text-center">Followers</p>
+                    </h3>
+                    <p class="lead p-1 text-center">Followers</p>
                 </div>
                 <div class="col">
                     <h3 class="h3 p-1 text-center">
                         <?php echo $following; ?>
-                        <h3>
-                            <p class="lead p-1 text-center">Following</p>
+                    </h3>
+                    <p class="lead p-1 text-center">Following</p>
                 </div>
             </div>
             <div class="action-btn-container p-2 d-flex justify-content-center">
