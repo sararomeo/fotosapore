@@ -494,10 +494,10 @@ class DatabaseHelper
 
 
 
-    public function isPostLiked($postID) {
+    public function isPostLiked($userID, $postID) {
         $query = "SELECT userID, postID FROM likes WHERE userID = ? AND postID = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("ii", $_SESSION["userID"], $postID);
+        $stmt->bind_param("ii", $userID, $postID);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
