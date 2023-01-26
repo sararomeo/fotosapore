@@ -3,27 +3,27 @@
  */
 function setMainMarginTop() {
     var navHeight = $("#navbar-container").outerHeight(true);
-    $('#main').attr('style', 'margin-top:'+navHeight+'px !important');
+    $('#main').attr('style', 'margin-top:' + navHeight + 'px !important');
 }
 
 /**
  * Set size when the page is ready.
  */
-$(window).ready (function () {
+$(window).ready(function () {
     setMainMarginTop();
 });
 
 /**
  * Resize when the window is resized.
  */
-$(window).resize (function () {
+$(window).resize(function () {
     setMainMarginTop();
 });
 
 /**
  * Switch class to animate search bar.
  */
-$("#search-btn").on("click",function(){
+$("#search-btn").on("click", function () {
     $(".search-input").toggleClass("inclicked");
     $("#search-btn").toggleClass("close");
 });
@@ -31,8 +31,8 @@ $("#search-btn").on("click",function(){
 /**
  * Remove the d-flex justify-content-end classes from the navbar when the screen is less than 768px at load.
  */
-$(window).load(function() {
-    if($(window).width() < 768) {
+$(window).load(function () {
+    if ($(window).width() < 768) {
         $("#navbarScroll").removeClass("justify-content-end");
     } else {
         $("#navbarScroll").addClass("justify-content-end");
@@ -42,8 +42,8 @@ $(window).load(function() {
 /**
  * Remove the d-flex justify-content-end classes from the navbar when the screen is less than 768px at resize.
  */
-$(window).resize(function() {
-    if($(window).width() < 768) {
+$(window).resize(function () {
+    if ($(window).width() < 768) {
         $("#navbarScroll").removeClass("justify-content-end");
     } else {
         $("#navbarScroll").addClass("justify-content-end");
@@ -53,7 +53,7 @@ $(window).resize(function() {
 /**
  * Set active page in navbar.
  */
-$(window).load(function() {
+$(window).load(function () {
     var current_page = $("#page-name").data("page");
     // Remove the "active" class from ALL the links first
     $("#nav-link").removeClass("active");
@@ -62,28 +62,36 @@ $(window).load(function() {
     switch (current_page) {
         case "home-page":
             $("#home-nav-link").addClass("active");
-        break;
+            break;
         case "discovery-page":
             $("#discovery-nav-link").addClass("active");
-        break;
+            break;
         case "create-post-page":
             $("#create-post-nav-link").addClass("active");
-        break;
+            break;
         case "notification-page":
             $("#notification-nav-link").addClass("active");
-        break;
+            break;
         case "search-page":
             $("#discovery-nav-link").addClass("active");
-        break;
+            break;
         default:
             console.log("No existing page name found.");
-            // profile-page managed by followBtn.js based on which profile is being viewed
+        // profile-page managed by followBtn.js based on which profile is being viewed
+    }
+
+    if (current_page == "profile-page") {
+        if ($("#profile-btn").val() == "Edit profile") {
+            $("#profile-nav-link").addClass("active");;
+        } else {
+            $("#profile-nav-link").removeClass("active");
+        }
     }
 });
 
 /**
  * Go back to previous page.
  */
-$("#go-back-btn").on("click",function() {
+$("#go-back-btn").on("click", function () {
     history.back();
 });

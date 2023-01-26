@@ -14,14 +14,11 @@ function toggleFollow(followValue, target) {
 $("#profile-btn").click(function () {
     if ($(this).val() == "Edit profile") {
         location.href = 'edit-profile.php';
-        $("#profile-nav-link"). addClass("active");
     } else if ($(this).val() == "Unfollow") {
         toggleFollow("Follow", $(this).attr('data-target'));
         $('.change-followers-count').html(parseInt($('.change-followers-count').html(), 10)-1);
-        $("#profile-nav-link"). removeClass("active");
     } else if ($(this).val() == "Follow") {
         toggleFollow("Unfollow", $(this).attr('data-target'));
         $('.change-followers-count').html(parseInt($('.change-followers-count').html(), 10)+1);
-        $("#profile-nav-link"). removeClass("active");
     }
 });
