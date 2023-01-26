@@ -8,12 +8,14 @@ if(!isSessionOpen()){
 
 if(isset($_GET["profileID"])){
     $templateParams["profileID"] = $_GET["profileID"];
+    $username = $dbh->getUserProfileInfo($_GET["profileID"])["username"];
 }else{ 
     $templateParams["profileID"] = $_SESSION["userID"];
+    $username = $dbh->getUserProfileInfo($_SESSION["userID"])["username"];
 }
 
 
-$templateParams["title"] = "Foto Sapore | Profile";
+$templateParams["title"] = "Foto Sapore | $username";
 $templateParams["page"] = "profile-tmpl.php";
 
 
