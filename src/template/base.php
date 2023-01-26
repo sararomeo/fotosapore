@@ -38,12 +38,11 @@
                                     src="res/big-favicon.png" height="40" alt="logo fotosapore" loading="lazy" /></a>
                             <!-- Search form -->
                             <div class="position-relative search-container">
-                                <form action="search.php" class="search-box" role="search" method="POST" id="nav-search-form"
-                                    enctype="multipart/form-data">
+                                <form action="search.php" class="search-box" role="search" method="POST"
+                                    id="nav-search-form" enctype="multipart/form-data">
                                     <label for="inputTag" hidden>search bar</label>
-                                    <input type="search" id="inputTag" class="input search-input"
-                                        name="inputTag" value="" autocomplete="off"
-                                        placeholder="Search for a recipe...">
+                                    <input type="search" id="inputTag" class="input search-input" name="inputTag"
+                                        value="" autocomplete="off" placeholder="Search for a recipe...">
                                     <button type="button" onclick="document.getElementById('inputTag').value = ''"
                                         class="btn search-btn" name="button" id="search-btn"></button>
                                 </form>
@@ -52,8 +51,8 @@
 
                         <!-- toggler -->
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-controls="navbarScroll"
-                            aria-label="Toggle navigation">
+                            data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false"
+                            aria-controls="navbarScroll" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"><i class="bi bi-list"></i></span>
                         </button>
 
@@ -65,15 +64,18 @@
                                     <!-- Go back to previous page -->
                                     <li class="nav-item">
                                         <label hidden>Go back to previous page</label>
-                                        <button class="back-btn shadow-none" type="button" id="go-back-btn" aria-label="back to previous page">
+                                        <button class="back-btn shadow-none" type="button" id="go-back-btn"
+                                            aria-label="back to previous page">
                                             <span class="d-flex align-items-center"><i
                                                     class="bi bi-arrow-left-circle fa-fw nav-bar-icon"></i></span></button>
                                     </li>
                                     <!-- Home -->
                                     <li class="nav-item">
-                                        <a class="nav-link" href="./home.php" id="home-nav-link" title="home" aria-label="home icon">
+                                        <a class="nav-link" href="./home.php" id="home-nav-link" title="home"
+                                            aria-label="home icon">
                                             <span class="d-flex align-items-center"><i
-                                                    class="bi bi-house fa-fw nav-bar-icon" aria-hidden="true"></i></span>
+                                                    class="bi bi-house fa-fw nav-bar-icon"
+                                                    aria-hidden="true"></i></span>
                                         </a>
                                     </li>
                                     <!-- Discovery -->
@@ -99,8 +101,7 @@
                                         <a class="nav-link" href="./notification.php" id="notification-nav-link"
                                             title="notifications" aria-label="notification icon">
                                             <span class="d-flex align-items-center"><i
-                                                    class="bi bi-bell fa-fw nav-bar-icon"
-                                                    aria-hidden="true"></i></span>
+                                                    class="bi bi-bell fa-fw nav-bar-icon" aria-hidden="true"></i></span>
                                         </a>
                                     </li>
                                     <!-- Profile -->
@@ -145,10 +146,9 @@
                     <div class="d-md-flex justify-content-between align-items-center text-center text-md-left"
                         id="footer-container">
                         <small class="small text-center text-muted">
-                            <p>©
-                                <script>document.write(new Date().getFullYear())</script> FotoSapore | All rights
-                                reserved: Luca Babboni - Sara Romeo - Pablo Sebastian Vargas Grateron
-                            </p>
+                            ©
+                            <script>document.write(new Date().getFullYear())</script> FotoSapore | All rights
+                            reserved: Luca Babboni - Sara Romeo - Pablo Sebastian Vargas Grateron
                         </small>
                     </div>
                 </div>
