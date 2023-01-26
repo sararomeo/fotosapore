@@ -25,7 +25,7 @@
         <div class="form-outline p-2">
             <label for="caption">Caption:</label>
             <textarea id="caption" class="form-control " name="caption" required
-            rows="6"><?php 
+            rows="3"><?php 
                     if(isset($templateParams["caption"])){
                         echo ($templateParams["caption"]);
                     }
@@ -33,7 +33,7 @@
         </div>
         <div class="form-outline p-2">
             <label for="recipe">Recipe:</label><textarea id="recipe" class="form-control" name="recipe" required
-            rows="6"><?php 
+            rows="8"><?php 
                         if(isset($templateParams["recipe"])){
                             echo ($templateParams["recipe"]);
                         }
