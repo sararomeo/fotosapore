@@ -110,7 +110,7 @@
 
             <div class="col-md-8 col-10">
                 <div class="row mb-4">
-                    <div class="col text-center">
+                    <div class="col text-center pt-4">
                         <h2>Post comments:</h2>
                     </div>
                 </div>
