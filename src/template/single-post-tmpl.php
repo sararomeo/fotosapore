@@ -60,6 +60,8 @@
                                     </ul>
                                 </div>
                             <?php endforeach; ?>
+
+                            <h2>Likes: <?php echo( $templateParams["postInfo"]["likenumber"]); ?></h2>
                         </div>
                     </div>
                     <div class="row align-items-right">

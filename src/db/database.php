@@ -544,6 +544,22 @@ class DatabaseHelper
         $stmt->execute();
     }
 
+    public function likeNumber($postID){ 
+        $query = "SELECT count(userID) as likeNum FROM likes WHERE postID = ? GROUP BY postID; ";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $postID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $res = $result->fetch_all(MYSQLI_ASSOC);
+        
+        if(count($res) == 0){ 
+            $likes = 0;
+        }else{
+            $likes = $res[0]["likeNum"];
+        }
+        return $likes; 
+    }
+
 }
 
 ?>
