@@ -3,6 +3,7 @@
     margin: 0 !important;
     padding: 0 !important;
     text-decoration: none !important;
+    font-family: Georgia, serif !important;
 }
 
 .btn:focus, .btn:active {
@@ -196,5 +197,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 
     .form-text-area p {
         font-size: medium;
+    }
+
+    .notification-text p {
+        font-size: 1em !important;
     }
 }

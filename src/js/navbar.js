@@ -7,20 +7,10 @@ function setMainMarginTop() {
 }
 
 /**
- * Set the margin-bottom of the main content area to be the same as the height of the footer's copyright area.
- */
-function setBottomBtn() {
-    var footerHeight = $("#footer-container").outerHeight(true);
-    console.log(footerHeight);
-    $('#back-btn-container').attr('style', 'bottom:'+footerHeight+'px !important');
-}
-
-/**
  * Set size when the page is ready.
  */
 $(window).ready (function () {
     setMainMarginTop();
-    setBottomBtn();
 });
 
 /**
@@ -28,7 +18,6 @@ $(window).ready (function () {
  */
 $(window).resize (function () {
     setMainMarginTop();
-    setBottomBtn();
 });
 
 /**
@@ -77,9 +66,6 @@ $(window).load(function() {
         case "discovery-page":
             $("#discovery-nav-link").addClass("active");
         break;
-        case "profile-page":
-            $("#profile-nav-link").addClass("active");
-        break;
         case "create-post-page":
             $("#create-post-nav-link").addClass("active");
         break;
@@ -91,5 +77,13 @@ $(window).load(function() {
         break;
         default:
             console.log("No existing page name found.");
+            // profile-page managed by followBtn.js based on which profile is being viewed
     }
+});
+
+/**
+ * Go back to previous page.
+ */
+$("#go-back-btn").on("click",function() {
+    history.back();
 });

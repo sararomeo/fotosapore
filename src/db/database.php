@@ -231,6 +231,11 @@ class DatabaseHelper
     }
 
 
+    /**
+     * Find user who published post by postID.
+     * @param mixed $postID
+     * @return mixed
+     */
     public function getUserIDgivenPostID($postID)
     {
         $query = "SELECT userID FROM post WHERE postID = ?;";
@@ -489,6 +494,14 @@ class DatabaseHelper
 
 
 
+    public function isPostLiked($userID, $postID) {
+        $query = "SELECT userID, postID FROM likes WHERE userID = ? AND postID = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("ii", $userID, $postID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 
     /**
      * Add new like at given post from a user.
@@ -515,6 +528,19 @@ class DatabaseHelper
         $query = "DELETE FROM likes WHERE userID = ? AND postID = ?;";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("ii", $userID, $postID);
+        $stmt->execute();
+    }
+
+    /**
+     * Delete post by postID.
+     * @param mixed $postID
+     * @return void
+     */
+    public function deletePost($postID)
+    {
+        $query = "DELETE FROM post WHERE postID = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $postID);
         $stmt->execute();
     }
 

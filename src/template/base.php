@@ -50,15 +50,13 @@
             <!-- Go back to previous page -->
             <li class="nav-item">
                 <label hidden>Go back to previous page</label>
-                <button class="back-btn shadow-none" type="button" onClick="window.history.back()">
+                <button class="back-btn shadow-none" type="button" id="go-back-btn">
                 <span class="d-flex align-items-center"><i class="bi bi-arrow-left-circle fa-fw nav-bar-icon"></i></span></button>
             </li> 
             <!-- Home -->
             <li class="nav-item">
                 <a class="nav-link" href="./home.php" id="home-nav-link">
                 <span class="d-flex align-items-center"><i class="bi bi-house fa-fw nav-bar-icon"></i></span>
-                <!-- pallino rosso di notifica se ci sono nuovi post nel feed della home -->
-                <!-- <span class="badge rounded-pill badge-notification bg-danger"></span> -->
                 </a>
             </li>
             <!-- Discovery -->
@@ -77,18 +75,12 @@
             <li class="nav-item">
                 <a class="nav-link" href="./notification.php" id="notification-nav-link">
                 <span class="d-flex align-items-center"><i class="bi bi-bell fa-fw nav-bar-icon"></i></span>
-                <!-- pallino rosso notifica -->
-                <!-- <span class="badge rounded-pill badge-notification bg-danger">2</span> -->
                 </a>
             </li>
             <!-- Profile -->
             <li class="nav-item">
                 <a class="nav-link d-sm-flex align-items-sm-center" href="./profile.php" id="profile-nav-link">
-                    <!-- img profilo -->
-                <!-- <img src="https://mdbootstrap.com/img/new/avatars/1.jpg" class="rounded-circle" height="22" alt="" loading="lazy" /> -->
                 <span class="d-flex align-items-center"><i class="bi bi-person fa-fw nav-bar-icon"></i></span>
-                    <!-- username utente -->
-                <!-- <strong class="d-none d-sm-block ms-1">John</strong> -->
                 </a>
             </li>
             <!-- Logout -->
@@ -133,5 +125,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script type="module" src="./js/feedLoader.js"></script>
 <script type="module" src="./js/navbar.js"></script>
+<script type="module" src="./js/delete-post.js"></script>
 <script type="module" src="./js/followBtn.js"></script>
+<script type="module" src="./js/likeBtn.js"></script>
 </html>
