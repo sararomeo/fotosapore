@@ -3,17 +3,16 @@
 
     <!-- Error message -->
     <p class="text-center m-4">
-    <?php if(isset($templateParams["signuperror"])): ?>
-    <p><?php echo $templateParams["signuperror"]; ?></p>
-    <?php endif; ?>
-    </p>
-
-    <!-- Successfull message -->
-    <p class="text-center m-4">
-    <?php if(isset($templateParams["successfullsignup"])): ?>
-    <p><?php echo $templateParams["successfullsignup"]; ?></p>
-    <?php endif; ?>
-    </p>
+        <div class = "text-center"><ul class="list-group list-group-flush">
+        <?php if(isset($templateParams["signuperror"])): ?>
+        <p><?php echo $templateParams["signuperror"]; ?></p>
+        <?php endif; ?>
+        </p>
+        <!-- Successfull message -->
+        <?php if(isset($templateParams["successfullsignup"])): ?>
+        <p><?php echo $templateParams["successfullsignup"]; ?></p>
+        <?php endif; ?>
+    </ul></div>
 
     <!-- Credentials input -->
     <div class="mb-4 mt-4">
