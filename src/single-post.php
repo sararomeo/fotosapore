@@ -13,6 +13,7 @@ if(isset($_GET["postID"])){
     }
     $templateParams["postInfo"]["tagString"] = $dbh->getTagByPost($templateParams["postID"]);
     $templateParams["postInfo"]["author"] = $dbh->getUsername($templateParams["postInfo"]["userID"])["username"]; 
+    $templateParams["postInfo"]["likenumber"] = $dbh->likeNumber($templateParams["postID"]); 
     $templateParams["postComments"] = $dbh->getCommentsByPost($templateParams["postID"]); 
 }else{ 
     header("location: index.php");
