@@ -12,6 +12,7 @@ if(isset($_GET["postID"])){
         header("location: index.php");
     }
     $templateParams["postInfo"]["tagString"] = $dbh->getTagByPost($templateParams["postID"]);
+    $templateParams["postInfo"]["author"] = $dbh->getUsername($templateParams["postInfo"]["userID"])["username"]; 
     $templateParams["postComments"] = $dbh->getCommentsByPost($templateParams["postID"]); 
 }else{ 
     header("location: index.php");
