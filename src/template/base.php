@@ -52,7 +52,7 @@
 
                         <!-- toggler -->
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false"
+                            data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-controls="navbarScroll"
                             aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"><i class="bi bi-list"></i></span>
                         </button>
